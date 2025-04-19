@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ManageFamilyComponent } from './manage-family.component';
 
 describe('ManageFamilyComponent', () => {
@@ -9,15 +8,14 @@ describe('ManageFamilyComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ManageFamilyComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ManageFamilyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });
