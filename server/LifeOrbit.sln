@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowHouseStudio.LifeOrbit.Api", "YellowHouseStudio.LifeOrbit.Api\YellowHouseStudio.LifeOrbit.Api.csproj", "{53508112-2833-4C16-9D82-523D9E092919}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowHouseStudio.LifeOrbit.Application", "YellowHouseStudio.LifeOrbit.Application\YellowHouseStudio.LifeOrbit.Application.csproj", "{58B520D4-DCCE-4054-953E-DE0E562C3B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowHouseStudio.LifeOrbit.Domain", "YellowHouseStudio.LifeOrbit.Domain\YellowHouseStudio.LifeOrbit.Domain.csproj", "{B5A4028D-47E1-4177-9DF8-78E3DA1DC45A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowHouseStudio.LifeOrbit.Infrastructure", "YellowHouseStudio.LifeOrbit.Infrastructure\YellowHouseStudio.LifeOrbit.Infrastructure.csproj", "{9CB0D406-470E-44A1-819A-295EA430FC4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowHouseStudio.LifeOrbit.Tests.Unit", "YellowHouseStudio.LifeOrbit.Tests.Unit\YellowHouseStudio.LifeOrbit.Tests.Unit.csproj", "{D6A8CEEF-67F9-45E0-838A-0BC455108FA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowHouseStudio.LifeOrbit.Tests.API", "YellowHouseStudio.LifeOrbit.Tests.API\YellowHouseStudio.LifeOrbit.Tests.API.csproj", "{72313145-CBBC-47F8-B754-28C536835805}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53508112-2833-4C16-9D82-523D9E092919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53508112-2833-4C16-9D82-523D9E092919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53508112-2833-4C16-9D82-523D9E092919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53508112-2833-4C16-9D82-523D9E092919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B520D4-DCCE-4054-953E-DE0E562C3B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B520D4-DCCE-4054-953E-DE0E562C3B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B520D4-DCCE-4054-953E-DE0E562C3B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B520D4-DCCE-4054-953E-DE0E562C3B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5A4028D-47E1-4177-9DF8-78E3DA1DC45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A4028D-47E1-4177-9DF8-78E3DA1DC45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A4028D-47E1-4177-9DF8-78E3DA1DC45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A4028D-47E1-4177-9DF8-78E3DA1DC45A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB0D406-470E-44A1-819A-295EA430FC4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB0D406-470E-44A1-819A-295EA430FC4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB0D406-470E-44A1-819A-295EA430FC4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB0D406-470E-44A1-819A-295EA430FC4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A8CEEF-67F9-45E0-838A-0BC455108FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A8CEEF-67F9-45E0-838A-0BC455108FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A8CEEF-67F9-45E0-838A-0BC455108FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A8CEEF-67F9-45E0-838A-0BC455108FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72313145-CBBC-47F8-B754-28C536835805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72313145-CBBC-47F8-B754-28C536835805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72313145-CBBC-47F8-B754-28C536835805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72313145-CBBC-47F8-B754-28C536835805}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
