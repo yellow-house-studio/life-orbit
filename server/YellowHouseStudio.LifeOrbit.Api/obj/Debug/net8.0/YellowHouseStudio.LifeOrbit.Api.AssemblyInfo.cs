@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YellowHouseStudio.LifeOrbit.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6b5f49e7598d2528812200608af71bb5e99bad3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+974da431d5f83ee4d57cb1da8c5cfd5f9d01e9b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("YellowHouseStudio.LifeOrbit.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YellowHouseStudio.LifeOrbit.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
