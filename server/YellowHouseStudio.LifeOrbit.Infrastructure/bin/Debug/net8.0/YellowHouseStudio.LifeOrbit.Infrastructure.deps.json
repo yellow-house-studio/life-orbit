@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "YellowHouseStudio.LifeOrbit.Infrastructure/1.0.0": {
+        "runtime": {
+          "YellowHouseStudio.LifeOrbit.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "YellowHouseStudio.LifeOrbit.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

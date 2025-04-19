@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Domain/YellowHouseStudio.LifeOrbit.Domain.csproj",
+      "projectUniqueName": "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Domain/YellowHouseStudio.LifeOrbit.Domain.csproj",
       "projectName": "YellowHouseStudio.LifeOrbit.Domain",
-      "projectPath": "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Domain/YellowHouseStudio.LifeOrbit.Domain.csproj",
+      "projectPath": "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Domain/YellowHouseStudio.LifeOrbit.Domain.csproj",
       "packagesPath": "/Users/johannahulten/.nuget/packages/",
-      "outputPath": "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Domain/obj/",
+      "outputPath": "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/johannahulten/.nuget/NuGet/NuGet.Config"
@@ -35,6 +35,7 @@
         }
       },
       "warningProperties": {
+        "allWarningsAsErrors": true,
         "warnAsError": [
           "NU1605"
         ]

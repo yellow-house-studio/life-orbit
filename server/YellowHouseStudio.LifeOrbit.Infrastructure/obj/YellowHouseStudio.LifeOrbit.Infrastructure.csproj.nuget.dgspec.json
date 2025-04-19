@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj": {}
+    "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj": {
+    "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj",
+        "projectUniqueName": "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj",
         "projectName": "YellowHouseStudio.LifeOrbit.Infrastructure",
-        "projectPath": "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj",
+        "projectPath": "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj",
         "packagesPath": "/Users/johannahulten/.nuget/packages/",
-        "outputPath": "/Users/johannahulten/Documents/LifeOrbit/YellowHouseStudio.LifeOrbit.Infrastructure/obj/",
+        "outputPath": "/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/johannahulten/.nuget/NuGet/NuGet.Config"

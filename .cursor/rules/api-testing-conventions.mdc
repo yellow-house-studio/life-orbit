@@ -1,0 +1,83 @@
+---
+description: 
+globs: server/YellowHouseStudio.LifeOrbit.Tests.API/**/*Tests.cs
+alwaysApply: false
+---
+# API Testing Conventions
+
+## Test Project Structure
+- API tests are located in the `server/YellowHouseStudio.LifeOrbit.Tests.API` project
+- Tests are organized by feature in subdirectories matching the API structure
+- Example: [AddFamilyMemberTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.API/Family/AddFamilyMemberTests.cs)
+
+## Base Test Class
+All API tests should inherit from [ApiTestBase](mdc:server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs) which provides:
+- In-memory database configuration
+- HTTP client setup
+- Serilog configuration
+- MediatR pipeline setup with all behaviors
+- Proper test cleanup
+
+## Test Method Naming Convention
+Test methods should follow the snake_case pattern:
+```csharp
+[Test]
+public async Task MethodName_with_scenario_returns_expected_result()
+```
+
+Example:
+```csharp
+public async Task AddFamilyMember_with_valid_command_returns_new_member_id()
+public async Task AddFamilyMember_with_invalid_age_returns_bad_request()
+```
+
+## Test Structure
+Each test should follow the Arrange-Act-Assert pattern:
+```csharp
+// Arrange
+var command = new SomeCommand { ... };
+
+// Act
+var response = await Client.PostAsJsonAsync("endpoint/path", command);
+
+// Assert
+response.StatusCode.Should().Be(HttpStatusCode.OK);
+```
+
+## Testing Framework Usage
+- Use NUnit attributes: `[Test]`, `[TestCase]`, etc.
+- Use FluentAssertions for readable assertions:
+  ```csharp
+  response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+  result.Should().NotBe(Guid.Empty);
+  problemDetails.Should().NotBeNull();
+  ```
+- Use strongly-typed models for requests and responses:
+  ```csharp
+  await response.Content.ReadFromJsonAsync<ValidationProblemDetails>();
+  ```
+
+## HTTP Testing Conventions
+- Use `PostAsJsonAsync`, `GetFromJsonAsync` etc. for HTTP operations
+- Test both happy path and error scenarios
+- Verify appropriate status codes:
+  - 200 OK for successful operations
+  - 400 BadRequest for validation failures
+  - 404 NotFound for missing resources
+  - etc.
+- For validation errors, verify the problem details structure:
+  ```csharp
+  problemDetails.Status.Should().Be(400);
+  problemDetails.Title.Should().Be("One or more validation errors occurred.");
+  problemDetails.Errors.Should().ContainKey("PropertyName");
+  ```
+
+## Database Setup
+- Tests use EF Core's in-memory database provider
+- Each test class gets a fresh database instance
+- Transaction warnings are ignored for in-memory database:
+  ```csharp
+  options.UseInMemoryDatabase("TestDb")
+         .ConfigureWarnings(warnings => 
+             warnings.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+  ```

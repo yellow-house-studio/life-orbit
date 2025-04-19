@@ -1,0 +1,127 @@
+---
+description: 
+globs: server/YellowHouseStudio.LifeOrbit.*.Tests/**/*Tests.cs
+alwaysApply: false
+---
+# Backend Testing Standards
+
+## Domain Model Testing
+
+### Class Structure
+- Each domain model should have a corresponding test class in the `Tests.Unit` project
+- Test classes should follow the pattern: `{ModelName}Tests.cs`
+- Reference implementation: [FamilyMember.cs](mdc:server/YellowHouseStudio.LifeOrbit.Domain/Family/FamilyMember.cs)
+
+### NUnit Conventions
+- Use `[TestFixture]` attribute for test classes
+- Use `[Test]` attribute for test methods
+- Use `[SetUp]` for common test initialization
+- Use `[TearDown]` for cleanup if needed
+- Use `Assert.That()` with constraint model for assertions
+- Use `[TestCase]` for parameterized tests
+- Example assertions:
+  ```csharp
+  Assert.That(result.Name, Is.EqualTo("Expected"));
+  Assert.That(result.Age, Is.GreaterThan(0));
+  Assert.That(result.Allergies, Is.Empty);
+  Assert.That(result.Id, Is.Not.EqualTo(Guid.Empty));
+  ```
+
+### Test Organization
+1. Constructor Tests
+   - Test initialization with valid parameters
+   - Verify all properties are set correctly
+   - Ensure Guid.NewGuid() is called for Id properties
+
+2. Property Tests
+   - Verify private setters are working
+   - Test collection properties are initialized as empty lists
+   - Ensure non-nullable string properties are initialized as string.Empty
+
+3. Method Tests
+   - Test both success and edge cases
+   - Verify state changes
+   - Test collection modifications (Add/Remove operations)
+   - Test update operations
+
+### Test Naming Convention
+- Pattern: `MethodName_action_subject_condition`
+- Use lowercase with underscores
+- Start with the method name being tested
+- Describe what the method does (active voice)
+- Include the subject and condition if relevant
+- Examples:
+```csharp
+public void Constructor_creates_family_member_with_valid_properties()
+{
+    // Arrange
+    // Act
+    // Assert
+}
+
+public void AddAllergy_adds_new_allergy_to_empty_list()
+{
+    // Arrange
+    // Act
+    // Assert
+}
+
+public void UpdateStatus_updates_existing_preference_with_new_status()
+{
+    // Arrange
+    // Act
+    // Assert
+}
+```
+
+### Value Object Testing
+- Test equality comparisons
+- Test immutability
+- Test validation rules
+- Example: [Allergy.cs](mdc:server/YellowHouseStudio.LifeOrbit.Domain/Family/Allergy.cs)
+
+### Collection Property Rules
+- Test Add operations
+- Test Remove operations
+- Test duplicate handling
+- Test empty/null cases
+- Reference: [FamilyMember.cs](mdc:server/YellowHouseStudio.LifeOrbit.Domain/Family/FamilyMember.cs) Allergies, SafeFoods, and FoodPreferences properties
+
+### Enum Testing
+- Test all enum values are handled
+- Test invalid enum values
+- Examples: 
+  - [AllergySeverity](mdc:server/YellowHouseStudio.LifeOrbit.Domain/Family/Allergy.cs)
+  - [PreferenceStatus](mdc:server/YellowHouseStudio.LifeOrbit.Domain/Family/FoodPreference.cs)
+
+## Test Project Structure
+```
+YellowHouseStudio.LifeOrbit.Tests.Unit/
+├── Domain/
+│   └── Family/
+│       ├── AllergyTests.cs
+│       ├── FamilyMemberTests.cs
+│       ├── FoodPreferenceTests.cs
+│       └── SafeFoodTests.cs
+├── Application/
+│   └── Services/
+└── Infrastructure/
+    └── Repositories/
+```
+
+## Testing Guidelines
+1. Use meaningful test data
+2. One assertion per test when possible
+3. Test both positive and negative cases
+4. Ensure proper isolation between tests
+5. No external dependencies in unit tests
+6. Follow AAA pattern (Arrange-Act-Assert)
+7. Test null handling where appropriate
+8. Test boundary conditions
+
+## Domain Rules
+- All domain entities must have private setters
+- Collections should be initialized in constructor
+- Non-nullable properties must have default values
+- Use appropriate access modifiers
+- Domain logic should be encapsulated within the entity

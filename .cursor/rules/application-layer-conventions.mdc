@@ -1,0 +1,51 @@
+---
+description: 
+globs: server/YellowHouseStudio.LifeOrbit.Application/**.cs
+alwaysApply: false
+---
+# Application Layer Conventions
+
+## Project Structure
+The Application layer is organized using feature folders, with each feature containing operation-specific folders. Example:
+- `Family/` - Feature folder
+  - `GetFamilyMembers/` - Operation folder
+  - `AddFamilyMember/` - Operation folder
+
+## File Naming Conventions
+
+### Query/Command Files
+- Query files should be named `{Operation}Query.cs`
+- Example: [GetFamilyMembersQuery.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/GetFamilyMembers/GetFamilyMembersQuery.cs)
+
+### Response Classes
+- Response classes should use the `Response` suffix
+- Each response class should be focused on a specific data transfer need
+- Examples from [GetFamilyMembersQuery.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/GetFamilyMembers/GetFamilyMembersQuery.cs):
+  - `FamilyMemberResponse`
+  - `AllergyResponse`
+  - `SafeFoodResponse`
+  - `FoodPreferenceResponse`
+
+## Code Organization
+
+### CQRS Pattern
+- Queries implement `IRequest<TResponse>` from MediatR
+- Query records should be immutable and contain only the necessary parameters
+- Example: `public record GetFamilyMembersQuery(Guid UserId) : IRequest<List<FamilyMemberResponse>>;`
+
+### Response Classes
+- Properties should be properly nullable with `= null!` where appropriate
+- Collection properties should be initialized with `= new();`
+- Example:
+  ```csharp
+  public class FamilyMemberResponse
+  {
+      public string Name { get; set; } = null!;
+      public List<AllergyResponse> Allergies { get; set; } = new();
+  }
+  ```
+
+## Namespace Convention
+- Namespace should follow the folder structure
+- Format: `YellowHouseStudio.LifeOrbit.Application.{Feature}.{Operation}`
+- Example: `YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers`

@@ -1,0 +1,12 @@
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.deps.json
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.dll
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.pdb
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.AssemblyInfoInputs.cache
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.AssemblyInfo.cs
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.sourcelink.json
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.dll
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/refint/YellowHouseStudio.LifeOrbit.Infrastructure.dll
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/YellowHouseStudio.LifeOrbit.Infrastructure.pdb
+/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Infrastructure/obj/Debug/net8.0/ref/YellowHouseStudio.LifeOrbit.Infrastructure.dll

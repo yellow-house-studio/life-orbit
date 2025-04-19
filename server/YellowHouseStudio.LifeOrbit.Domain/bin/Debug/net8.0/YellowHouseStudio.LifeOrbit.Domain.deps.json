@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "YellowHouseStudio.LifeOrbit.Domain/1.0.0": {
+        "runtime": {
+          "YellowHouseStudio.LifeOrbit.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "YellowHouseStudio.LifeOrbit.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
