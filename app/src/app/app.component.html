@@ -1,12 +1,16 @@
-<header>
-    <h1>LifeOrbit</h1>
-</header>
-<nav>
-    <ul>
-        <li><a routerLink="/">Dashboard</a></li>
-        <li><a routerLink="/settings">Settings</a></li>
-    </ul>
-</nav>
+<mat-toolbar color="primary">
+  <span class="logo">LifeOrbit</span>
+  <button mat-button routerLink="/">
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+  <button mat-button routerLink="/settings">
+    <mat-icon>settings</mat-icon>
+    Settings
+  </button>
+  <span class="toolbar-spacer"></span>
+</mat-toolbar>
+
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

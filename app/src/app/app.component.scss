@@ -1,0 +1,31 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  
+  .logo {
+    margin-right: 24px;
+    font-weight: 500;
+  }
+  
+  button {
+    margin-right: 8px;
+    
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
+}
+
+.container {
+  padding: 80px 20px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
