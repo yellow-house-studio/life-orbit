@@ -1,12 +1,14 @@
 import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
-import { of, throwError } from 'rxjs';
+import { of, throwError, Subject } from 'rxjs';
 import { FamilyApiService } from '../services/family-api.service';
 import { FamilyMembersStore } from './family-members.store';
-import { CreateFamilyMemberRequest } from '../models/family.dto';
+import { CreateFamilyMemberRequest, FamilyMemberResponse } from '../models/family.dto';
 import { FamilyMember, AllergenSeverity, FoodPreferenceStatus } from '../models/family.model';
 import { mockProvider } from '@ngneat/spectator/jest';
 import type { SpyObject } from '@ngneat/spectator/jest';
 import { provideTestLogger } from '../../common/logging/test-logger';
+import { dataLoadedStatus, dataLoadingStatus, dataErrorStatus, initialDataLoadingStatus } from '../../common/models/data-loading-status';
+import { fakeAsync, tick, flushMicrotasks } from '@angular/core/testing';
 
 describe('FamilyMembersStore', () => {
   let spectator: SpectatorService<FamilyMembersStore>;
@@ -47,7 +49,7 @@ describe('FamilyMembersStore', () => {
     jest.clearAllMocks();
   });
 
-  it('should be created', () => {
+  it('can be created', () => {
     expect(store).toBeTruthy();
   });
 
@@ -59,8 +61,7 @@ describe('FamilyMembersStore', () => {
 
       expect(apiService.getFamilyMembers).toHaveBeenCalled();
       expect(store.familyMembers()).toEqual([mockFamilyMember]);
-      expect(store.loading()).toBe(false);
-      expect(store.error()).toBeNull();
+      expect(store.getLoadStatus()).toEqual(dataLoadedStatus);
     });
 
     it('handles error when loading family members fails', () => {
@@ -70,12 +71,44 @@ describe('FamilyMembersStore', () => {
       store.loadFamilyMembers();
 
       expect(store.familyMembers()).toEqual([]);
-      expect(store.loading()).toBe(false);
-      expect(store.error()).toBe(error.message);
+      expect(store.getLoadStatus()).toEqual(dataErrorStatus(error));
     });
   });
 
   describe('createFamilyMember', () => {
+    it('transitions through loading states correctly', () => {
+      const request: CreateFamilyMemberRequest = {
+        name: 'John Doe',
+        age: 30
+      };
+
+      const createResponse$ = new Subject<string>();
+      const loadResponse$ = new Subject<FamilyMember[]>();
+      
+      apiService.createFamilyMember.mockReturnValue(createResponse$);
+      apiService.getFamilyMembers.mockReturnValue(loadResponse$);
+
+      // Initial state
+      expect(store.getCreateStatus()).toEqual(initialDataLoadingStatus);
+
+      // Start creation
+      store.createFamilyMember(request);
+
+      // Should be in loading state
+      expect(store.getCreateStatus()).toEqual(dataLoadingStatus);
+
+      // Complete creation
+      createResponse$.next('123');
+      createResponse$.complete();
+
+      // Load updated list
+      loadResponse$.next([mockFamilyMember]);
+      loadResponse$.complete();
+
+      // Should be in loaded state
+      expect(store.getCreateStatus()).toEqual(dataLoadedStatus);
+    });
+
     it('creates family member and reloads list', () => {
       const request: CreateFamilyMemberRequest = {
         name: 'John Doe',
@@ -89,9 +122,7 @@ describe('FamilyMembersStore', () => {
 
       expect(apiService.createFamilyMember).toHaveBeenCalledWith(request);
       expect(apiService.getFamilyMembers).toHaveBeenCalled();
-      expect(store.loading()).toBe(false);
-      expect(store.error()).toBeNull();
-      expect(store.familyMembers()).toEqual([mockFamilyMember]);
+      expect(store.getCreateStatus()).toEqual(dataLoadedStatus);
     });
 
     it('handles error when creating family member fails', () => {
@@ -105,8 +136,7 @@ describe('FamilyMembersStore', () => {
 
       store.createFamilyMember(request);
 
-      expect(store.loading()).toBe(false);
-      expect(store.error()).toBe(error.message);
+      expect(store.getCreateStatus()).toEqual(dataErrorStatus(error));
     });
   });
 
@@ -140,7 +170,23 @@ describe('FamilyMembersStore', () => {
         params.severity
       );
       expect(apiService.getFamilyMembers).toHaveBeenCalled();
+      expect(store.getAllergyStatus()).toEqual(dataLoadedStatus);
       expect(store.familyMembers()).toEqual([mockFamilyMember]);
+    });
+
+    it('handles error when adding allergy fails', () => {
+      const error = new Error('Failed to add allergy');
+      const params = {
+        familyMemberId: '123',
+        allergen: 'peanuts',
+        severity: AllergenSeverity.NotAllowed
+      };
+
+      apiService.addAllergy.mockReturnValue(throwError(() => error));
+
+      store.addAllergy(params);
+
+      expect(store.getAllergyStatus()).toEqual(dataErrorStatus(error));
     });
   });
 
@@ -161,7 +207,22 @@ describe('FamilyMembersStore', () => {
         params.foodItem
       );
       expect(apiService.getFamilyMembers).toHaveBeenCalled();
+      expect(store.getSafeFoodStatus()).toEqual(dataLoadedStatus);
       expect(store.familyMembers()).toEqual([mockFamilyMember]);
+    });
+
+    it('handles error when adding safe food fails', () => {
+      const error = new Error('Failed to add safe food');
+      const params = {
+        familyMemberId: '123',
+        foodItem: 'pasta'
+      };
+
+      apiService.addSafeFood.mockReturnValue(throwError(() => error));
+
+      store.addSafeFood(params);
+
+      expect(store.getSafeFoodStatus()).toEqual(dataErrorStatus(error));
     });
   });
 
@@ -184,7 +245,74 @@ describe('FamilyMembersStore', () => {
         params.status
       );
       expect(apiService.getFamilyMembers).toHaveBeenCalled();
+      expect(store.getPreferenceStatus()).toEqual(dataLoadedStatus);
       expect(store.familyMembers()).toEqual([mockFamilyMember]);
     });
+
+    it('handles error when adding food preference fails', () => {
+      const error = new Error('Failed to add food preference');
+      const params = {
+        familyMemberId: '123',
+        foodItem: 'rice',
+        status: FoodPreferenceStatus.Include
+      };
+
+      apiService.addFoodPreference.mockReturnValue(throwError(() => error));
+
+      store.addFoodPreference(params);
+
+      expect(store.getPreferenceStatus()).toEqual(dataErrorStatus(error));
+    });
+  });
+
+  describe('concurrent operations', () => {
+    it('demonstrates operation cancellation and mixed success/failure states', fakeAsync(() => {
+      // Setup delayed responses
+      const firstLoadResponse$ = new Subject<FamilyMemberResponse[]>();
+      const secondLoadResponse$ = new Subject<FamilyMemberResponse[]>();
+      const allergyResponse$ = new Subject<void>();
+      
+      // Mock the API calls to use our subjects
+      apiService.getFamilyMembers
+        .mockReturnValueOnce(firstLoadResponse$)
+        .mockReturnValueOnce(secondLoadResponse$);
+      apiService.addAllergy.mockReturnValue(allergyResponse$);
+
+      // Start first load
+      store.loadFamilyMembers();
+      tick();
+      expect(store.getLoadStatus()).toEqual(dataLoadingStatus);
+
+      // Start allergy operation - should be independent
+      store.addAllergy({ familyMemberId: '123', allergen: 'peanuts', severity: AllergenSeverity.NotAllowed });
+      tick();
+      expect(store.getAllergyStatus()).toEqual(dataLoadingStatus);
+
+      // Start second load - should cancel first load
+      store.loadFamilyMembers();
+      tick();
+      
+      // Complete second load successfully
+      secondLoadResponse$.next([mockFamilyMember]);
+      secondLoadResponse$.complete();
+      tick();
+      expect(store.getLoadStatus()).toEqual(dataLoadedStatus);
+
+      // Fail the allergy operation
+      const error = new Error('Failed to add allergy');
+      allergyResponse$.error(error);
+      tick();
+      expect(store.getAllergyStatus()).toEqual(dataErrorStatus(error));
+
+      // Verify first load was cancelled by completing it - should have no effect
+      firstLoadResponse$.next([]);
+      firstLoadResponse$.complete();
+      tick();
+      
+      // Final state verification
+      expect(store.getLoadStatus()).toEqual(dataLoadedStatus);
+      expect(store.getAllergyStatus()).toEqual(dataErrorStatus(error));
+      expect(store.familyMembers()).toEqual([mockFamilyMember]);
+    }));
   });
 }); 

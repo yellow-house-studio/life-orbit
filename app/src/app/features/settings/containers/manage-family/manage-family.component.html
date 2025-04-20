@@ -1,10 +1,60 @@
-<h2>Family Members</h2>
-<ul>
-    <a routerLink="/settings/family-member/John Doe"><li>John Doe</li></a>
-    <a routerLink="/settings/family-member/Jane Doe"><li>Jane Doe</li></a>
-    <a routerLink="/settings/family-member/Jim Doe"><li>Jim Doe</li></a>
-    <a routerLink="/settings/family-member/Jill Doe"><li>Jill Doe</li></a>
-</ul>
-<div>
-    <button routerLink="/settings/family-member/add">Add Family Member</button>
+<div class="manage-family-container">
+  <header class="manage-family-header">
+    <h1>Family Members</h1>
+    <a routerLink="/settings/family-member/add" class="add-member-btn">
+      Add Family Member
+    </a>
+  </header>
+
+  @if (!loadStatus().isLoading) {
+    @if (familyMembers().length > 0) {
+      <div class="members-grid">
+        @for (member of familyMembers(); track member.id) {
+          <a class="member-card" [routerLink]="['/settings/family-member', member.id]">
+            <h3>{{ member.name }}</h3>
+            <p class="age">Age: {{ member.age }}</p>
+            <div class="member-stats">
+              <span class="stat">
+                <span class="stat-value">{{ member.allergies.length }}</span>
+                <span class="stat-label">Allergies</span>
+              </span>
+              <span class="stat">
+                <span class="stat-value">{{ member.safeFoods.length }}</span>
+                <span class="stat-label">Safe Foods</span>
+              </span>
+              <span class="stat">
+                <span class="stat-value">{{ member.foodPreferences.length }}</span>
+                <span class="stat-label">Preferences</span>
+              </span>
+            </div>
+          </a>
+        }
+      </div>
+    } @else {
+      <div class="empty-state">
+        <p>No family members added yet.</p>
+        <a routerLink="/settings/family-member/add" class="add-member-btn">
+          Add Your First Family Member
+        </a>
+      </div>
+    }
+  } @else {
+    <div class="loading-state">
+      @for (i of [1, 2, 3]; track i) {
+        <div class="skeleton-loader">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-content"></div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (loadStatus().haveError) {
+    <div class="error-state">
+      <p>{{ loadStatus().errorMessage }}</p>
+      <button (click)="retry()" class="retry-btn">
+        Retry
+      </button>
+    </div>
+  }
 </div>

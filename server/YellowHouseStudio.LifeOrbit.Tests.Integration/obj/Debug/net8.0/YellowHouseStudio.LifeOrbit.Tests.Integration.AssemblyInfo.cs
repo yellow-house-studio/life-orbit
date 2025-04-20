@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YellowHouseStudio.LifeOrbit.Tests.Integration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a6b5f49e7598d2528812200608af71bb5e99bad3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55316ad09db524a68625e959021173750e3d9010")]
 [assembly: System.Reflection.AssemblyProductAttribute("YellowHouseStudio.LifeOrbit.Tests.Integration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YellowHouseStudio.LifeOrbit.Tests.Integration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

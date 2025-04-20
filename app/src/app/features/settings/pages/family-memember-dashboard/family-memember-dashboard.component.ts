@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-family-memember-dashboard',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './family-memember-dashboard.component.html',
   styleUrl: './family-memember-dashboard.component.scss'
 })

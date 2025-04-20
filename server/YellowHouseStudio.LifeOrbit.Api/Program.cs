@@ -2,6 +2,11 @@ using YellowHouseStudio.LifeOrbit.Application.Data;
 using Microsoft.EntityFrameworkCore;
 using YellowHouseStudio.LifeOrbit.Api.Infrastructure.Filters;
 using YellowHouseStudio.LifeOrbit.Application;
+using Serilog;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Npgsql;
 
 namespace YellowHouseStudio.LifeOrbit.Api;
 
@@ -10,6 +15,10 @@ public class Program
     public static void Main(string[] args)
     {
         var app = CreateApp(args);
+        
+        // Configure Kestrel to listen on port 80
+        app.Urls.Add("http://[::]:80");
+        
         app.Run();
     }
 
@@ -17,15 +26,33 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Configure Serilog
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .CreateLogger();
+
+        builder.Host.UseSerilog();
+
+        // Configure CORS
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+
         // Add services to the container.
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddControllers(options =>
         {
             // Order matters! GlobalExceptionFilter must be registered first to be the first and last filter to be executed
             options.Filters.Add<GlobalExceptionFilter>();
             options.Filters.Add<ValidationExceptionFilter>();
-        
         });
+        
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -35,6 +62,31 @@ public class Program
         // Add DbContext
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        // Add NpgsqlDataSource as a singleton
+        builder.Services.AddNpgsqlDataSource(builder.Configuration.GetConnectionString("DefaultConnection")!);
+
+        // Add health checks
+        builder.Services.AddHealthChecks()
+            .AddCheck("postgres", () =>
+            {
+                try
+                {
+                    using var dataSource = builder.Services.BuildServiceProvider().GetRequiredService<NpgsqlDataSource>();
+                    using var conn = dataSource.CreateConnection();
+                    conn.Open();
+                    using var cmd = conn.CreateCommand();
+                    cmd.CommandText = "SELECT 1";
+                    cmd.ExecuteScalar();
+                    return HealthCheckResult.Healthy();
+                }
+                catch (Exception ex)
+                {
+                    return HealthCheckResult.Unhealthy(ex.Message);
+                }
+            }, new[] { "db", "sql", "postgres" })
+            .AddCheck("self", () => HealthCheckResult.Healthy(), 
+                tags: new[] { "service" });
 
         var app = builder.Build();
 
@@ -46,7 +98,30 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        
+        // Use CORS before authorization
+        app.UseCors();
+        
         app.UseAuthorization();
+
+        // Add health check endpoints
+        app.MapHealthChecks("/health", new HealthCheckOptions
+        {
+            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+        
+        app.MapHealthChecks("/health/ready", new HealthCheckOptions
+        {
+            Predicate = healthCheck => healthCheck.Tags.Contains("service") || healthCheck.Tags.Contains("db"),
+            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+        
+        app.MapHealthChecks("/health/live", new HealthCheckOptions
+        {
+            Predicate = _ => false,
+            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+        });
+
         app.MapControllers();
 
         var summaries = new[]
