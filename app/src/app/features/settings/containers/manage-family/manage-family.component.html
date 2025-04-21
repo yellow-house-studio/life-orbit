@@ -8,7 +8,7 @@
     @if (familyMembers().length > 0) {
       <div class="members-grid">
         @for (member of familyMembers(); track member.id) {
-          <a class="member-card" [routerLink]="['/settings/family', member.id]">
+          <a class="member-card" [routerLink]="['/settings/family', member.name]">
             <h3>{{ member.name }}</h3>
             <p class="age">Age: {{ member.age }}</p>
             <div class="member-stats">

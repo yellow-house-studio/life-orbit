@@ -1,1 +1,150 @@
-<h1>{{familyMemberName()}}</h1>
+<div class="family-member-dashboard">
+  @if (!loadStatus().isLoading) {
+    @if (familyMember(); as member) {
+      <header>
+        <h1>{{ member.name }}</h1>
+        <p class="age">Age: {{ member.age }}</p>
+      </header>
+
+      <!-- Allergies Section -->
+      <mat-card class="section-card">
+        <mat-card-header>
+          <mat-card-title>
+            Allergies
+            @if (editingSection() !== 'allergies') {
+              <button mat-icon-button (click)="startEditing('allergies')">
+                <mat-icon>edit</mat-icon>
+              </button>
+            }
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          @if (editingSection() === 'allergies') {
+            <div class="edit-section">
+              <app-allergy-edit
+                [allergies]="editedAllergies()"
+                (allergiesChange)="editedAllergies.set($event)"
+              ></app-allergy-edit>
+              <div class="actions">
+                <button mat-button (click)="cancelEditing()">Cancel</button>
+                <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+              </div>
+            </div>
+          } @else {
+            @if (member.allergies.length > 0) {
+              <ul class="allergy-list">
+                @for (allergy of member.allergies; track allergy.allergen) {
+                  <li>
+                    <span class="allergen">{{ allergy.allergen }}</span>
+                    <span class="severity">{{ allergy.severity }}</span>
+                  </li>
+                }
+              </ul>
+            } @else {
+              <p class="empty-message">No allergies recorded</p>
+            }
+          }
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Safe Foods Section -->
+      <mat-card class="section-card">
+        <mat-card-header>
+          <mat-card-title>
+            Safe Foods
+            @if (editingSection() !== 'safeFoods') {
+              <button mat-icon-button (click)="startEditing('safeFoods')">
+                <mat-icon>edit</mat-icon>
+              </button>
+            }
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          @if (editingSection() === 'safeFoods') {
+            <div class="edit-section">
+              <app-safe-foods-edit
+                [safeFoods]="editedSafeFoods()"
+                (safeFoodsChange)="editedSafeFoods.set($event)"
+              ></app-safe-foods-edit>
+              <div class="actions">
+                <button mat-button (click)="cancelEditing()">Cancel</button>
+                <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+              </div>
+            </div>
+          } @else {
+            @if (member.safeFoods.length > 0) {
+              <ul class="safe-foods-list">
+                @for (food of member.safeFoods; track food.foodItem) {
+                  <li>{{ food.foodItem }}</li>
+                }
+              </ul>
+            } @else {
+              <p class="empty-message">No safe foods recorded</p>
+            }
+          }
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Food Preferences Section -->
+      <mat-card class="section-card">
+        <mat-card-header>
+          <mat-card-title>
+            Food Preferences
+            @if (editingSection() !== 'preferences') {
+              <button mat-icon-button (click)="startEditing('preferences')">
+                <mat-icon>edit</mat-icon>
+              </button>
+            }
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          @if (editingSection() === 'preferences') {
+            <div class="edit-section">
+              <app-food-preferences-edit
+                [preferences]="editedPreferences()"
+                (preferencesChange)="editedPreferences.set($event)"
+              ></app-food-preferences-edit>
+              <div class="actions">
+                <button mat-button (click)="cancelEditing()">Cancel</button>
+                <button mat-raised-button color="primary" (click)="saveChanges()">Save</button>
+              </div>
+            </div>
+          } @else {
+            @if (member.foodPreferences.length > 0) {
+              <ul class="preferences-list">
+                @for (pref of member.foodPreferences; track pref.preference) {
+                  <li>
+                    <span class="food-item">{{ pref.preference }}</span>
+                    <span class="status">{{ pref.status }}</span>
+                  </li>
+                }
+              </ul>
+            } @else {
+              <p class="empty-message">No food preferences recorded</p>
+            }
+          }
+        </mat-card-content>
+      </mat-card>
+
+    } @else {
+      <div class="error-state">
+        <p>Family member not found</p>
+        <a routerLink="/settings" mat-button>Back to Settings</a>
+      </div>
+    }
+  } @else {
+    <div class="loading-state">
+      <mat-spinner></mat-spinner>
+      <p>Loading family member details...</p>
+    </div>
+  }
+
+  @if (loadStatus().haveError) {
+    <div class="error-state">
+      <p>{{ loadStatus().errorMessage }}</p>
+      <button (click)="retry()" mat-raised-button color="primary">
+        Retry
+      </button>
+    </div>
+  }
+</div>

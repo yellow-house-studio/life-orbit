@@ -1,0 +1,134 @@
+.family-member-dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+
+  header {
+    margin-bottom: 32px;
+    
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--text-primary);
+    }
+
+    .age {
+      margin: 8px 0 0;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+  }
+
+  .section-card {
+    margin-bottom: 24px;
+
+    mat-card-header {
+      margin-bottom: 16px;
+
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        font-size: 1.25rem;
+
+        button {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  .allergy-list,
+  .safe-foods-list,
+  .preferences-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 12px;
+      border-radius: 4px;
+      background-color: var(--surface-color-light);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .allergen,
+      .food-item {
+        font-weight: 500;
+      }
+
+      .severity,
+      .status {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        padding: 4px 8px;
+        border-radius: 4px;
+        background-color: var(--surface-color);
+      }
+    }
+  }
+
+  .edit-section {
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 16px;
+    }
+  }
+
+  .empty-message {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 24px;
+    margin: 0;
+    background-color: var(--surface-color-light);
+    border-radius: 4px;
+  }
+
+  .loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0;
+    
+    p {
+      margin: 16px 0 0;
+      color: var(--text-secondary);
+    }
+  }
+
+  .error-state {
+    text-align: center;
+    padding: 32px;
+    background-color: var(--surface-color-light);
+    border-radius: 8px;
+    margin-top: 24px;
+
+    p {
+      color: var(--error-color);
+      margin: 0 0 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .family-member-dashboard {
+    padding: 16px;
+
+    header {
+      margin-bottom: 24px;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

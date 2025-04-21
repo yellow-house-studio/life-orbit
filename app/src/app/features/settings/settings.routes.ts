@@ -13,7 +13,7 @@ export const settingsRoutes: Routes = [
         component: AddFamilyMemberPage
     },
     {
-        path: 'settings/family/:id',
+        path: 'settings/family/:name',
         component: FamilyMememberDashboardComponent
     }
 ];
