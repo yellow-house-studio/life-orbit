@@ -13,7 +13,7 @@ Each log entry should follow this structure:
 
 ### 1. Header (Required)
 ```markdown
-** YYYY-MM-DD HH:MM - [Feature Name] - [Action Type] - [Status] **
+** YYYY-MM-DD HH:MM - [Feature Name] - [App/Server/Both] - [Action Type] - [Status] **
 ```
 - Action Type: Implementation, Refactor, Fix, Documentation, etc.
 - Status: Started, In Progress, Completed, Blocked

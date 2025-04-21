@@ -14,9 +14,9 @@ public class FamilyController(IMediator mediator) : ControllerBase
     private readonly IMediator _mediator = mediator;
 
     [HttpGet]
-    public async Task<ActionResult<List<FamilyMemberResponse>>> GetFamilyMembers([FromQuery] Guid userId)
+    public async Task<ActionResult<List<FamilyMemberResponse>>> GetFamilyMembers()
     {
-        var query = new GetFamilyMembersQuery(userId);
+        var query = new GetFamilyMembersQuery();
         var result = await _mediator.Send(query);
         return Ok(result);
     }

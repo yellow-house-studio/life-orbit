@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FamilyMemberResponse, CreateFamilyMemberRequest } from '../models/family.dto';
+import { 
+  FamilyMemberResponse, 
+  CreateFamilyMemberRequest, 
+  CreateCompleteFamilyMemberRequest 
+} from '../models/family.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FamilyApiService {
   private readonly baseUrl = '/settings/family';
-
-  constructor(private http: HttpClient) {}
+  private readonly http = inject(HttpClient);
 
   getFamilyMembers(): Observable<FamilyMemberResponse[]> {
     return this.http.get<FamilyMemberResponse[]>(this.baseUrl);
@@ -21,6 +24,10 @@ export class FamilyApiService {
 
   createFamilyMember(request: CreateFamilyMemberRequest): Observable<string> {
     return this.http.post<string>(this.baseUrl, request);
+  }
+
+  createCompleteFamilyMember(request: CreateCompleteFamilyMemberRequest): Observable<FamilyMemberResponse> {
+    return this.http.post<FamilyMemberResponse>(`${this.baseUrl}/complete`, request);
   }
 
   addAllergy(familyMemberId: string, allergen: string, severity: 'AvailableForOthers' | 'NotAllowed'): Observable<void> {

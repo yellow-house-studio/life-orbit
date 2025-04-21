@@ -1,0 +1,150 @@
+---
+description: 
+globs: app/**/*.store.ts
+alwaysApply: false
+---
+# App Store Guidelines
+
+## Overview
+Stores in the application follow the @ngrx/signals pattern and serve as the primary state management solution. They handle API interactions, state updates, and provide computed values for components.
+
+## Store Structure
+
+### Required Imports
+```typescript
+import { signalStore, withState, withComputed, withMethods, patchState, withHooks } from '@ngrx/signals';
+import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { pipe, switchMap, of, map } from 'rxjs';
+```
+
+### State Interface
+- Define a clear state interface at the top of the file
+- Use descriptive names that reflect the domain
+- Include all properties that need to be tracked
+Example:
+```typescript
+export interface FamilyMembersState {
+    familyMembers: FamilyMember[];
+    selectedFamilyMemberId: string | null;
+}
+```
+
+### API Call Keys
+- Define an enum for all API call keys
+- Use descriptive names that match the method names
+- Prefix load operations with 'load'
+- Prefix create operations with 'create'
+- Prefix update operations with 'update'
+Example:
+```typescript
+const enum ApiCallKeys {
+    LoadFamilyMembers = 'loadFamilyMembers',
+    CreateFamilyMember = 'createFamilyMember'
+}
+```
+
+## Store Implementation
+
+### Store Class Declaration
+- Use @Injectable decorator with root provider
+- Extend signalStore with required features
+- Include withApiHandling() for API operations
+Example:
+```typescript
+@Injectable({ providedIn: 'root' })
+export class ExampleStore extends signalStore(
+    withState<StateInterface>(initialState),
+    withApiHandling(),
+    withComputed((state) => ({
+        // computed properties
+    })),
+    withMethods((store, apiService = inject(ApiService)) => ({
+        // methods
+    })),
+    withHooks({
+        onInit(store) {
+            // initialization
+        }
+    })
+) { }
+```
+
+### Method Implementation Guidelines
+
+#### Complete Model Methods
+When creating methods that need to pass a complete model to the API:
+
+1. Define an interface for the input model:
+```typescript
+export interface CreateCompleteModel {
+    // All required properties for creation
+    property1: Type1;
+    property2: Type2;
+}
+```
+
+2. Implement using rxMethod with proper mapping:
+```typescript
+createCompleteModel: rxMethod<CreateCompleteModel>(
+    pipe(
+        map((input) => mapToRequest(input)), // Transform to DTO
+        switchMap((request) => {
+            return store._handleApiCall<ResponseType>({
+                key: ApiCallKeys.CreateComplete,
+                apiCall: apiService.createComplete(request),
+                onSuccess: (response) => {
+                    const mapped = mapResponseToModel(response);
+                    return loadDataCall().pipe(
+                        switchMap(() => of(mapped))
+                    );
+                }
+            });
+        })
+    )
+)
+```
+
+### API Handling
+- Use _handleApiCall for all API interactions
+- Include proper key from ApiCallKeys enum
+- Implement onSuccess callback for state updates
+- Chain related operations in onSuccess when needed
+
+### Status Tracking
+- Expose status getters for all API operations
+- Use _getCallStatus with the corresponding ApiCallKey
+Example:
+```typescript
+getLoadStatus: () => store._getCallStatus(ApiCallKeys.LoadData)(),
+getCreateStatus: () => store._getCallStatus(ApiCallKeys.CreateData)()
+```
+
+## Best Practices
+
+1. **State Updates**
+   - Use patchState for all state modifications
+   - Never modify state directly
+   - Keep state updates atomic and focused
+
+2. **Computed Properties**
+   - Use computed for derived state
+   - Keep computations pure and performant
+   - Cache expensive computations appropriately
+
+3. **Method Organization**
+   - Group related methods together
+   - Implement CRUD operations consistently
+   - Follow the pattern established in createCompleteModel for full model operations
+
+4. **Error Handling**
+   - Utilize withApiHandling for consistent error management
+   - Provide appropriate error feedback through status getters
+   - Handle edge cases gracefully
+
+5. **Initialization**
+   - Use withHooks for setup operations
+   - Load initial data in onInit when appropriate
+   - Clear sensitive data in onDestroy if needed
+
+## Example Reference
+See [family-members.store.ts](mdc:app/src/app/infrastructure/family/stores/family-members.store.ts) for a complete implementation example, particularly the `createCompleteFamilyMember` method as the reference pattern for complete model operations.

@@ -1,11 +1,11 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, input, signal } from '@angular/core';
 import { signalStore, withState, withComputed, withMethods, patchState, withHooks } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { pipe, switchMap, of } from 'rxjs';
-import { FamilyMember } from '../models/family.model';
-import { CreateFamilyMemberRequest, FamilyMemberResponse } from '../models/family.dto';
+import { pipe, switchMap, of, map } from 'rxjs';
+import { FamilyMember, Allergy, SafeFood, FoodPreference } from '../models/family.model';
+import { CreateCompleteFamilyMemberRequest, FamilyMemberResponse } from '../models/family.dto';
 import { FamilyApiService } from '../services/family-api.service';
-import { mapFamilyMemberResponseToModel } from '../models/family.mapper';
+import { createFamilyMemeberRequest, mapFamilyMemberResponseToModel } from '../models/family.mapper';
 import { withApiHandling } from '../../common/stores/with-api-handling';
 
 export interface FamilyMembersState {
@@ -21,13 +21,21 @@ const initialState: FamilyMembersState = {
 // API call keys
 const enum ApiCallKeys {
     LoadFamilyMembers = 'loadFamilyMembers',
-    CreateFamilyMember = 'createFamilyMember',
+    CreateCompleteFamilyMember = 'createCompleteFamilyMember',
     AddAllergy = 'addAllergy',
     RemoveAllergy = 'removeAllergy',
     AddSafeFood = 'addSafeFood',
     RemoveSafeFood = 'removeSafeFood',
     AddFoodPreference = 'addFoodPreference',
     RemoveFoodPreference = 'removeFoodPreference'
+}
+
+export interface CreateCompleteFamilyMember {
+    name: string;
+    age: number;
+    allergies: Allergy[];
+    safeFoods: SafeFood[];
+    foodPreferences: FoodPreference[];
 }
 
 @Injectable({ providedIn: 'root' })
@@ -67,15 +75,27 @@ export class FamilyMembersStore extends signalStore(
                 )
             ),
 
-            createFamilyMember: rxMethod<CreateFamilyMemberRequest>(
+            createCompleteFamilyMember: rxMethod<CreateCompleteFamilyMember>(
                 pipe(
-                    switchMap((request) =>
-                        store._handleApiCall<string>({
-                            key: ApiCallKeys.CreateFamilyMember,
-                            apiCall: apiService.createFamilyMember(request),
-                            onSuccess: () => loadFamilyMembersCall()
-                        })
-                    )
+                    map((input) => createFamilyMemeberRequest(
+                        input.name,
+                        input.age,
+                        input.allergies,
+                        input.safeFoods,
+                        input.foodPreferences
+                    )),
+                    switchMap((request) => {
+                        return store._handleApiCall<FamilyMemberResponse>({
+                            key: ApiCallKeys.CreateCompleteFamilyMember,
+                            apiCall: apiService.createCompleteFamilyMember(request),
+                            onSuccess: (response) => {
+                                const mappedMember = mapFamilyMemberResponseToModel(response);
+                                return loadFamilyMembersCall().pipe(
+                                    switchMap(() => of(mappedMember))
+                                );
+                            }
+                        });
+                    })
                 )
             ),
 
@@ -156,11 +176,11 @@ export class FamilyMembersStore extends signalStore(
             ),
 
             // Expose status getters using the computed selector from the feature
-            getLoadStatus: () => store._getCallStatus(ApiCallKeys.LoadFamilyMembers)(),
-            getCreateStatus: () => store._getCallStatus(ApiCallKeys.CreateFamilyMember)(),
-            getAllergyStatus: () => store._getCallStatus(ApiCallKeys.AddAllergy)(),
-            getSafeFoodStatus: () => store._getCallStatus(ApiCallKeys.AddSafeFood)(),
-            getPreferenceStatus: () => store._getCallStatus(ApiCallKeys.AddFoodPreference)()
+            getLoadStatus: store._getCallStatus(ApiCallKeys.LoadFamilyMembers),
+            getCreateCompleteStatus: store._getCallStatus(ApiCallKeys.CreateCompleteFamilyMember),
+            getAllergyStatus: store._getCallStatus(ApiCallKeys.AddAllergy),
+            getSafeFoodStatus: store._getCallStatus(ApiCallKeys.AddSafeFood),
+            getPreferenceStatus: store._getCallStatus(ApiCallKeys.AddFoodPreference)
         };
     }),
     withHooks({

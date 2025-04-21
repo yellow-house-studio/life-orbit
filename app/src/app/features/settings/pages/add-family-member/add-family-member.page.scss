@@ -2,6 +2,7 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
+  position: relative;
 }
 
 header {
@@ -22,6 +23,50 @@ mat-form-field {
   margin-top: 1rem;
   display: flex;
   gap: 1rem;
+
+  button {
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    mat-spinner {
+      margin: 0;
+    }
+  }
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  
+  p {
+    margin-top: 1rem;
+    color: var(--text-primary);
+  }
+}
+
+.error-state {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ffebee;
+  border-radius: 4px;
+  border: 1px solid var(--error-color);
+
+  p {
+    color: var(--error-color);
+    margin: 0;
+  }
 }
 
 ::ng-deep {

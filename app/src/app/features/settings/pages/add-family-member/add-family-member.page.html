@@ -3,6 +3,13 @@
     <h1>Add Family Member</h1>
   </header>
 
+  @if (createStatus().isLoading) {
+    <div class="loading-overlay">
+      <mat-spinner></mat-spinner>
+      <p>Adding family member...</p>
+    </div>
+  }
+
   <mat-stepper linear #stepper>
     <!-- Basic Info Step -->
     <mat-step [stepControl]="basicInfoForm">
@@ -101,8 +108,26 @@
       ></app-food-preferences-list>
       <div class="button-container">
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" (click)="save()">Save</button>
+        <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="save()"
+          [disabled]="createStatus().isLoading"
+        >
+          @if (createStatus().isLoading) {
+            <mat-spinner diameter="20"></mat-spinner>
+            Saving...
+          } @else {
+            Save
+          }
+        </button>
       </div>
     </mat-step>
   </mat-stepper>
+
+  @if (createStatus().haveError) {
+    <div class="error-state">
+      <p>{{ createStatus().errorMessage }}</p>
+    </div>
+  }
 </div> 

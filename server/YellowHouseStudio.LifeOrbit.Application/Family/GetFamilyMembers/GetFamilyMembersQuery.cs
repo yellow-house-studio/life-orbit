@@ -3,4 +3,4 @@ using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers;
 
-public record GetFamilyMembersQuery(Guid UserId) : IRequest<List<FamilyMemberResponse>>;
+public record GetFamilyMembersQuery() : IRequest<List<FamilyMemberResponse>>;

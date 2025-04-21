@@ -2,20 +2,22 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using YellowHouseStudio.LifeOrbit.Application.Data;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
+using YellowHouseStudio.LifeOrbit.Application.Users;
 using YellowHouseStudio.LifeOrbit.Domain.Family;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember;
 
-public class AddCompleteFamilyMemberCommandHandler(ApplicationDbContext context, ILogger<AddCompleteFamilyMemberCommandHandler> logger) : IRequestHandler<AddCompleteFamilyMemberCommand, FamilyMemberResponse>
+public class AddCompleteFamilyMemberCommandHandler(ApplicationDbContext context, ICurrentUser currentUser,
+ ILogger<AddCompleteFamilyMemberCommandHandler> logger) : IRequestHandler<AddCompleteFamilyMemberCommand, FamilyMemberResponse>
 {
     private readonly ApplicationDbContext _context = context;
     private readonly ILogger<AddCompleteFamilyMemberCommandHandler> _logger = logger;
 
     public async Task<FamilyMemberResponse> Handle(AddCompleteFamilyMemberCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogDebug("Creating new family member for user {UserId} with name {Name}", request.UserId, request.Name);
+        _logger.LogDebug("Creating new family member for user {UserId} with name {Name}", currentUser.UserId, request.Name);
         
-        var familyMember = new FamilyMember(request.UserId, request.Name, request.Age);
+        var familyMember = new FamilyMember(currentUser.UserId, request.Name, request.Age);
 
         foreach (var allergy in request.Allergies)
         {

@@ -1,8 +1,8 @@
 import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
 import { of, throwError, Subject } from 'rxjs';
 import { FamilyApiService } from '../services/family-api.service';
-import { FamilyMembersStore } from './family-members.store';
-import { CreateFamilyMemberRequest, FamilyMemberResponse } from '../models/family.dto';
+import { FamilyMembersStore, CreateCompleteFamilyMember } from './family-members.store';
+import { CreateFamilyMemberRequest, CreateCompleteFamilyMemberRequest, FamilyMemberResponse, AllergyResponse, FoodPreferenceResponse } from '../models/family.dto';
 import { FamilyMember, AllergenSeverity, FoodPreferenceStatus } from '../models/family.model';
 import { mockProvider } from '@ngneat/spectator/jest';
 import type { SpyObject } from '@ngneat/spectator/jest';
@@ -21,7 +21,16 @@ describe('FamilyMembersStore', () => {
     age: 30,
     allergies: [{ allergen: 'peanuts', severity: AllergenSeverity.NotAllowed }],
     safeFoods: [{ foodItem: 'pasta' }],
-    foodPreferences: [{ foodItem: 'rice', status: FoodPreferenceStatus.Include }]
+    foodPreferences: [{ preference: 'rice', status: FoodPreferenceStatus.Include }]
+  };
+
+  const mockFamilyMemberResponse: FamilyMemberResponse = {
+    id: '123',
+    name: 'John Doe',
+    age: 30,
+    allergies: [{ allergen: 'peanuts', severity: 'NotAllowed' }],
+    safeFoods: [{ foodItem: 'pasta' }],
+    foodPreferences: [{ foodItem: 'rice', status: 'Include' }]
   };
 
   const createService = createServiceFactory({
@@ -30,6 +39,7 @@ describe('FamilyMembersStore', () => {
       mockProvider(FamilyApiService, {
         getFamilyMembers: jest.fn().mockReturnValue(of([])),
         createFamilyMember: jest.fn().mockReturnValue(of('')),
+        createCompleteFamilyMember: jest.fn(),
         addAllergy: jest.fn().mockReturnValue(of(void 0)),
         removeAllergy: jest.fn().mockReturnValue(of(void 0)),
         addSafeFood: jest.fn().mockReturnValue(of(void 0)),
@@ -55,7 +65,7 @@ describe('FamilyMembersStore', () => {
 
   describe('loadFamilyMembers', () => {
     it('loads family members successfully', () => {
-      apiService.getFamilyMembers.mockReturnValueOnce(of([mockFamilyMember]));
+      apiService.getFamilyMembers.mockReturnValueOnce(of([mockFamilyMemberResponse]));
 
       store.loadFamilyMembers();
 
@@ -75,74 +85,9 @@ describe('FamilyMembersStore', () => {
     });
   });
 
-  describe('createFamilyMember', () => {
-    it('transitions through loading states correctly', () => {
-      const request: CreateFamilyMemberRequest = {
-        name: 'John Doe',
-        age: 30
-      };
-
-      const createResponse$ = new Subject<string>();
-      const loadResponse$ = new Subject<FamilyMember[]>();
-      
-      apiService.createFamilyMember.mockReturnValue(createResponse$);
-      apiService.getFamilyMembers.mockReturnValue(loadResponse$);
-
-      // Initial state
-      expect(store.getCreateStatus()).toEqual(initialDataLoadingStatus);
-
-      // Start creation
-      store.createFamilyMember(request);
-
-      // Should be in loading state
-      expect(store.getCreateStatus()).toEqual(dataLoadingStatus);
-
-      // Complete creation
-      createResponse$.next('123');
-      createResponse$.complete();
-
-      // Load updated list
-      loadResponse$.next([mockFamilyMember]);
-      loadResponse$.complete();
-
-      // Should be in loaded state
-      expect(store.getCreateStatus()).toEqual(dataLoadedStatus);
-    });
-
-    it('creates family member and reloads list', () => {
-      const request: CreateFamilyMemberRequest = {
-        name: 'John Doe',
-        age: 30
-      };
-
-      apiService.createFamilyMember.mockReturnValue(of('123'));
-      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMember]));
-
-      store.createFamilyMember(request);
-
-      expect(apiService.createFamilyMember).toHaveBeenCalledWith(request);
-      expect(apiService.getFamilyMembers).toHaveBeenCalled();
-      expect(store.getCreateStatus()).toEqual(dataLoadedStatus);
-    });
-
-    it('handles error when creating family member fails', () => {
-      const error = new Error('Failed to create');
-      const request: CreateFamilyMemberRequest = {
-        name: 'John Doe',
-        age: 30
-      };
-
-      apiService.createFamilyMember.mockReturnValue(throwError(() => error));
-
-      store.createFamilyMember(request);
-
-      expect(store.getCreateStatus()).toEqual(dataErrorStatus(error));
-    });
-  });
-
   describe('selectFamilyMember', () => {
     it('selects family member by id', () => {
-      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMember]));
+      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMemberResponse]));
       
       store.loadFamilyMembers();
       store.selectFamilyMember(mockFamilyMember.id);
@@ -156,11 +101,11 @@ describe('FamilyMembersStore', () => {
       const params = {
         familyMemberId: '123',
         allergen: 'peanuts',
-        severity: AllergenSeverity.NotAllowed
+        severity: 'NotAllowed' as 'NotAllowed' | 'AvailableForOthers'
       };
 
       apiService.addAllergy.mockReturnValue(of(void 0));
-      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMember]));
+      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMemberResponse]));
 
       store.addAllergy(params);
 
@@ -179,7 +124,7 @@ describe('FamilyMembersStore', () => {
       const params = {
         familyMemberId: '123',
         allergen: 'peanuts',
-        severity: AllergenSeverity.NotAllowed
+        severity: 'NotAllowed' as 'NotAllowed' | 'AvailableForOthers'
       };
 
       apiService.addAllergy.mockReturnValue(throwError(() => error));
@@ -198,7 +143,7 @@ describe('FamilyMembersStore', () => {
       };
 
       apiService.addSafeFood.mockReturnValue(of(void 0));
-      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMember]));
+      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMemberResponse]));
 
       store.addSafeFood(params);
 
@@ -231,11 +176,11 @@ describe('FamilyMembersStore', () => {
       const params = {
         familyMemberId: '123',
         foodItem: 'rice',
-        status: FoodPreferenceStatus.Include
+        status: 'Include' as 'Include' | 'AvailableForOthers' | 'NotAllowed'
       };
 
       apiService.addFoodPreference.mockReturnValue(of(void 0));
-      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMember]));
+      apiService.getFamilyMembers.mockReturnValue(of([mockFamilyMemberResponse]));
 
       store.addFoodPreference(params);
 
@@ -254,7 +199,7 @@ describe('FamilyMembersStore', () => {
       const params = {
         familyMemberId: '123',
         foodItem: 'rice',
-        status: FoodPreferenceStatus.Include
+        status: 'Include' as 'Include' | 'AvailableForOthers' | 'NotAllowed'
       };
 
       apiService.addFoodPreference.mockReturnValue(throwError(() => error));
@@ -284,7 +229,11 @@ describe('FamilyMembersStore', () => {
       expect(store.getLoadStatus()).toEqual(dataLoadingStatus);
 
       // Start allergy operation - should be independent
-      store.addAllergy({ familyMemberId: '123', allergen: 'peanuts', severity: AllergenSeverity.NotAllowed });
+      store.addAllergy({ 
+        familyMemberId: '123', 
+        allergen: 'peanuts', 
+        severity: 'NotAllowed' as 'NotAllowed' | 'AvailableForOthers' 
+      });
       tick();
       expect(store.getAllergyStatus()).toEqual(dataLoadingStatus);
 
@@ -293,7 +242,7 @@ describe('FamilyMembersStore', () => {
       tick();
       
       // Complete second load successfully
-      secondLoadResponse$.next([mockFamilyMember]);
+      secondLoadResponse$.next([mockFamilyMemberResponse]);
       secondLoadResponse$.complete();
       tick();
       expect(store.getLoadStatus()).toEqual(dataLoadedStatus);
@@ -314,5 +263,98 @@ describe('FamilyMembersStore', () => {
       expect(store.getAllergyStatus()).toEqual(dataErrorStatus(error));
       expect(store.familyMembers()).toEqual([mockFamilyMember]);
     }));
+  });
+
+  describe('createCompleteFamilyMember', () => {
+    it('transitions through loading states correctly', () => {
+      const input: CreateCompleteFamilyMember = {
+        name: 'John Doe',
+        age: 30,
+        allergies: [
+          { allergen: 'peanuts', severity: AllergenSeverity.NotAllowed }
+        ],
+        safeFoods: [
+          { foodItem: 'pasta' }
+        ],
+        foodPreferences: [
+          { preference: 'rice', status: FoodPreferenceStatus.Include }
+        ]
+      };
+
+      const response$ = new Subject<FamilyMemberResponse>();
+      
+      apiService.createCompleteFamilyMember.mockReturnValue(response$);
+
+      // Initial state
+      expect(store.getCreateCompleteStatus()).toEqual(initialDataLoadingStatus);
+
+      // Start creation
+      store.createCompleteFamilyMember(input);
+
+      // Should be in loading state
+      expect(store.getCreateCompleteStatus()).toEqual(dataLoadingStatus);
+
+      // Complete creation
+      response$.next(mockFamilyMemberResponse);
+      response$.complete();
+
+      // Should be in loaded state
+      expect(store.getCreateCompleteStatus()).toEqual(dataLoadedStatus);
+    });
+
+    it('creates complete family member and updates list', () => {
+      const input: CreateCompleteFamilyMember = {
+        name: 'John Doe',
+        age: 30,
+        allergies: [
+          { allergen: 'peanuts', severity: AllergenSeverity.NotAllowed }
+        ],
+        safeFoods: [
+          { foodItem: 'pasta' }
+        ],
+        foodPreferences: [
+          { preference: 'rice', status: FoodPreferenceStatus.Include }
+        ]
+      };
+
+      const expectedRequest: CreateCompleteFamilyMemberRequest = {
+        name: 'John Doe',
+        age: 30,
+        allergies: [
+          { allergen: 'peanuts', severity: 'NotAllowed' }
+        ],
+        safeFoods: [
+          { foodItem: 'pasta' }
+        ],
+        foodPreferences: [
+          { foodItem: 'rice', status: 'Include' }
+        ]
+      };
+
+      apiService.createCompleteFamilyMember.mockReturnValue(of(mockFamilyMemberResponse));
+
+      store.createCompleteFamilyMember(input);
+
+      expect(apiService.createCompleteFamilyMember).toHaveBeenCalledWith(expectedRequest);
+      expect(store.familyMembers()).toEqual([mockFamilyMember]);
+      expect(store.getCreateCompleteStatus()).toEqual(dataLoadedStatus);
+    });
+
+    it('handles error when creating complete family member fails', () => {
+      const error = new Error('Failed to create');
+      const input: CreateCompleteFamilyMember = {
+        name: 'John Doe',
+        age: 30,
+        allergies: [],
+        safeFoods: [],
+        foodPreferences: []
+      };
+
+      apiService.createCompleteFamilyMember.mockReturnValue(throwError(() => error));
+
+      store.createCompleteFamilyMember(input);
+
+      expect(store.getCreateCompleteStatus()).toEqual(dataErrorStatus(error));
+    });
   });
 }); 

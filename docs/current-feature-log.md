@@ -34,3 +34,26 @@ Files:
 Related Documents:
 - Architecture: `docs/architecture/testing.md` - Testing strategy reference
 - Project Structure: Clean architecture guidelines for Application layer
+
+** 2024-03-28 14:00 - Family Member Creation - Refactor - Completed **
+
+Updated family member creation to use a single API call for complete member creation.
+
+Details:
+- Added new complete family member creation endpoint in API
+- Updated DTOs and models to support complete creation
+- Refactored store to handle complete creation
+- Updated add family member page to use new complete creation method
+- Added comprehensive test coverage for new functionality
+- Decision: Simplified creation flow by combining multiple API calls into one
+- Progress: 100% complete
+
+Files:
+- `app/src/app/infrastructure/family/models/family.dto.ts` - Added complete family member request/response DTOs
+- `app/src/app/infrastructure/family/models/family.model.ts` - Updated models to match API
+- `app/src/app/infrastructure/family/services/family-api.service.ts` - Added complete creation endpoint
+- `app/src/app/infrastructure/family/stores/family-members.store.ts` - Added complete creation method
+- `app/src/app/features/settings/pages/add-family-member/add-family-member.page.ts` - Updated to use complete creation
+
+Related:
+- API Docs: docs/reference/api/family-memeber-api.md

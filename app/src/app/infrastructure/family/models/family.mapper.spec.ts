@@ -2,7 +2,11 @@ import {
   mapFamilyMemberResponseToModel, 
   mapAllergyResponseToModel,
   mapSafeFoodResponseToModel,
-  mapFoodPreferenceResponseToModel
+  mapFoodPreferenceResponseToModel,
+  createFamilyMemeberRequest,
+  mapAllergyToAllergyRequest,
+  mapSafeFoodToSafeFoodRequest,
+  mapFoodPreferenceToFoodPreferenceRequest
 } from './family.mapper';
 import { AllergenSeverity, FoodPreferenceStatus } from './family.model';
 import { FamilyMemberResponse } from './family.dto';
@@ -48,7 +52,7 @@ describe('Family Mappers', () => {
       const result = mapFoodPreferenceResponseToModel(response);
 
       expect(result).toEqual({
-        foodItem: 'rice',
+        preference: 'rice',
         status: FoodPreferenceStatus.Include
       });
     });
@@ -84,7 +88,7 @@ describe('Family Mappers', () => {
           { foodItem: 'pasta' }
         ],
         foodPreferences: [
-          { foodItem: 'rice', status: FoodPreferenceStatus.Include }
+          { preference: 'rice', status: FoodPreferenceStatus.Include }
         ]
       });
     });
@@ -104,6 +108,138 @@ describe('Family Mappers', () => {
       expect(result.allergies).toEqual([]);
       expect(result.safeFoods).toEqual([]);
       expect(result.foodPreferences).toEqual([]);
+    });
+  });
+
+  describe('mapAllergyToAllergyRequest', () => {
+    it('should map allergy model to request with AvailableForOthers severity', () => {
+      const model = {
+        allergen: 'peanuts',
+        severity: AllergenSeverity.AvailableForOthers
+      };
+
+      const result = mapAllergyToAllergyRequest(model);
+
+      expect(result).toEqual({
+        allergen: 'peanuts',
+        severity: 'AvailableForOthers'
+      });
+    });
+
+    it('should map allergy model to request with NotAllowed severity', () => {
+      const model = {
+        allergen: 'peanuts',
+        severity: AllergenSeverity.NotAllowed
+      };
+
+      const result = mapAllergyToAllergyRequest(model);
+
+      expect(result).toEqual({
+        allergen: 'peanuts',
+        severity: 'NotAllowed'
+      });
+    });
+  });
+
+  describe('mapSafeFoodToSafeFoodRequest', () => {
+    it('should map safe food model to request', () => {
+      const model = {
+        foodItem: 'pasta'
+      };
+
+      const result = mapSafeFoodToSafeFoodRequest(model);
+
+      expect(result).toEqual({
+        foodItem: 'pasta'
+      });
+    });
+  });
+
+  describe('mapFoodPreferenceToFoodPreferenceRequest', () => {
+    it('should map food preference model to request with Include status', () => {
+      const model = {
+        preference: 'rice',
+        status: FoodPreferenceStatus.Include
+      };
+
+      const result = mapFoodPreferenceToFoodPreferenceRequest(model);
+
+      expect(result).toEqual({
+        foodItem: 'rice',
+        status: 'Include'
+      });
+    });
+
+    it('should map food preference model to request with AvailableForOthers status', () => {
+      const model = {
+        preference: 'rice',
+        status: FoodPreferenceStatus.AvailableForOthers
+      };
+
+      const result = mapFoodPreferenceToFoodPreferenceRequest(model);
+
+      expect(result).toEqual({
+        foodItem: 'rice',
+        status: 'AvailableForOthers'
+      });
+    });
+
+    it('should map food preference model to request with NotAllowed status', () => {
+      const model = {
+        preference: 'rice',
+        status: FoodPreferenceStatus.NotAllowed
+      };
+
+      const result = mapFoodPreferenceToFoodPreferenceRequest(model);
+
+      expect(result).toEqual({
+        foodItem: 'rice',
+        status: 'NotAllowed'
+      });
+    });
+  });
+
+  describe('createFamilyMemeberRequest', () => {
+    it('should create a complete family member request', () => {
+      const name = 'John Doe';
+      const age = 30;
+      const allergies = [
+        { allergen: 'peanuts', severity: AllergenSeverity.NotAllowed }
+      ];
+      const safeFoods = [
+        { foodItem: 'pasta' }
+      ];
+      const foodPreferences = [
+        { preference: 'rice', status: FoodPreferenceStatus.Include }
+      ];
+
+      const result = createFamilyMemeberRequest(name, age, allergies, safeFoods, foodPreferences);
+
+      expect(result).toEqual({
+        name: 'John Doe',
+        age: 30,
+        allergies: [
+          { allergen: 'peanuts', severity: 'NotAllowed' }
+        ],
+        safeFoods: [
+          { foodItem: 'pasta' }
+        ],
+        foodPreferences: [
+          { foodItem: 'rice', status: 'Include' }
+        ]
+      });
+    });
+
+    it('should create a request with empty arrays', () => {
+      const result = createFamilyMemeberRequest('John Doe', 30, [], [], []);
+
+      expect(result).toEqual({
+        name: 'John Doe',
+        age: 30,
+        allergies: [],
+        safeFoods: [],
+        foodPreferences: []
+      });
     });
   });
 }); 

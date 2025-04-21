@@ -7,9 +7,6 @@ public class AddCompleteFamilyMemberCommandValidator : AbstractValidator<AddComp
 {
     public AddCompleteFamilyMemberCommandValidator()
     {
-        RuleFor(x => x.UserId)
-            .NotEmpty();
-
         RuleFor(x => x.Name)
             .NotEmpty()
             .MaximumLength(100);

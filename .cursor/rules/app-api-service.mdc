@@ -1,0 +1,135 @@
+---
+description: 
+globs: app/**/*-api.service.ts,app/**/*-api.service.spec.ts
+alwaysApply: false
+---
+# API Service Standards
+
+## Overview
+This document defines the standards for creating and testing API services in the Angular frontend application. All API services should follow these patterns to maintain consistency and testability.
+
+## Service Structure
+
+### Location and Naming
+- API services must be located in `app/src/app/infrastructure/{feature}/services/`
+- Files must be named `{feature}-api.service.ts`
+- Test files must be named `{feature}-api.service.spec.ts`
+
+### Base Structure
+API services must:
+1. Use `@Injectable` decorator with `providedIn: 'root'`
+2. Use dependency injection with `inject()` function for HttpClient
+3. Define a private `baseUrl` constant
+4. Return strongly typed Observables
+
+Example structure from [family-api.service.ts](mdc:app/src/app/infrastructure/family/services/family-api.service.ts):
+```typescript
+@Injectable({
+  providedIn: 'root'
+})
+export class FamilyApiService {
+  private readonly baseUrl = '/settings/family';
+  private readonly http = inject(HttpClient);
+  
+  // Methods here
+}
+```
+
+### Method Standards
+- Methods should return `Observable<T>` with proper typing
+- Use proper HTTP verbs (GET, POST, PUT, DELETE) for operations
+- URL parameters should be properly encoded
+- Request/Response types should be defined in corresponding DTO models
+
+Example method:
+```typescript
+getFamilyMember(id: string): Observable<FamilyMemberResponse> {
+  return this.http.get<FamilyMemberResponse>(`${this.baseUrl}/${id}`);
+}
+```
+
+## Testing Standards
+
+### Test File Structure
+- Use `@ngneat/spectator` for HTTP testing
+- Create test factory using `createHttpFactory`
+- Group tests logically using `describe` blocks
+- Test service instantiation
+- Test each method independently
+
+Example from [family-api.service.spec.ts](mdc:app/src/app/infrastructure/family/services/family-api.service.spec.ts):
+```typescript
+describe('FamilyApiService', () => {
+  let spectator: SpectatorHttp<FamilyApiService>;
+  const createHttp = createHttpFactory(FamilyApiService);
+
+  beforeEach(() => spectator = createHttp());
+
+  it('creates service instance', () => {
+    expect(spectator.service).toBeTruthy();
+  });
+  
+  // Method tests here
+});
+```
+
+### Method Test Requirements
+Each API method must have tests that verify:
+1. Correct HTTP method is used
+2. Correct endpoint URL is called
+3. Request body matches expected format (for POST/PUT)
+4. URL parameters are properly formatted
+5. Query parameters are properly included (if applicable)
+
+Example test:
+```typescript
+describe('createFamilyMember', () => {
+  it('makes POST request to create family member', () => {
+    const request: CreateFamilyMemberRequest = {
+      name: 'John Doe',
+      age: 30
+    };
+    
+    spectator.service.createFamilyMember(request).subscribe();
+    
+    const req = spectator.expectOne('/settings/family', HttpMethod.POST);
+    expect(req.request.body).toEqual(request);
+  });
+});
+```
+
+## DTOs and Models
+- Request/Response DTOs must be defined in `models/{feature}.dto.ts`
+- Use proper typing for all DTOs
+- Separate interfaces for requests and responses
+- Use literal types for enums when appropriate
+
+Example:
+```typescript
+export interface CreateFamilyMemberRequest {
+  name: string;
+  age: number;
+}
+
+export interface FamilyMemberResponse extends CreateFamilyMemberRequest {
+  id: string;
+}
+```
+
+## Error Handling
+- Services should not handle errors directly
+- Let errors propagate to be handled by interceptors or components
+- Use proper HTTP status codes
+- Document expected error responses in comments
+
+## Security
+- Never store sensitive information in the service
+- Use proper HTTP interceptors for authentication
+- Follow OWASP security guidelines
+- Use HTTPS for all requests in production
+
+## Performance
+- Use proper caching strategies when appropriate
+- Consider implementing retry logic for failed requests
+- Use proper RxJS operators for request manipulation
+- Cancel pending requests when appropriate

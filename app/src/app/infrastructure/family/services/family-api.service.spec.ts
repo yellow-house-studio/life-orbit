@@ -1,6 +1,6 @@
 import { createHttpFactory, HttpMethod, SpectatorHttp } from '@ngneat/spectator/jest';
 import { FamilyApiService } from './family-api.service';
-import { CreateFamilyMemberRequest } from '../models/family.dto';
+import { CreateFamilyMemberRequest, CreateCompleteFamilyMemberRequest, FamilyMemberResponse } from '../models/family.dto';
 
 describe('FamilyApiService', () => {
   let spectator: SpectatorHttp<FamilyApiService>;
@@ -41,6 +41,29 @@ describe('FamilyApiService', () => {
       spectator.service.createFamilyMember(request).subscribe();
       
       const req = spectator.expectOne('/settings/family', HttpMethod.POST);
+      expect(req.request.body).toEqual(request);
+    });
+  });
+
+  describe('createCompleteFamilyMember', () => {
+    it('makes POST request to create complete family member', () => {
+      const request: CreateCompleteFamilyMemberRequest = {
+        name: 'John Doe',
+        age: 30,
+        allergies: [
+          { allergen: 'peanuts', severity: 'NotAllowed' }
+        ],
+        safeFoods: [
+          { foodItem: 'pasta' }
+        ],
+        foodPreferences: [
+          { foodItem: 'rice', status: 'Include' }
+        ]
+      };
+      
+      spectator.service.createCompleteFamilyMember(request).subscribe();
+      
+      const req = spectator.expectOne('/settings/family/complete', HttpMethod.POST);
       expect(req.request.body).toEqual(request);
     });
   });

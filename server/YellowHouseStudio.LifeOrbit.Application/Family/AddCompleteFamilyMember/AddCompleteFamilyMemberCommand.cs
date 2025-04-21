@@ -5,8 +5,6 @@ namespace YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember
 
 public record AddCompleteFamilyMemberCommand : ICommand<FamilyMemberResponse>
 {
-    public Guid UserId { get; init; }
-
     public string Name { get; init; } = string.Empty;
 
     public int Age { get; init; }
