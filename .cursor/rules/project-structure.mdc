@@ -1,0 +1,105 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Structure
+
+## Overview
+LifeOrbit is a monorepo containing two main applications:
+- `app/` - Angular frontend application (UI)
+- `server/` - .NET backend application (API)
+
+When discussing or working with the codebase:
+- Terms like "app", "UI", or "frontend" refer to the `app/` directory
+- Terms like "backend", "API", or "server" refer to the `server/` directory
+
+## Frontend Structure (app/)
+Angular application with the following structure:
+- `src/` - Main application source code
+  - `app/` - Application components and logic
+    - `features/` - Feature-specific modules and components
+    - `infrastructure/` - Core services, models, and utilities
+    - `shared/` - Shared generics components and utilities
+  - `assets/` - Static assets (images, fonts, etc.)
+  - `environments/` - Environment-specific configuration
+
+### Frontend Commands
+All frontend commands must be run from the `app/` directory:
+```bash
+cd app
+npm install    # Install dependencies
+npm start     # Start development server
+npm test      # Run tests
+npm run build # Build for production
+```
+
+## Backend Structure (server/)
+Clean architecture .NET solution with the following projects:
+
+### Core Projects
+- `YellowHouseStudio.LifeOrbit.Domain/` - Domain models and business logic
+  - Contains entities, value objects, and domain services
+  - No dependencies on other projects
+  - Pure C# with no external dependencies
+
+- `YellowHouseStudio.LifeOrbit.Application/` - Application services and interfaces
+  - Contains commands, queries, and their handlers
+  - Implements CQRS pattern
+  - Defines interfaces for infrastructure services
+  - References only the Domain project
+
+### Infrastructure Projects
+- `YellowHouseStudio.LifeOrbit.Infrastructure/` - External services implementation
+  - Implements interfaces from Application layer
+  - Contains database context, migrations, and configurations
+  - External service integrations
+
+- `YellowHouseStudio.LifeOrbit.Api/` - API endpoints and configuration
+  - ASP.NET Core Web API
+  - Controllers and middleware
+  - Dependency injection configuration for the API and its dependencies
+  - API documentation
+
+### Test Projects
+- `YellowHouseStudio.LifeOrbit.Tests.Unit/` - Unit tests
+  - Tests for domain logic and application services
+  - No database or external dependencies
+  - Fast execution
+
+- `YellowHouseStudio.LifeOrbit.Tests.Integration/` - Integration tests
+  - Tests multiple components working together
+  - Uses test database
+  - Tests application services with real dependencies
+
+- `YellowHouseStudio.LifeOrbit.Tests.API/` - API tests
+  - End-to-end API tests
+  - Uses in-memory test database
+  - Tests complete request/response cycle
+
+### Backend Commands
+All backend commands must be run from the `server/` directory:
+```bash
+cd server
+dotnet build          # Build solution
+dotnet test          # Run all tests
+```
+
+## Documentation
+- `docs/` - Project documentation
+  - `architecture/` - Architecture decisions and documentation
+    - Contains architectural decision records (ADRs)
+    - System design documents
+    - Current: [testing.md](mdc:docs/architecture/testing.md) - Testing strategy
+  - `reference/` - Technical reference documentation
+    - `api/` - API documentation and specifications
+  - `planning/` - Project planning documents
+    - Sprint planning
+    - Feature roadmaps
+    - Requirements documents
+  - `current-feature-log.md` - Tracks current feature development status
+
+## Development Tools
+- `.vscode/` - VS Code configuration
+- `.cursor/` - Cursor IDE configuration and rules
+- `docker-compose.yml` - Docker configuration for development dependencies

@@ -3,13 +3,14 @@ using MediatR;
 namespace YellowHouseStudio.LifeOrbit.Application.Common.Commands;
 
 /// <summary>
-/// Marker interface for commands that need transaction behavior and return a response.
-/// Commands implementing this interface must have a validator if they take any inputs.
+/// Marker interface for void commands (commands that don't return a value).
+/// Commands implementing this interface automatically get transaction behavior.
 /// </summary>
-public interface ICommand<TResponse> : IRequest<TResponse> { }
+public interface ICommand : IRequest { }
 
 /// <summary>
-/// Marker interface for commands that need transaction behavior and don't return a response.
-/// Commands implementing this interface must have a validator if they take any inputs.
+/// Marker interface for commands that return a value.
+/// Commands implementing this interface automatically get transaction behavior.
 /// </summary>
-public interface ICommand : IRequest { } 
+/// <typeparam name="TResponse">The type of response returned by the command</typeparam>
+public interface ICommand<out TResponse> : IRequest<TResponse> { } 

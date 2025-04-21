@@ -1,0 +1,115 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Current Feature Log Guidelines
+
+## Purpose
+The current feature log, [current-feature-log.md](mdc:docs/current-feature-log.md), serves as a comprehensive record of development progress, decisions, and implementation details. It helps maintain clear progress tracking and ensures all team members understand the current state of features.
+
+## Log Entry Structure
+Each log entry should follow this structure:
+
+### 1. Header (Required)
+```markdown
+** YYYY-MM-DD HH:MM - [Feature Name] - [Action Type] - [Status] **
+```
+- Action Type: Implementation, Refactor, Fix, Documentation, etc.
+- Status: Started, In Progress, Completed, Blocked
+
+### 2. Summary (Required)
+Brief description of what was done or what is being started.
+
+### 3. Details (Required)
+Include:
+- Specific changes/implementations made
+- Technical decisions and their rationale
+- Deviations from original plans (if any)
+- Dependencies on other features/components
+- Current progress status for ongoing work
+
+### 4. Files (Required)
+List of files affected, using proper formatting:
+```markdown
+Files:
+- `path/to/file1.ts` - Brief description of changes
+- `path/to/file2.ts` - Brief description of changes
+```
+
+### 5. Next Steps (Required for non-completed items)
+- Clear list of remaining tasks
+- Known blockers or dependencies
+- Expected completion timeline
+
+### 6. Related Documents (Optional)
+Links to:
+- Design documents
+- Planning documents
+- Related issues/tickets
+- Architecture decisions
+
+## Example Entry
+```markdown
+** 2024-03-28 10:00 - Table of Contents - Implementation - In Progress **
+
+Added core infrastructure components for table of contents feature.
+
+Details:
+- Created DTO and domain models for table of contents
+- Implemented API service with proper endpoint structure
+- Added comprehensive test coverage for models and services
+- Decision: Used separate models for API and domain to maintain clean architecture
+- Progress: 40% complete (Infrastructure layer done, starting components)
+
+Files:
+- `infrastructure/table-of-contents/models/table-of-contents.model.ts` - Core domain models
+- `infrastructure/table-of-contents/dtos/table-of-contents.dto.ts` - API DTOs
+- `infrastructure/table-of-contents/services/table-of-contents.api.service.ts` - API service
+- `infrastructure/table-of-contents/services/table-of-contents.api.service.spec.ts` - Tests
+
+Next Steps:
+1. Implement component hierarchy (2 days)
+2. Add store implementation (1 day)
+3. Create coordinator service (1 day)
+
+Related:
+- Design: docs/design/table-of-contents-structure.md
+- Plan: docs/temp/plans/table-of-contents-implementation.md
+```
+
+## Best Practices
+
+1. **Regular Updates**
+   - Update the log at least daily when working on a feature
+   - Add entries for significant milestones or decisions
+   - Document blockers or issues immediately
+
+2. **Clear Progress Tracking**
+   - Use consistent status indicators
+   - Include percentage complete for larger features
+   - List specific remaining tasks
+
+3. **Decision Documentation**
+   - Document important technical decisions
+   - Explain deviations from original plans
+   - Include rationale for significant changes
+
+4. **Linking**
+   - Link to relevant documentation
+   - Reference related features or dependencies
+   - Include links to design documents
+
+5. **Maintenance**
+   - Keep entries chronological
+   - Update status of ongoing items
+   - Mark completed features clearly
+
+## Note
+This log is crucial for:
+- Progress tracking
+- Knowledge sharing
+- Decision documentation
+- Historical reference
+
+Keep it up to date and detailed to help both current and future development efforts.

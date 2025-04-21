@@ -6,9 +6,9 @@ namespace YellowHouseStudio.LifeOrbit.Application.Common.Behaviors;
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull
 {
-    private readonly ILogger _logger;
+    private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
 
-    public LoggingBehavior(ILogger logger)
+    public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
     {
         _logger = logger;
     }
@@ -16,17 +16,24 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         var requestName = typeof(TRequest).Name;
+        var requestId = Guid.NewGuid().ToString();
+
+        _logger.LogInformation("Beginning request {RequestName} [{RequestId}]", requestName, requestId);
         
-        _logger.LogInformation(
-            "Handling {RequestName} {@Request}",
-            requestName, request);
+        try
+        {
+            var response = await next();
 
-        var response = await next();
+            _logger.LogInformation("Completed request {RequestName} [{RequestId}]", 
+                requestName, requestId);
 
-        _logger.LogInformation(
-            "Handled {RequestName} with {@Response}",
-            requestName, response);
-
-        return response;
+            return response;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Request {RequestName} [{RequestId}] failed", 
+                requestName, requestId);
+            throw;
+        }
     }
 } 

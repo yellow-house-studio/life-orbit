@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using YellowHouseStudio.LifeOrbit.Application.Common.Commands;
 using YellowHouseStudio.LifeOrbit.Application.Data;
@@ -26,21 +27,31 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
             return await next();
         }
 
-        _logger.LogDebug("Beginning transaction for command {CommandType}", typeof(TRequest).Name);
-        using var transaction = await _dbContext.Database.BeginTransactionAsync(cancellationToken);
-        try
+        var strategy = _dbContext.Database.CreateExecutionStrategy();
+
+        return await strategy.ExecuteAsync(async () =>
         {
-            var response = await next();
-            await _dbContext.SaveChangesAsync(cancellationToken);
-            await transaction.CommitAsync(cancellationToken);
-            _logger.LogDebug("Transaction committed for command {CommandType}", typeof(TRequest).Name);
-            return response;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error executing command {CommandType}, rolling back transaction", typeof(TRequest).Name);
-            await transaction.RollbackAsync(cancellationToken);
-            throw;
-        }
+            using var transaction = await _dbContext.Database.BeginTransactionAsync(cancellationToken);
+
+            try
+            {
+                _logger.LogInformation("Beginning transaction for {RequestName}", typeof(TRequest).Name);
+                
+                var response = await next();
+                
+                await _dbContext.SaveChangesAsync(cancellationToken);
+                await transaction.CommitAsync(cancellationToken);
+
+                _logger.LogInformation("Committed transaction for {RequestName}", typeof(TRequest).Name);
+
+                return response;
+            }
+            catch (Exception)
+            {
+                _logger.LogInformation("Rolling back transaction for {RequestName}", typeof(TRequest).Name);
+                await transaction.RollbackAsync(cancellationToken);
+                throw;
+            }
+        });
     }
 } 

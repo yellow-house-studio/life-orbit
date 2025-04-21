@@ -1,6 +1,6 @@
 ---
 description: 
-globs: server/YellowHouseStudio.LifeOrbit.*.Tests/**/*Tests.cs
+globs: *Tests.cs
 alwaysApply: false
 ---
 # Backend Testing Standards
@@ -17,7 +17,6 @@ alwaysApply: false
 - Use `[Test]` attribute for test methods
 - Use `[SetUp]` for common test initialization
 - Use `[TearDown]` for cleanup if needed
-- Use `Assert.That()` with constraint model for assertions
 - Use `[TestCase]` for parameterized tests
 - Example assertions:
   ```csharp

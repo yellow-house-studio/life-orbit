@@ -10,14 +10,6 @@ namespace YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family;
 [TestFixture]
 public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
 {
-    private AddCompleteFamilyMemberCommandHandler _handler = null!;
-
-    [SetUp]
-    public void Setup()
-    {
-        _handler = new AddCompleteFamilyMemberCommandHandler(Context);
-    }
-
     [Test]
     public async Task Handle_adds_complete_family_member_with_all_details()
     {
@@ -42,7 +34,7 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
         };
 
         // Act
-        var result = await _handler.Handle(command, CancellationToken.None);
+        var result = await Mediator.Send(command, CancellationToken.None);
 
         // Assert
         result.Should().NotBeNull();
@@ -99,8 +91,8 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
         };
 
         // Act
-        var result1 = await _handler.Handle(command1, CancellationToken.None);
-        var result2 = await _handler.Handle(command2, CancellationToken.None);
+        var result1 = await Mediator.Send(command1, CancellationToken.None);
+        var result2 = await Mediator.Send(command2, CancellationToken.None);
 
         // Assert
         result1.Id.Should().NotBe(result2.Id);

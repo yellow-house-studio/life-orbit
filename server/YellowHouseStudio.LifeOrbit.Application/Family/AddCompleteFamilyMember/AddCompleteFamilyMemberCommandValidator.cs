@@ -15,7 +15,8 @@ public class AddCompleteFamilyMemberCommandValidator : AbstractValidator<AddComp
             .MaximumLength(100);
 
         RuleFor(x => x.Age)
-            .InclusiveBetween(0, 120);
+            .InclusiveBetween(0, 120)
+            .WithMessage("Age must be between 0 and 120");
 
         RuleForEach(x => x.Allergies)
             .SetValidator(new AllergyValidator());

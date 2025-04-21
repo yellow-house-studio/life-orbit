@@ -1,0 +1,156 @@
+---
+description: 
+globs: server/YellowHouseStudio.LifeOrbit.Tests.Integration/**/*Tests.cs
+alwaysApply: false
+---
+# Backend Integration Testing Guidelines
+
+## Overview
+Integration tests verify that components work together correctly through the full MediatR pipeline. All integration tests inherit from [TestBase.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/TestBase.cs) which provides the necessary infrastructure.
+
+## Test Base Class Features
+The `TestBase` class provides:
+- In-memory database context
+- Full MediatR pipeline setup
+- Logging infrastructure
+- Service provider management
+
+## Test Structure
+
+### Class Setup
+```csharp
+[TestFixture]
+public class YourCommandHandlerTests : TestBase
+{
+    // No need for handler setup - MediatR handles instantiation
+}
+```
+
+### Test Method Pattern
+Each test should follow this structure:
+```csharp
+[Test]
+public async Task MethodName_scenario_expected_outcome()
+{
+    // Arrange
+    var command = new YourCommand 
+    {
+        // Set command properties
+    };
+
+    // Act
+    var result = await Mediator.Send(command, CancellationToken.None);
+
+    // Assert
+    result.Should().NotBeNull();
+    // Additional assertions...
+}
+```
+
+## Best Practices
+
+### 1. Command/Query Testing
+- Use `Mediator.Send()` instead of calling handlers directly
+- Include cancellation token in all requests
+- Test both success and error scenarios
+
+Example from [AddFamilyMemberCommandHandlerTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/Application/Family/AddFamilyMemberCommandHandlerTests.cs):
+```csharp
+var result = await Mediator.Send(command, CancellationToken.None);
+```
+
+### 2. Database Verification
+- Use Entity Framework Include statements for related entities
+- Verify all entity properties and relationships
+- Check for side effects in the database
+
+Example:
+```csharp
+var savedEntity = await Context.Entities
+    .Include(e => e.RelatedEntities)
+    .FirstOrDefaultAsync(e => e.Id == result.Id);
+```
+
+### 3. Test Isolation
+- Each test gets a fresh in-memory database
+- Service provider is properly disposed after each test
+- No shared state between tests
+
+### 4. Assertions
+- Use FluentAssertions for readable assertions
+- Verify both direct results and database state
+- Check all relevant properties and relationships
+
+Example:
+```csharp
+// Direct result assertions
+result.Should().NotBeNull();
+result.Id.Should().NotBeEmpty();
+
+// Database state assertions
+savedEntity.Should().NotBeNull();
+savedEntity!.Property.Should().Be(expectedValue);
+savedEntity.Collection.Should().HaveCount(expectedCount);
+```
+
+### 5. Test Naming
+Follow the pattern: `MethodName_scenario_expected_outcome`
+- MethodName: The method being tested
+- scenario: The specific test case
+- expected_outcome: What should happen
+
+Examples:
+- `Handle_adds_family_member_and_returns_id`
+- `Handle_creates_unique_family_members_for_same_user`
+
+### 6. Data Setup
+- Use meaningful test data
+- Create helper methods for common setup scenarios
+- Avoid magic strings/numbers - use constants or meaningful variables
+
+## Common Patterns
+
+### Testing Unique Constraints
+```csharp
+[Test]
+public async Task Handle_creates_unique_entities()
+{
+    // Arrange
+    var command1 = new YourCommand { /* properties */ };
+    var command2 = new YourCommand { /* properties */ };
+
+    // Act
+    var result1 = await Mediator.Send(command1, CancellationToken.None);
+    var result2 = await Mediator.Send(command2, CancellationToken.None);
+
+    // Assert
+    result1.Should().NotBe(result2);
+}
+```
+
+### Testing Collections
+```csharp
+[Test]
+public async Task Handle_manages_collections_correctly()
+{
+    // Arrange
+    var command = new YourCommand 
+    {
+        Items = new List<ItemDto>
+        {
+            new() { /* properties */ }
+        }
+    };
+
+    // Act
+    var result = await Mediator.Send(command, CancellationToken.None);
+
+    // Assert
+    var saved = await Context.Entities
+        .Include(e => e.Items)
+        .FirstOrDefaultAsync(e => e.Id == result.Id);
+    
+    saved.Items.Should().HaveCount(1);
+    saved.Items[0].Property.Should().Be(expectedValue);
+}
+```

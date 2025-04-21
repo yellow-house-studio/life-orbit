@@ -1,6 +1,6 @@
 ---
 description: 
-globs: server/YellowHouseStudio.LifeOrbit.Application/**.cs
+globs: server/YellowHouseStudio.LifeOrbit.Application/**/*.cs
 alwaysApply: false
 ---
 # Application Layer Conventions
@@ -8,30 +8,65 @@ alwaysApply: false
 ## Project Structure
 The Application layer is organized using feature folders, with each feature containing operation-specific folders. Example:
 - `Family/` - Feature folder
+  - `Common/` - For models and services used by multiple command/queries in this feature
+    - Models (DTOs, Request/Response objects)
+    - Validators for shared models
   - `GetFamilyMembers/` - Operation folder
   - `AddFamilyMember/` - Operation folder
 
-## File Naming Conventions
-
-### Query/Command Files
+## File Naming and Model Conventiles
 - Query files should be named `{Operation}Query.cs`
-- Example: [GetFamilyMembersQuery.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/GetFamilyMembers/GetFamilyMembersQuery.cs)
+- Command files should be named `{Operation}Command.cs`
+- Example: `GetFamilyMembersQuery.cs`
 
-### Response Classes
-- Response classes should use the `Response` suffix
-- Each response class should be focused on a specific data transfer need
-- Examples from [GetFamilyMembersQuery.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/GetFamilyMembers/GetFamilyMembersQuery.cs):
-  - `FamilyMemberResponse`
-  - `AllergyResponse`
-  - `SafeFoodResponse`
-  - `FoodPreferenceResponse`
+### Model Naming Conventions
+- Use `Response` suffix for models only used as responses
+- Use `Request` ed as requests
+- Use `Dto` suffix for models used in both input and output scenarios
+- Examples:
+  ```csharp
+  public record GetFamilyMembersResponse;  // Only used as response
+  public record AddFamilyMemberRequest;     // Only used as request
+  public record FamilyMemberDto;           // Used for both input/output
+  ```
+
+### Factory Methods
+- Use static factory methods to map between Request/Response/Dto models and domain models
+- Place factory methods in the model classes they create
+- Example:
+  ```csharp
+  public static FamilyMemberResponse FromDomain(FamilyMember member) => new()
+  {
+      Id = member.Id,
+      Name = member.Name
+  };
+  ```
 
 ## Code Organization
 
 ### CQRS Pattern
 - Queries implement `IRequest<TResponse>` from MediatR
-- Query records should be immutable and contain only the necessary parameters
-- Example: `public record GetFamilyMembersQuery(Guid UserId) : IRequest<List<FamilyMemberResponse>>;`
+- Commands must implement `ICommand<TResponse>` or `ICommand` (for void commands)
+- Commands automatically get transaction behavior through the `TransactionBehavior`
+- Commands with any inputs (properties or constructor parameters) MUST have at least one validator
+- Query/Command records should be immutable and contain only the necessary parameters
+- Example: 
+  ```csharp
+  // Query
+  public record GetFamilyMembersQuery(Guid UserId) : IRequest<List<FamilyMemberResponse>>;
+  
+  // Command with validator requirement
+  public record AddFamilyMemberCommand(string Name, int Age) : ICommand<FamilyMemberResponse>;
+  
+  public class AddFamilyMemberCommandValidator : AbstractValidator<AddFamilyMemberCommand>
+  {
+      public AddFamilyMemberCommandValidator()
+      {
+          RuleFor(x => x.Name).NotEmpty();
+          RuleFor(x => x.Age).GreaterThan(0);
+      }
+  }
+  ```
 
 ### Response Classes
 - Properties should be properly nullable with `= null!` where appropriate
@@ -44,6 +79,69 @@ The Application layer is organized using feature folders, with each feature cont
       public List<AllergyResponse> Allergies { get; set; } = new();
   }
   ```
+
+### Handlers
+- Use DbContext directly to manipulate data
+- No need to explicitly call SaveChanges() due to transaction behavior middleware
+- Example:
+  ```csharp
+  public class AddFamilyMemberHandler : IRequestHandler<AddFamilyMemberCommand, FamilyMemberResponse>
+  {
+      private readonly ApplicationDbContext _context;
+      private readonly ILogger<AddFamilyMemberHandler> _logger;
+      
+      public async Task<FamilyMemberResponse> Handle(AddFamilyMemberCommand request, CancellationToken token)
+      {
+          var member = new FamilyMember(request.Name);
+          _context.FamilyMembers.Add(member);
+          // No need for _context.SaveChanges() due to transaction behavior
+          return FamilyMemberResponse.FromDomain(member);
+      }
+  }
+  ```
+
+### Validation
+- Commands MUST have a validator defined if they have any inputs
+- Queries MAY have validators if needed
+- Place shared model validators in the feature's Common folder
+- Validation is automatically enforced by the `ValidationBehavior`
+- Example:
+  ```csharp
+  public class AddFamilyMemberCommandValidator : AbstractValidator<AddFamilyMemberCommand>
+  {
+      public AddFamilyMemberCommandValidator()
+      {
+          RuleFor(x => x.Name).NotEmpty();
+      }
+  }
+  ```
+
+### Logging
+- Use ILogger<T> for structured logging
+- Log at appropriate levels:
+  - Trace: Detailed flow information
+  - Debug: Useful debugging information
+  - Information: General flow of the application
+  - Warning: Handled issues or potential problems
+  - Error: Unhandled exceptions or serious issues
+- Use semantic logging with structured data
+- Example:
+  ```csharp
+  _logger.LogInformation("Created family member {MemberId} for user {UserId}", member.Id, request.UserId);
+  ```
+
+## Testing
+
+### Integration Tests
+- Place integration tests in the `Tests.Integration` project
+- Follow the same folder structure as the application layer
+- Example path: `Tests.Integration/Application/Family/AddFamilyMember/AddFamilyMemberCommandHandlerTests.cs`
+- Test the full flow including database operations
+
+### Unit Tests
+- Place unit tests in the `Tests.Unit` project
+- Validators MUST have unit tests
+- Example path: `Tests.Unit/Application/Family/AddFamilyMember/AddFamilyMemberCommandValidatorTests.cs`
 
 ## Namespace Convention
 - Namespace should follow the folder structure

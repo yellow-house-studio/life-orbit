@@ -1,0 +1,122 @@
+---
+description: 
+globs: *.cs
+alwaysApply: false
+---
+# C# Backend Conventions
+
+## General Coding Style
+
+### Class and Constructor Patterns
+- Use primary constructors when possible for cleaner, more concise code:
+  ```csharp
+  // Preferred
+  public class WeatherService(ILogger<WeatherService> logger, IWeatherClient client)
+  {
+      private readonly ILogger<WeatherService> _logger = logger;
+      private readonly IWeatherClient _client = client;
+  }
+
+  // Instead of
+  public class WeatherService
+  {
+      private readonly ILogger<WeatherService> _logger;
+      private readonly IWeatherClient _client;
+
+      public WeatherService(ILogger<WeatherService> logger, IWeatherClient client)
+      {
+          _logger = logger;
+          _client = client;
+      }
+  }
+  ```
+
+### Logging Practices
+- Use `ILogger<T>` from Microsoft.Extensions.Logging
+- Choose appropriate log levels:
+  ```csharp
+  // Trace - For detailed flow debugging
+  _logger.LogTrace("Entering method {Method} with parameters {Params}", nameof(ProcessOrder), orderParams);
+
+  // Debug - For development-time debugging
+  _logger.LogDebug("Processing order {OrderId} with {ItemCount} items", order.Id, order.Items.Count);
+
+  // Information - For tracking the general flow
+  _logger.LogInformation("Order {OrderId} was successfully processed", order.Id);
+
+  // Warning - For handled issues or potential problems
+  _logger.LogWarning("Retry {RetryCount} of {MaxRetries} for order {OrderId}", retryCount, maxRetries, orderId);
+
+  // Error - For unhandled exceptions or serious issues
+  _logger.LogError(ex, "Failed to process order {OrderId}", orderId);
+  ```
+- Use semantic logging with structured data
+- Avoid logging sensitive information
+
+### Async/Await Best Practices
+- Always use async/await instead of Task.Result or .Wait()
+- Use cancellation tokens for long-running operations
+- Follow the async naming convention:
+  ```csharp
+  public async Task<Order> GetOrderAsync(Guid orderId, CancellationToken cancellationToken)
+  ```
+
+### SOLID Principles
+- Single Responsibility: Each class should have one reason to change
+- Open/Closed: Open for extension, closed for modification
+- Liskov Substitution: Derived classes must be substitutable for their base types
+- Interface Segregation: Many client-specific interfaces are better than one general-purpose interface
+- Dependency Inversion: Depend on abstractions, not concretions
+
+### Error Handling
+- Use custom exceptions for domain-specific errors
+- Catch specific exceptions, not Exception
+- Include relevant context in exception messages
+- Use exception filters when appropriate:
+  ```csharp
+  catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+  ```
+
+### Immutability and Value Objects
+- Use records for DTOs and value objects
+- Make properties init-only where possible:
+  ```csharp
+  public record OrderDto
+  {
+      public Guid Id { get; init; }
+      public string CustomerName { get; init; } = string.Empty;
+      public decimal TotalAmount { get; init; }
+  }
+  ```
+
+### Dependency Injection
+- Register services with appropriate lifetimes (Singleton, Scoped, Transient)
+- Use constructor injection over property injection
+- Follow the "Constructor over-injection is a smell" principle
+
+### Testing
+- Write unit tests for business logic
+- Use meaningful test names that describe the scenario
+- Follow the Arrange-Act-Assert pattern
+- Use test data builders when appropriate
+- Mock only what you own
+
+### Performance Considerations
+- Use `StringBuilder` for complex string operations
+- Implement `IDisposable` properly when dealing with unmanaged resources
+- Use async/await for I/O operations
+- Consider using `ValueTask<T>` for high-performance scenarios
+- Use appropriate collection types (List, HashSet, Dictionary)
+
+### Code Organization
+- Keep methods small and focused
+- Use meaningful names that reveal intent
+- Group related functionality into classes
+- Use regions sparingly, prefer good class organization
+- Follow the "Tell, Don't Ask" principle
+
+### Documentation
+- Write XML documentation for public APIs
+- Include examples in documentation when appropriate
+- Document exceptions that can be thrown
+- Use clear and concise commit messages
