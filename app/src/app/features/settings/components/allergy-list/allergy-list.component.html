@@ -1,0 +1,44 @@
+<div class="allergy-list-container">
+  <form [formGroup]="allergyForm" (ngSubmit)="addAllergy()">
+    <mat-form-field>
+      <mat-label>Allergen</mat-label>
+      <input matInput formControlName="allergen" required>
+      @if (allergyForm.get('allergen')?.errors?.['required'] && allergyForm.get('allergen')?.touched) {
+        <mat-error>Allergen is required</mat-error>
+      }
+      @if (allergyForm.get('allergen')?.errors?.['duplicate']) {
+        <mat-error>This allergen is already in the list</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="severity-selector">
+      <label>Severity:</label>
+      <mat-radio-group formControlName="severity">
+        <mat-radio-button [value]="AllergenSeverity.NotAllowed">
+          Not Allowed
+        </mat-radio-button>
+        <mat-radio-button [value]="AllergenSeverity.AvailableForOthers">
+          Available for Others
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!allergyForm.valid">
+      Add Allergen
+    </button>
+  </form>
+
+  <div class="allergies-list">
+    @for (allergy of allergies; track allergy.allergen) {
+      <mat-chip-row>
+        {{ allergy.allergen }}
+        <span class="severity-indicator" [class.not-allowed]="allergy.severity === AllergenSeverity.NotAllowed">
+          {{ allergy.severity }}
+        </span>
+        <button matChipRemove (click)="removeAllergy(allergy)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+  </div>
+</div> 

@@ -1,0 +1,39 @@
+.allergy-list-container {
+  padding: 1rem 0;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.severity-selector {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  mat-radio-group {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.allergies-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.severity-indicator {
+  margin: 0 0.5rem;
+  font-size: 0.8em;
+  opacity: 0.8;
+
+  &.not-allowed {
+    color: #f44336;
+  }
+} 

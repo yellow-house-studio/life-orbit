@@ -1,0 +1,67 @@
+<div class="food-preferences-list-container">
+  <section class="dietary-preferences">
+    <h3>Common Dietary Preferences</h3>
+    <div class="dietary-chips">
+      @for (diet of DIETARY_PREFERENCES; track diet) {
+        <mat-chip-option
+          (click)="addDietaryPreference(diet)"
+          [selected]="isDietaryPreferenceSelected(diet)"
+        >
+          {{ diet }}
+        </mat-chip-option>
+      }
+    </div>
+  </section>
+
+  <section class="custom-preferences">
+    <h3>Custom Food Preferences</h3>
+    <form [formGroup]="preferenceForm" (ngSubmit)="addPreference()">
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Food Item</mat-label>
+          <input matInput formControlName="foodItem" required>
+          @if (preferenceForm.get('foodItem')?.errors?.['required'] && preferenceForm.get('foodItem')?.touched) {
+            <mat-error>Food item is required</mat-error>
+          }
+          @if (preferenceForm.get('foodItem')?.errors?.['duplicate']) {
+            <mat-error>This food item is already in the list</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" required>
+            <mat-option [value]="FoodPreferenceStatus.Include">Include</mat-option>
+            <mat-option [value]="FoodPreferenceStatus.AvailableForOthers">Available for Others</mat-option>
+            <mat-option [value]="FoodPreferenceStatus.NotAllowed">Not Allowed</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!preferenceForm.valid">
+          Add
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section class="preferences-list">
+    <h3>Current Preferences</h3>
+    <div class="preferences-chips">
+      @for (pref of preferences; track pref.preference) {
+        <mat-chip-row
+          [ngClass]="{
+            'include': pref.status === FoodPreferenceStatus.Include,
+            'available': pref.status === FoodPreferenceStatus.AvailableForOthers,
+            'not-allowed': pref.status === FoodPreferenceStatus.NotAllowed
+          }"
+        >
+          {{ pref.preference }}
+          <span class="status-indicator">{{ pref.status }}</span>
+          <button matChipRemove (click)="removePreference(pref)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      }
+    </div>
+  </section>
+</div> 

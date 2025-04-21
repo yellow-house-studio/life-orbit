@@ -23,7 +23,7 @@ export const mapSafeFoodResponseToModel = (response: SafeFoodResponse): SafeFood
 });
 
 export const mapFoodPreferenceResponseToModel = (response: FoodPreferenceResponse): FoodPreference => ({
-  foodItem: response.foodItem,
+  preference: response.foodItem,
   status: response.status as FoodPreferenceStatus
 });
 

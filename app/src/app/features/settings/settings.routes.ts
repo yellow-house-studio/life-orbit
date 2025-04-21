@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { SettingsPage } from "./pages/settings/settings.page";
 import { FamilyMememberDashboardComponent } from "./pages/family-memember-dashboard/family-memember-dashboard.component";
-import { AddFamilyMemberComponent } from "./pages/settings/add-family-member/add-family-member.component";
+import { AddFamilyMemberPage } from "./pages/add-family-member/add-family-member.page";
 
 export const settingsRoutes: Routes = [
     {
@@ -9,11 +9,11 @@ export const settingsRoutes: Routes = [
         component: SettingsPage
     },
     {
-        path: 'settings/family-member/:familyMemberName',
-        component: FamilyMememberDashboardComponent
+        path: 'settings/family/add',
+        component: AddFamilyMemberPage
     },
     {
-        path: 'settings/family-member/add',
-        component: AddFamilyMemberComponent
+        path: 'settings/family/:id',
+        component: FamilyMememberDashboardComponent
     }
 ];

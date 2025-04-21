@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { FamilyMememberDashboardComponent } from '../family-memember-dashboard/family-memember-dashboard.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ManageFamilyComponent } from '../../containers/manage-family/manage-family.component';
 
 @Component({
   selector: 'app-settings',
-  imports: [ManageFamilyComponent],
+  standalone: true,
+  imports: [CommonModule, RouterModule, ManageFamilyComponent],
   templateUrl: './settings.page.html',
   styleUrl: './settings.page.scss'
 })
-export class SettingsPage {
-
-}
+export class SettingsPage {}

@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --primary-color: #2196f3;
+  --primary-color-dark: #1976d2;
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.54);
+  --surface-color: #ffffff;
+  --error-color: #f44336;
+  --error-color-dark: #d32f2f;
+  --skeleton-color: #e0e0e0;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}

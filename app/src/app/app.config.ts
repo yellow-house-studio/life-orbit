@@ -7,6 +7,7 @@ import { ConsoleLogger } from './infrastructure/common/logging/console-logger';
 import { apiUrlInterceptor } from './infrastructure/common/interceptors/api-url.interceptor';
 import { AppConfig } from './infrastructure/core/configuration/app-config';
 import { initializeApp } from './infrastructure/core/configuration/app-config.factory';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([apiUrlInterceptor]),
       withFetch()
     ),
+    provideAnimations(),
     {
       provide: AppLogger, 
       useClass: ConsoleLogger

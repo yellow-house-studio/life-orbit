@@ -12,22 +12,22 @@ export interface Allergy {
   severity: AllergenSeverity;
 }
 
+export enum AllergenSeverity {
+  AvailableForOthers = 'Available for Others',
+  NotAllowed = 'Not Allowed'
+}
+
 export interface SafeFood {
   foodItem: string;
 }
 
 export interface FoodPreference {
-  foodItem: string;
+  preference: string;
   status: FoodPreferenceStatus;
-}
-
-export enum AllergenSeverity {
-  AvailableForOthers = 'AvailableForOthers',
-  NotAllowed = 'NotAllowed'
 }
 
 export enum FoodPreferenceStatus {
   Include = 'Include',
-  AvailableForOthers = 'AvailableForOthers',
-  NotAllowed = 'NotAllowed'
+  AvailableForOthers = 'Available for Others',
+  NotAllowed = 'Not Allowed'
 } 

@@ -1,0 +1,29 @@
+<div class="safe-foods-list-container">
+  <form [formGroup]="foodForm" (ngSubmit)="addFood()">
+    <mat-form-field>
+      <mat-label>Food Item</mat-label>
+      <input matInput formControlName="foodItem" required>
+      @if (foodForm.get('foodItem')?.errors?.['required'] && foodForm.get('foodItem')?.touched) {
+        <mat-error>Food item is required</mat-error>
+      }
+      @if (foodForm.get('foodItem')?.errors?.['duplicate']) {
+        <mat-error>This food item is already in the list</mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!foodForm.valid">
+      Add Food
+    </button>
+  </form>
+
+  <div class="foods-list">
+    @for (food of safeFoods; track food.foodItem) {
+      <mat-chip-row>
+        {{ food.foodItem }}
+        <button matChipRemove (click)="removeFood(food)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+  </div>
+</div> 

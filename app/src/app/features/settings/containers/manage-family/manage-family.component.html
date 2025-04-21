@@ -1,16 +1,14 @@
 <div class="manage-family-container">
   <header class="manage-family-header">
     <h1>Family Members</h1>
-    <a routerLink="/settings/family-member/add" class="add-member-btn">
-      Add Family Member
-    </a>
+
   </header>
 
   @if (!loadStatus().isLoading) {
     @if (familyMembers().length > 0) {
       <div class="members-grid">
         @for (member of familyMembers(); track member.id) {
-          <a class="member-card" [routerLink]="['/settings/family-member', member.id]">
+          <a class="member-card" [routerLink]="['/settings/family', member.id]">
             <h3>{{ member.name }}</h3>
             <p class="age">Age: {{ member.age }}</p>
             <div class="member-stats">
@@ -29,11 +27,14 @@
             </div>
           </a>
         }
+        <a routerLink="/settings/family/add" class="add-member-btn">
+          Add Family Member
+        </a>
       </div>
     } @else {
       <div class="empty-state">
         <p>No family members added yet.</p>
-        <a routerLink="/settings/family-member/add" class="add-member-btn">
+        <a routerLink="/settings/family/add" class="add-member-btn">
           Add Your First Family Member
         </a>
       </div>

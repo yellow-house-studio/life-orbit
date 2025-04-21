@@ -1,0 +1,108 @@
+<div class="add-family-member-container">
+  <header>
+    <h1>Add Family Member</h1>
+  </header>
+
+  <mat-stepper linear #stepper>
+    <!-- Basic Info Step -->
+    <mat-step [stepControl]="basicInfoForm">
+      <form [formGroup]="basicInfoForm">
+        <ng-template matStepLabel>
+          <div class="step-label">
+            <mat-icon>person</mat-icon>
+            <span>Basic Information</span>
+          </div>
+        </ng-template>
+        
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
+          @if (basicInfoForm.get('name')?.errors?.['required'] && basicInfoForm.get('name')?.touched) {
+            <mat-error>Name is required</mat-error>
+          }
+          @if (basicInfoForm.get('name')?.errors?.['minlength']) {
+            <mat-error>Name must be at least 2 characters</mat-error>
+          }
+          @if (basicInfoForm.get('name')?.errors?.['maxlength']) {
+            <mat-error>Name cannot exceed 100 characters</mat-error>
+          }
+          @if (basicInfoForm.get('name')?.errors?.['pattern']) {
+            <mat-error>Name can only contain letters, spaces, and hyphens</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age" required>
+          @if (basicInfoForm.get('age')?.errors?.['required'] && basicInfoForm.get('age')?.touched) {
+            <mat-error>Age is required</mat-error>
+          }
+          @if (basicInfoForm.get('age')?.errors?.['min']) {
+            <mat-error>Age cannot be negative</mat-error>
+          }
+          @if (basicInfoForm.get('age')?.errors?.['max']) {
+            <mat-error>Age cannot exceed 120</mat-error>
+          }
+        </mat-form-field>
+
+        <div class="button-container">
+          <button mat-button matStepperNext [disabled]="!basicInfoForm.valid">Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- Allergies Step -->
+    <mat-step>
+      <ng-template matStepLabel>
+        <div class="step-label">
+          <mat-icon>warning</mat-icon>
+          <span>Allergies</span>
+        </div>
+      </ng-template>
+      <app-allergy-list
+        [allergies]="allergies"
+        (allergiesChange)="updateAllergies($event)"
+      ></app-allergy-list>
+      <div class="button-container">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <!-- Safe Foods Step -->
+    <mat-step>
+      <ng-template matStepLabel>
+        <div class="step-label">
+          <mat-icon>check_circle</mat-icon>
+          <span>Safe Foods</span>
+        </div>
+      </ng-template>
+      <app-safe-foods-list
+        [safeFoods]="safeFoods"
+        (safeFoodsChange)="updateSafeFoods($event)"
+      ></app-safe-foods-list>
+      <div class="button-container">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <!-- Food Preferences Step -->
+    <mat-step>
+      <ng-template matStepLabel>
+        <div class="step-label">
+          <mat-icon>restaurant</mat-icon>
+          <span>Food Preferences</span>
+        </div>
+      </ng-template>
+      <app-food-preferences-list
+        [preferences]="foodPreferences"
+        (preferencesChange)="updateFoodPreferences($event)"
+      ></app-food-preferences-list>
+      <div class="button-container">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" (click)="save()">Save</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div> 
