@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Npgsql;
+using Serilog.Events;
 
 namespace YellowHouseStudio.LifeOrbit.Api;
 
@@ -14,25 +15,42 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var app = CreateApp(args);
-        
-        // Configure Kestrel to listen on port 80
-        app.Urls.Add("http://[::]:80");
-        
-        app.Run();
+        // Configure Serilog first
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .CreateLogger();
+
+        try
+        {
+            var app = CreateApp(args);
+            
+            // Configure Kestrel to listen on port 80
+            app.Urls.Add("http://[::]:80");
+            
+            app.Run();
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Application start-up failed");
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
     }
 
     public static WebApplication CreateApp(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Configure Serilog
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Information()
-            .WriteTo.Console()
-            .CreateLogger();
-
+        // Add Serilog to the container
         builder.Host.UseSerilog();
+        
+        // Register ILogger explicitly
+        builder.Services.AddSingleton(Log.Logger);
 
         // Configure CORS
         builder.Services.AddCors(options =>
