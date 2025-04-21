@@ -6,35 +6,44 @@ project.lock.json
 *.pyc
 nupkg/
 
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
 # Visual Studio Code
-.vscode/
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Visual Studio
-.vs/
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-build/
-bld/
-[Bb]in/
-[Oo]bj/
-[Oo]ut/
-msbuild.log
-msbuild.err
-msbuild.wrn
-
-# IDE - JetBrains Rider
-.idea/
-*.sln.iml
-.idea/
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
 *.DotSettings.user
+
+# Project specific
+server/**/[Bb]in/
+server/**/[Oo]bj/
+**/bin/
+**/obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
 
 # User-specific files
 *.suo
@@ -43,107 +52,39 @@ msbuild.wrn
 *.sln.docstates
 *.userprefs
 
-# .NET Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-[Ll]ogs/
-
-# Project specific paths
-server/YellowHouseStudio.LifeOrbit.Api/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Api/[Oo]bj/
-server/YellowHouseStudio.LifeOrbit.Application/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Application/[Oo]bj/
-server/YellowHouseStudio.LifeOrbit.Domain/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Domain/[Oo]bj/
-server/YellowHouseStudio.LifeOrbit.Infrastructure/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Infrastructure/[Oo]bj/
-server/YellowHouseStudio.LifeOrbit.Tests.Unit/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Tests.Unit/[Oo]bj/
-server/YellowHouseStudio.LifeOrbit.Tests.Integration/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Tests.Integration/[Oo]bj/
-server/YellowHouseStudio.LifeOrbit.Tests.API/[Bb]in/
-server/YellowHouseStudio.LifeOrbit.Tests.API/[Oo]bj/
-
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
-
-# NuGet Packages
-*.nupkg
-# NuGet Symbol Packages
-*.snupkg
-# The packages folder can be ignored because of Package Restore
-**/[Pp]ackages/*
-# except build/, which is used as an MSBuild target.
-!**/[Pp]ackages/build/
-*.nuget.props
-*.nuget.targets
-
-# Angular
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-/app/dist
-/app/tmp
-/app/out-tsc
-/app/bazel-out
-
-# Node
-node_modules/
-/app/node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
+# IDE
 .idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+*.sln.iml
+.vs/
+*.suo
+*.user
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
-.DS_Store
-Thumbs.db
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+*.db
 
 # Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.env
 appsettings.Development.json
 appsettings.Production.json
 appsettings.Staging.json
+launchSettings.json
+
+# Angular
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+/node_modules/
+/.angular/cache
+.sass-cache/
+/connect.lock/
+/coverage/
+/libpeerconnection.log
+testem.log
+/typings/
 
 # Docker
 .docker/data/
@@ -151,51 +92,11 @@ postgres_data/
 *.dockerfile
 !Dockerfile
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-TestResults/
-coverage/
-
-# Visual Studio IntelliCode
-.vsls.json
-
-# Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-*.sap
-
-# ReSharper
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-
-# .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# Local development settings
-*.Development.json
-launchSettings.json
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Backup & report files
-*.[Bb]ak
-*.tmp
-*.swp
-*.[Cc]ache
-/server/YellowHouseStudio.LifeOrbit.Api/bin
-/server/YellowHouseStudio.LifeOrbit.Api/bin
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
