@@ -32,6 +32,9 @@ msbuild.wrn
 
 # IDE - JetBrains Rider
 .idea/
+*.sln.iml
+.idea/
+*.DotSettings.user
 
 # User-specific files
 *.suo
@@ -55,10 +58,21 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-# .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
+# Project specific paths
+server/YellowHouseStudio.LifeOrbit.Api/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Api/[Oo]bj/
+server/YellowHouseStudio.LifeOrbit.Application/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Application/[Oo]bj/
+server/YellowHouseStudio.LifeOrbit.Domain/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Domain/[Oo]bj/
+server/YellowHouseStudio.LifeOrbit.Infrastructure/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Infrastructure/[Oo]bj/
+server/YellowHouseStudio.LifeOrbit.Tests.Unit/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Tests.Unit/[Oo]bj/
+server/YellowHouseStudio.LifeOrbit.Tests.Integration/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Tests.Integration/[Oo]bj/
+server/YellowHouseStudio.LifeOrbit.Tests.API/[Bb]in/
+server/YellowHouseStudio.LifeOrbit.Tests.API/[Oo]bj/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -71,9 +85,6 @@ ScaffoldingReadMe.txt
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/[Pp]ackages/repositories.config
-# NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
 
@@ -151,4 +162,39 @@ yarn-error.log*
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 TestResults/
-coverage/ 
+coverage/
+
+# Visual Studio IntelliCode
+.vsls.json
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Local development settings
+*.Development.json
+launchSettings.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup & report files
+*.[Bb]ak
+*.tmp
+*.swp
+*.[Cc]ache
+/server/YellowHouseStudio.LifeOrbit.Api/bin
