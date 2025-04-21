@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using FluentAssertions;
 using NUnit.Framework;
 using YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers;
+using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 using YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.API.Family;
@@ -10,7 +11,7 @@ namespace YellowHouseStudio.LifeOrbit.Tests.API.Family;
 public class GetFamilyMembersTests : ApiTestBase
 {
     [Test]
-    public async Task GetFamilyMembers_WithValidUserId_ReturnsEmptyList()
+    public async Task GetFamilyMembers_returns_empty_list_when_no_members()
     {
         // Arrange
         var userId = Guid.NewGuid();

@@ -2,19 +2,16 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using YellowHouseStudio.LifeOrbit.Application.Family.AddFamilyMember;
 using YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers;
+using YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember;
+using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 
 namespace YellowHouseStudio.LifeOrbit.Api.Controllers;
 
 [ApiController]
 [Route("settings/[controller]")]
-public class FamilyController : ControllerBase
+public class FamilyController(IMediator mediator) : ControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public FamilyController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
+    private readonly IMediator _mediator = mediator;
 
     [HttpGet]
     public async Task<ActionResult<List<FamilyMemberResponse>>> GetFamilyMembers([FromQuery] Guid userId)
@@ -29,5 +26,12 @@ public class FamilyController : ControllerBase
     {
         var result = await _mediator.Send(command);
         return Ok(result);
+    }
+
+    [HttpPost("complete")]
+    public async Task<ActionResult<FamilyMemberResponse>> AddCompleteFamilyMember(AddCompleteFamilyMemberCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Created($"settings/family/{result.Id}", result);
     }
 } 

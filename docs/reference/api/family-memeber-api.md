@@ -101,6 +101,83 @@ POST /settings/family
 | 400  | Bad Request. Invalid input or validation errors        |
 | 500  | Internal Server Error                                  |
 
+### Add Complete Family Member
+
+Creates a new family member record with all associated details including allergies, safe foods, and food preferences.
+
+```http
+POST /settings/family/complete
+```
+
+#### Request Body
+
+```typescript
+{
+  "userId": "UUID",
+  "name": "string",
+  "age": "number",
+  "allergies": [
+    {
+      "allergen": "string",
+      "severity": "string" // "AvailableForOthers" or "NotAllowed"
+    }
+  ],
+  "safeFoods": [
+    {
+      "foodItem": "string"
+    }
+  ],
+  "foodPreferences": [
+    {
+      "foodItem": "string",
+      "status": "string" // "Include", "AvailableForOthers", or "NotAllowed"
+    }
+  ]
+}
+```
+
+#### Validation Rules
+
+- **name**
+  - Required
+  - Maximum length: 100 characters
+- **age**
+  - Required
+  - Must be between 0 and 120
+- **userId**
+  - Required
+  - Must be a valid UUID
+- **allergies**
+  - Optional
+  - Array of valid Allergy objects
+- **safeFoods**
+  - Optional
+  - Array of valid SafeFood objects
+- **foodPreferences**
+  - Optional
+  - Array of valid FoodPreference objects
+
+#### Response
+
+```typescript
+{
+  "id": "UUID",          // The ID of the newly created family member
+  "name": "string",
+  "age": "number",
+  "allergies": Allergy[],
+  "safeFoods": SafeFood[],
+  "foodPreferences": FoodPreference[]
+}
+```
+
+#### Response Codes
+
+| Code | Description                                           |
+|------|-------------------------------------------------------|
+| 201  | Created. Returns the complete family member object     |
+| 400  | Bad Request. Invalid input or validation errors        |
+| 500  | Internal Server Error                                  |
+
 ## Data Models
 
 ### FamilyMember

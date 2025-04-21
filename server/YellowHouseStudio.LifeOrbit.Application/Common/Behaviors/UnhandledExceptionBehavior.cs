@@ -1,6 +1,6 @@
 using FluentValidation;
 using MediatR;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Common.Behaviors;
 
@@ -24,7 +24,7 @@ public class UnhandledExceptionBehavior<TRequest, TResponse> : IPipelineBehavior
         {
             var requestName = typeof(TRequest).Name;
 
-            _logger.Error(ex, 
+            _logger.LogError(ex, 
                 "Unhandled Exception for Request {RequestName} {@Request}", 
                 requestName, request);
 

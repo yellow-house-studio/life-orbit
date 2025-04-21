@@ -12,6 +12,9 @@ import { SafeFoodsListComponent } from '../../components/safe-foods-list/safe-fo
 import { FoodPreferencesListComponent } from '../../components/food-preferences-list/food-preferences-list.component';
 import { Allergy, SafeFood, FoodPreference } from '../../../../infrastructure/family/models/family.model';
 import { MatIconModule } from '@angular/material/icon';
+import { FamilyMembersStore } from '../../../../infrastructure/family/stores/family-members.store';
+import { firstValueFrom, Observable } from 'rxjs';
+import { AllergenSeverity, FoodPreferenceStatus } from '../../../../infrastructure/family/models/family.model';
 
 @Component({
   selector: 'app-add-family-member',
@@ -36,6 +39,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class AddFamilyMemberPage {
   private fb = inject(FormBuilder);
   private router = inject(Router);
+  private familyStore = inject(FamilyMembersStore);
 
   basicInfoForm: FormGroup = this.fb.group({
     name: ['', [
@@ -67,17 +71,62 @@ export class AddFamilyMemberPage {
     this.foodPreferences = preferences;
   }
 
-  save() {
+  async save() {
     if (this.basicInfoForm.valid) {
-      const familyMember = {
-        ...this.basicInfoForm.value,
-        allergies: this.allergies,
-        safeFoods: this.safeFoods,
-        foodPreferences: this.foodPreferences
-      };
+      try {
+        // Create the family member first
+        const createObs = this.familyStore.createFamilyMember(this.basicInfoForm.value);
+        const familyMemberId = await firstValueFrom(createObs as unknown as Observable<string>);
 
-      // TODO: Add store integration
-      this.router.navigate(['/settings']);
+        // Add allergies
+        await Promise.all(this.allergies.map(allergy => {
+          const addAllergyObs = this.familyStore.addAllergy({
+            familyMemberId,
+            allergen: allergy.allergen,
+            severity: this.convertAllergenSeverity(allergy.severity)
+          });
+          return firstValueFrom(addAllergyObs as unknown as Observable<void>);
+        }));
+
+        // Add safe foods
+        await Promise.all(this.safeFoods.map(safeFood => {
+          const addSafeFoodObs = this.familyStore.addSafeFood({
+            familyMemberId,
+            foodItem: safeFood.foodItem
+          });
+          return firstValueFrom(addSafeFoodObs as unknown as Observable<void>);
+        }));
+
+        // Add food preferences
+        await Promise.all(this.foodPreferences.map(preference => {
+          const addPreferenceObs = this.familyStore.addFoodPreference({
+            familyMemberId,
+            foodItem: preference.preference,
+            status: this.convertFoodPreferenceStatus(preference.status)
+          });
+          return firstValueFrom(addPreferenceObs as unknown as Observable<void>);
+        }));
+
+        this.router.navigate(['/settings']);
+      } catch (error) {
+        // TODO: Handle error (show error message to user)
+        console.error('Failed to save family member:', error);
+      }
+    }
+  }
+
+  private convertAllergenSeverity(severity: AllergenSeverity): 'AvailableForOthers' | 'NotAllowed' {
+    return severity === AllergenSeverity.AvailableForOthers ? 'AvailableForOthers' : 'NotAllowed';
+  }
+
+  private convertFoodPreferenceStatus(status: FoodPreferenceStatus): 'Include' | 'AvailableForOthers' | 'NotAllowed' {
+    switch (status) {
+      case FoodPreferenceStatus.Include:
+        return 'Include';
+      case FoodPreferenceStatus.AvailableForOthers:
+        return 'AvailableForOthers';
+      case FoodPreferenceStatus.NotAllowed:
+        return 'NotAllowed';
     }
   }
 } 

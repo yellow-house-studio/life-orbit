@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using YellowHouseStudio.LifeOrbit.Application.Data;
-using YellowHouseStudio.LifeOrbit.Domain.Family;
+using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers;
 
@@ -28,16 +28,16 @@ public class GetFamilyMembersQueryHandler : IRequestHandler<GetFamilyMembersQuer
             Id = fm.Id,
             Name = fm.Name,
             Age = fm.Age,
-            Allergies = fm.Allergies.Select(a => new AllergyResponse
+            Allergies = fm.Allergies.Select(a => new AllergyDto
             {
                 Allergen = a.Allergen,
                 Severity = a.Severity.ToString()
             }).ToList(),
-            SafeFoods = fm.SafeFoods.Select(sf => new SafeFoodResponse
+            SafeFoods = fm.SafeFoods.Select(sf => new SafeFoodDto
             {
                 FoodItem = sf.FoodItem
             }).ToList(),
-            FoodPreferences = fm.FoodPreferences.Select(fp => new FoodPreferenceResponse
+            FoodPreferences = fm.FoodPreferences.Select(fp => new FoodPreferenceDto
             {
                 FoodItem = fp.FoodItem,
                 Status = fp.Status.ToString()

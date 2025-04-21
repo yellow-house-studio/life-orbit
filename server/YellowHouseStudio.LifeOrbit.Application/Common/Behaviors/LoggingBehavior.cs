@@ -1,5 +1,5 @@
 using MediatR;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Common.Behaviors;
 
@@ -17,13 +17,13 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     {
         var requestName = typeof(TRequest).Name;
         
-        _logger.Information(
+        _logger.LogInformation(
             "Handling {RequestName} {@Request}",
             requestName, request);
 
         var response = await next();
 
-        _logger.Information(
+        _logger.LogInformation(
             "Handled {RequestName} with {@Response}",
             requestName, response);
 
