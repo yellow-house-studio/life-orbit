@@ -9,7 +9,7 @@ using YellowHouseStudio.LifeOrbit.Infrastructure.Repositories;
 using Microsoft.Extensions.Logging;
 using MediatR;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using YellowHouseStudio.LifeOrbit.Infrastructure.Configuration;
+using YellowHouseStudio.LifeOrbit.Infrastructure.Configuraiton;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.Integration;
 

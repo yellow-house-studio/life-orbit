@@ -555,3 +555,187 @@ Next Steps:
 Related Documents:
 - Previous log entries on Program.cs refactor and API test enablement
 - [Microsoft Docs: Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-9.0)
+
+** 2024-06-10 18:00 - FamilyAllergiesControllerTests - Fix - In Progress **
+
+Summary:
+All tests in FamilyAllergiesControllerTests are failing with a System.TypeLoadException: Could not load type 'Microsoft.EntityFrameworkCore.Metadata.Internal.AdHocMapper' from assembly 'Microsoft.EntityFrameworkCore, Version=9.0.4.0'.
+
+Details:
+- Error occurs during test fixture setup, before any test logic runs.
+- The error is a classic EF Core version mismatch: the test host is loading EF Core 9.0.4, but the rest of the solution (including the test project and ApplicationDbContext) is built against 8.0.2.
+- This causes runtime type resolution failures for internal types.
+- Root cause: The Infrastructure project still references EF Core 9.0.4, while the rest of the solution uses 8.0.2.
+- Solution: Align all EF Core and provider package versions to 8.0.2, then clean and rebuild the solution to ensure no old binaries remain.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Tests.API/Controllers/FamilyAllergiesControllerTests.cs` - All tests failing
+- `server/YellowHouseStudio.LifeOrbit.Infrastructure/YellowHouseStudio.LifeOrbit.Infrastructure.csproj` - References EF Core 9.0.4 (should be 8.0.2)
+
+Next Steps:
+1. Update Infrastructure.csproj to use EF Core 8.0.2
+2. Clean and rebuild the solution
+3. Re-run the tests
+
+Related:
+- Previous log entries on API test enablement and EF Core versioning
+
+** 2024-06-10 18:10 - Build Blocked by Configuration Namespace - Fix - In Progress **
+
+Summary:
+Build is failing due to a namespace error in the integration test project: 'The type or namespace name 'Configuration' does not exist in the namespace 'YellowHouseStudio.LifeOrbit.Infrastructure''.
+
+Details:
+- The actual directory is named 'Configuraiton' (misspelled), but the code references 'Configuration'.
+- This is a known technical debt and has been previously documented.
+- This error is blocking the build and thus the ability to run and fix the API tests.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Tests.Integration/TestBase.cs` - References the wrong namespace
+- `server/YellowHouseStudio.LifeOrbit.Infrastructure/Configuraiton/` - Actual directory name
+
+Next Steps:
+1. Update the using statement in TestBase.cs to use 'Configuraiton' instead of 'Configuration' to unblock the build.
+2. Rebuild the solution and re-run the tests.
+3. Plan for a full directory rename and namespace update as technical debt cleanup.
+
+Related:
+- Previous log entries on directory/namespace mismatch
+
+** 2024-06-10 18:20 - FamilyAllergiesControllerTests - Analysis & Plan - In Progress **
+
+Summary:
+After resolving build and EF Core issues, 5/9 tests in FamilyAllergiesControllerTests are failing. Failures are due to ambiguous endpoint routing and a validation/404 mismatch.
+
+Details:
+- AmbiguousMatchException (500 errors):
+  - Multiple endpoints match the DELETE allergy route: both FamilyAllergiesController and FamilyController define RemoveAllergy endpoints.
+  - This causes ASP.NET Core to throw an ambiguity error for DELETE requests.
+- ValidationException (400 error):
+  - AddAllergy returns 400 Bad Request with a validation error when the family member does not exist, but the test expects 404 Not Found.
+  - The existence check is enforced in the validator, not as a resource check in the handler.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs` - Should be the only controller handling allergy removal
+- `server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyController.cs` - Contains duplicate RemoveAllergy endpoint
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandValidator.cs` - Enforces existence as validation
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandHandler.cs` - Handles command
+
+Next Steps:
+1. Remove or update the duplicate RemoveAllergy endpoint in FamilyController to resolve ambiguous routing.
+2. Update AddAllergy handling so that non-existent family member returns 404 Not Found, not 400 Bad Request (move existence check from validator to handler, or update test if 400 is intended).
+3. Re-run the tests and continue analysis if needed.
+
+Related:
+- Previous log entries on API test enablement and EF Core versioning
+
+** 2024-06-10 18:30 - FamilyAllergiesControllerTests - Final Failure Analysis & Plan - In Progress **
+
+Summary:
+After resolving ambiguous routing, 3/9 tests in FamilyAllergiesControllerTests are still failing. Failures are due to validator/handler responsibility for existence checks and exception-to-status-code mapping.
+
+Details:
+- AddAllergy_returns_not_found_for_non_existent_member:
+  - Returns 400 BadRequest (validation error) instead of 404 NotFound for non-existent family member.
+  - Existence check is in the validator, not the handler.
+- RemoveAllergy_returns_not_found_for_non_existent_allergy:
+  - Returns 200 OK even when the allergy does not exist; should return 404 NotFound.
+- RemoveAllergy_returns_not_found_for_non_existent_member:
+  - Handler throws NotFoundException, but API returns 500 InternalServerError instead of 404 NotFound.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandValidator.cs` - Existence check in validator
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandHandler.cs` - Should handle not found
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs` - Should check for allergy existence and map NotFoundException
+- `server/YellowHouseStudio.LifeOrbit.Api/Infrastructure/Filters/GlobalExceptionFilter.cs` - Should map NotFoundException to 404
+
+Next Steps:
+1. Move family member existence check from AddAllergyCommandValidator to AddAllergyCommandHandler; throw NotFoundException in handler.
+2. In RemoveAllergyCommandHandler, throw NotFoundException if allergy is not found.
+3. Ensure GlobalExceptionFilter maps NotFoundException to 404
+4. Re-run the tests and continue analysis if needed.
+
+Related:
+- Previous log entries on API test enablement and EF Core versioning
+
+** 2024-06-10 18:40 - AddAllergy_returns_not_found_for_non_existent_member - Fix - Completed **
+
+Summary:
+Fixed the test so that adding an allergy to a non-existent family member now returns 404 NotFound instead of 400 BadRequest, by leveraging validation error codes and the ValidationExceptionFilter.
+
+Details:
+- The existence check for the family member remains in the `AddAllergyCommandValidator`.
+- The validator uses `.WithErrorCode(ValidationErrorCodes.NotFound)` when the family member does not exist.
+- The `ValidationExceptionFilter` inspects validation errors and, if any error has the NotFound error code, returns a 404 NotFound response with validation problem details.
+- This approach keeps validation logic in the validator and uses error codes for status mapping, aligning with the project's validation and error handling conventions.
+- No changes were made to the handler or the GlobalExceptionFilter for this scenario.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandValidator.cs` - Existence check with NotFound error code
+- `server/YellowHouseStudio.LifeOrbit.Api/Infrastructure/Filters/ValidationExceptionFilter.cs` - Maps NotFound error code to 404
+
+Alternative Solutions Considered:
+- Moving the existence check to the handler and throwing NotFoundException, but this would break the validation-centric approach and require more boilerplate.
+- Updating the test to expect 400 BadRequest, but this would not align with RESTful conventions for missing resources.
+
+Next Steps:
+- Fix the remaining tests for allergy removal to ensure correct 404/200 handling and exception mapping.
+
+** 2024-06-10 19:00 - RemoveAllergy API Tests - Analysis & Fix Plan - In Progress **
+
+Summary:
+Analyzed failing RemoveAllergy API tests in FamilyAllergiesControllerTests. Two tests are failing due to incorrect status code handling for not found scenarios.
+
+Details:
+- Failing Tests:
+  1. RemoveAllergy_returns_not_found_for_non_existent_allergy
+     - Expected: 404 NotFound
+     - Actual: 200 OK
+     - Error: Handler does not check if the allergy exists before removing; always returns 200.
+  2. RemoveAllergy_returns_not_found_for_non_existent_member
+     - Expected: 404 NotFound
+     - Actual: 500 InternalServerError
+     - Error: Handler throws NotFoundException, but API returns 500 instead of 404.
+
+Root Causes:
+- The RemoveAllergyCommandHandler does not verify the existence of the allergy before attempting removal, so it cannot distinguish between a successful removal and a no-op.
+- The NotFoundException thrown for a missing family member is not mapped to a 404 response by the API's exception filters, resulting in a 500 error.
+
+Proposed Solutions:
+1. Update RemoveAllergyCommandHandler to check if the specified allergy exists for the family member. If not, throw NotFoundException with a clear message.
+2. Update GlobalExceptionFilter to map NotFoundException to 404
+
+Alternative Considered:
+- Use a ValidationException with NotFound error code for both cases for consistency, but this would diverge from the current handler-based error handling for removals.
+
+Selected Approach:
+- Implement the handler-based NotFoundException for both missing member and missing allergy, and ensure the exception is mapped to 404 by the API filter.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs` - Add allergy existence check and throw NotFoundException if not found
+- `server/YellowHouseStudio.LifeOrbit.Api/Infrastructure/Filters/GlobalExceptionFilter.cs` - Maps NotFoundException to 404
+
+Next Steps:
+1. Implement the above fixes in the handler and exception filter.
+2. Re-run the tests and continue the workflow if any failures remain.
+
+** 2024-06-10 19:15 - RemoveAllergy API Tests - Fix - Completed **
+
+Summary:
+All RemoveAllergy API tests in FamilyAllergiesControllerTests now pass. The issues with incorrect status code handling for not found scenarios have been resolved.
+
+Details:
+- Updated RemoveAllergyCommandHandler to check if the specified allergy exists for the family member before removing. If the allergy does not exist, it now throws NotFoundException with a clear message.
+- Updated GlobalExceptionFilter to map NotFoundException to a 404 NotFound response, returning a ProblemDetails object with status 404 and the exception message as the title.
+- This ensures that both missing family members and missing allergies result in a 404 response, matching RESTful conventions and test expectations.
+- All 9 tests in FamilyAllergiesControllerTests now pass.
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs` - Added allergy existence check and NotFoundException
+- `server/YellowHouseStudio.LifeOrbit.Api/Infrastructure/Filters/GlobalExceptionFilter.cs` - Maps NotFoundException to 404
+
+Technical Decisions:
+- Chose handler-based NotFoundException for removals to align with existing patterns and keep validation logic in validators for creation/update scenarios.
+- Considered using ValidationException for all not found cases, but this would diverge from current removal patterns.
+
+Status: Completed

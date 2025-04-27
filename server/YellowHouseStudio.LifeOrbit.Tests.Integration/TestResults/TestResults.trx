@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="d14a9405-ec1e-4a25-b7c8-514de57bd2d9" name="@MacBook-Air-som-tillhor-Johanna 2025-04-27 08:31:15" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2025-04-27T08:31:15.6735740+02:00" queuing="2025-04-27T08:31:15.6735740+02:00" start="2025-04-27T08:31:15.3029590+02:00" finish="2025-04-27T08:31:15.6737740+02:00" />
-  <TestSettings name="default" id="c5dbdf79-4bc0-4537-9e38-52939de09026">
-    <Deployment runDeploymentRoot="_MacBook-Air-som-tillhor-Johanna_2025-04-27_08_31_15" />
+<TestRun id="8c6a75cd-a44e-4974-a4df-ee308a630f38" name="@MacBook-Air-som-tillhor-Johanna 2025-04-27 09:20:38" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-04-27T09:20:38.5999210+02:00" queuing="2025-04-27T09:20:38.5999210+02:00" start="2025-04-27T09:20:38.3113680+02:00" finish="2025-04-27T09:20:38.6001230+02:00" />
+  <TestSettings name="default" id="08b8a8c9-4412-4e25-90f5-5b3770edd3ad">
+    <Deployment runDeploymentRoot="_MacBook-Air-som-tillhor-Johanna_2025-04-27_09_20_38" />
   </TestSettings>
   <TestLists>
     <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
@@ -18,7 +18,7 @@ NUnit Adapter 5.0.0.0: Test execution complete
 </StdOut>
     </Output>
     <RunInfos>
-      <RunInfo computerName="MacBook-Air-som-tillhor-Johanna" outcome="Warning" timestamp="2025-04-27T08:31:15.6235900+02:00">
+      <RunInfo computerName="MacBook-Air-som-tillhor-Johanna" outcome="Warning" timestamp="2025-04-27T09:20:38.5648430+02:00">
         <Text>No test matches the given testcase filter `FullyQualifiedName~FamilyAllergiesControllerTests` in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll</Text>
       </RunInfo>
     </RunInfos>

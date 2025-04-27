@@ -22,6 +22,19 @@ public class GlobalExceptionFilter : IExceptionFilter
             "Unhandled exception occurred while executing {Path}", 
             context.HttpContext.Request.Path);
 
+        if (context.Exception is YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException notFoundException)
+        {
+            var notFoundDetails = new ProblemDetails
+            {
+                Status = StatusCodes.Status404NotFound,
+                Title = notFoundException.Message,
+                Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4"
+            };
+            context.Result = new NotFoundObjectResult(notFoundDetails);
+            context.ExceptionHandled = true;
+            return;
+        }
+
         var details = _isDevelopment
             ? new ProblemDetails
             {

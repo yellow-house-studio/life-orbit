@@ -1,677 +1,429 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="2fbc36f6-00d4-4b96-85cb-10816530485e" name="@MacBook-Air-som-tillhor-Johanna 2025-04-27 08:44:12" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2025-04-27T08:44:12.7729970+02:00" queuing="2025-04-27T08:44:12.7729970+02:00" start="2025-04-27T08:44:12.2861040+02:00" finish="2025-04-27T08:44:12.7768240+02:00" />
-  <TestSettings name="default" id="7e9fa1f8-1a03-4c4b-b14d-600e09d35c47">
-    <Deployment runDeploymentRoot="_MacBook-Air-som-tillhor-Johanna_2025-04-27_08_44_12" />
+<TestRun id="57d0a497-8bba-4bfe-9c95-341df0556b80" name="@MacBook-Air-som-tillhor-Johanna 2025-04-27 09:20:39" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-04-27T09:20:39.4285810+02:00" queuing="2025-04-27T09:20:39.4285810+02:00" start="2025-04-27T09:20:38.5500620+02:00" finish="2025-04-27T09:20:39.4306720+02:00" />
+  <TestSettings name="default" id="47d02314-7592-4583-9be5-8738f0ffa41f">
+    <Deployment runDeploymentRoot="_MacBook-Air-som-tillhor-Johanna_2025-04-27_09_20_39" />
   </TestSettings>
   <Results>
-    <UnitTestResult executionId="74f5806f-f370-43da-a4fc-4c5919aa9e6a" testId="cbfeccb5-0112-a18d-59a7-585e13164470" testName="AddAllergy_returns_bad_request_when_ids_dont_match" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529370" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973670+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74f5806f-f370-43da-a4fc-4c5919aa9e6a">
+    <UnitTestResult executionId="b67e242f-af2f-4468-9567-7086ee834b39" testId="0feaf4b7-4c8e-6c50-931d-bb880377ce8c" testName="RemoveAllergy_returns_not_found_for_non_existent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0077480" startTime="2025-04-27T09:20:39.3623050+02:00" endTime="2025-04-27T09:20:39.3700530+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b67e242f-af2f-4468-9567-7086ee834b39">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+        <StdOut>[09:20:39 INF] Beginning request RemoveAllergyCommand [73375d73-cb3a-4c8c-895e-e9812a0c855f]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 WRN] Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found for user d0cd6558-0038-4d2d-9852-a75a5bd8ee27
+[09:20:39 INF] Rolling back transaction for RemoveAllergyCommand
+[09:20:39 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "b0fe7ef9-f80b-4cb3-9a70-686faf15e991", "Allergen": "Peanuts", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
 --- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:20:39 ERR] Request RemoveAllergyCommand [73375d73-cb3a-4c8c-895e-e9812a0c855f] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:20:39 ERR] Unhandled exception occurred while executing /settings/family/b0fe7ef9-f80b-4cb3-9a70-686faf15e991/allergies/Peanuts {"ActionId": "43396b67-3129-418f-bfde-00e2eabb1ef8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5BG1H716M", "RequestPath": "/settings/family/b0fe7ef9-f80b-4cb3-9a70-686faf15e991/allergies/Peanuts"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="273d9209-2d0e-4732-b0e9-c5b129eed76e" testId="b9d20c05-042b-ea5f-bf01-de29abef2fe7" testName="RemoveAllergy_returns_not_found_for_non_existent_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529390" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973690+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="273d9209-2d0e-4732-b0e9-c5b129eed76e">
+    <UnitTestResult executionId="7e7aa561-7353-425c-944b-7d2141492071" testId="b9d20c05-042b-ea5f-bf01-de29abef2fe7" testName="RemoveAllergy_returns_not_found_for_non_existent_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0070140" startTime="2025-04-27T09:20:39.3552660+02:00" endTime="2025-04-27T09:20:39.3622800+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e7aa561-7353-425c-944b-7d2141492071">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+        <StdOut>[09:20:39 INF] Beginning request RemoveAllergyCommand [0172da09-c702-4d98-b082-0abdce1bf6f4]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 WRN] Allergy 'NonExistentAllergy' not found for family member 179ad553-fc22-4904-87bc-34b190c52e3a
+[09:20:39 INF] Rolling back transaction for RemoveAllergyCommand
+[09:20:39 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "179ad553-fc22-4904-87bc-34b190c52e3a", "Allergen": "NonExistentAllergy", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
 --- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:20:39 ERR] Request RemoveAllergyCommand [0172da09-c702-4d98-b082-0abdce1bf6f4] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:20:39 ERR] Unhandled exception occurred while executing /settings/family/179ad553-fc22-4904-87bc-34b190c52e3a/allergies/NonExistentAllergy {"ActionId": "43396b67-3129-418f-bfde-00e2eabb1ef8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5BG1H716L", "RequestPath": "/settings/family/179ad553-fc22-4904-87bc-34b190c52e3a/allergies/NonExistentAllergy"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="ea5c6caf-0675-455c-9de3-9db02cdcf4e9" testId="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e" testName="AddAllergy_returns_not_found_for_non_existent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529380" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973670+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea5c6caf-0675-455c-9de3-9db02cdcf4e9">
+    <UnitTestResult executionId="c018cfef-5fa1-44eb-8ac3-cceaa4bd5d19" testId="2c06e374-508c-42c5-957b-65618a2dd458" testName="RemoveAllergy_removes_allergy_from_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0024330" startTime="2025-04-27T09:20:39.3528230+02:00" endTime="2025-04-27T09:20:39.3552560+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c018cfef-5fa1-44eb-8ac3-cceaa4bd5d19">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+        <StdOut>[09:20:39 INF] Beginning request AddAllergyCommand [b401406d-20fe-4749-9d8a-2bdc84fbfa38]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Peanuts for family member c255afdd-c170-415b-9652-ee45ccf96e89
+[09:20:39 INF] Successfully added allergy Peanuts for family member c255afdd-c170-415b-9652-ee45ccf96e89
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [b401406d-20fe-4749-9d8a-2bdc84fbfa38]
+[09:20:39 INF] Beginning request RemoveAllergyCommand [94b34bd7-6a28-4774-8ddf-4bb007fd59ac]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 INF] Successfully removed allergy Peanuts for family member c255afdd-c170-415b-9652-ee45ccf96e89
+[09:20:39 INF] Committed transaction for RemoveAllergyCommand
+[09:20:39 INF] Completed request RemoveAllergyCommand [94b34bd7-6a28-4774-8ddf-4bb007fd59ac]</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="ca8b401c-85d7-49bd-97f8-3f5eb44dfe7b" testId="bf834fa2-f134-16d1-0b3e-298cd5900d20" testName="AddAllergy_returns_bad_request_for_empty_allergen" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529360" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973660+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca8b401c-85d7-49bd-97f8-3f5eb44dfe7b">
+    <UnitTestResult executionId="40755f5d-d33d-43c6-a98e-64f9faf999c8" testId="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b" testName="AddAllergy_adds_allergy_to_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.3235160" startTime="2025-04-27T09:20:38.9829990+02:00" endTime="2025-04-27T09:20:39.3064870+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40755f5d-d33d-43c6-a98e-64f9faf999c8">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+        <StdOut>[09:20:39 WRN] Failed to determine the https port for redirect.
+[09:20:39 INF] Beginning request AddAllergyCommand [f874b192-00c6-4da6-86e6-515317ac7942]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Peanuts for family member 17eb28a4-0111-4e7b-be52-182b4c21417a
+[09:20:39 INF] Successfully added allergy Peanuts for family member 17eb28a4-0111-4e7b-be52-182b4c21417a
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [f874b192-00c6-4da6-86e6-515317ac7942]</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="db0ba90b-9c25-4c36-8456-536a3ea751fa" testId="0feaf4b7-4c8e-6c50-931d-bb880377ce8c" testName="RemoveAllergy_returns_not_found_for_non_existent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529390" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973690+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="db0ba90b-9c25-4c36-8456-536a3ea751fa">
+    <UnitTestResult executionId="3954efd1-e76b-4561-99da-9271e5bfd9e2" testId="cbfeccb5-0112-a18d-59a7-585e13164470" testName="AddAllergy_returns_bad_request_when_ids_dont_match" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0007640" startTime="2025-04-27T09:20:39.3337790+02:00" endTime="2025-04-27T09:20:39.3345430+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3954efd1-e76b-4561-99da-9271e5bfd9e2" />
+    <UnitTestResult executionId="3f65a328-7e99-46d4-9875-8eab103aaf7c" testId="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc" testName="AddAllergy_returns_bad_request_for_duplicate_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0248030" startTime="2025-04-27T09:20:39.3071800+02:00" endTime="2025-04-27T09:20:39.3319830+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f65a328-7e99-46d4-9875-8eab103aaf7c">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+        <StdOut>[09:20:39 INF] Beginning request AddAllergyCommand [234e1912-9b57-41aa-ad18-08ef50963cc8]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Peanuts for family member d9335b5a-ceb0-4cff-8445-b76bd89fe572
+[09:20:39 INF] Successfully added allergy Peanuts for family member d9335b5a-ceb0-4cff-8445-b76bd89fe572
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [234e1912-9b57-41aa-ad18-08ef50963cc8]
+[09:20:39 INF] Beginning request AddAllergyCommand [d545a422-e902-4b34-801e-26991c8bba90]
+[09:20:39 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:20:39 ERR] Request AddAllergyCommand [d545a422-e902-4b34-801e-26991c8bba90] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: This allergy is already registered for this family member Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="e3a2aefe-cfc1-4283-841e-08eab9f9f8ff" testId="2c06e374-508c-42c5-957b-65618a2dd458" testName="RemoveAllergy_removes_allergy_from_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529390" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973680+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e3a2aefe-cfc1-4283-841e-08eab9f9f8ff">
+    <UnitTestResult executionId="60f54ee8-c4d3-47ea-950f-671bb788e834" testId="a8a42d43-4d37-9324-db67-d2d58a84f616" testName="RemoveAllergy_handles_url_encoded_allergen_names" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0167760" startTime="2025-04-27T09:20:39.3360290+02:00" endTime="2025-04-27T09:20:39.3528050+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="60f54ee8-c4d3-47ea-950f-671bb788e834">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+        <StdOut>[09:20:39 INF] Beginning request AddAllergyCommand [e52e0388-93d9-470f-8074-af54295f0912]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Tree Nuts &amp; Seeds for family member 83cb048e-02c4-4039-a959-289a4ecc425c
+[09:20:39 INF] Successfully added allergy Tree Nuts &amp; Seeds for family member 83cb048e-02c4-4039-a959-289a4ecc425c
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [e52e0388-93d9-470f-8074-af54295f0912]
+[09:20:39 INF] Beginning request RemoveAllergyCommand [0667b924-b88e-45cb-af51-500d01d4ed53]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 INF] Successfully removed allergy Tree Nuts &amp; Seeds for family member 83cb048e-02c4-4039-a959-289a4ecc425c
+[09:20:39 INF] Committed transaction for RemoveAllergyCommand
+[09:20:39 INF] Completed request RemoveAllergyCommand [0667b924-b88e-45cb-af51-500d01d4ed53]</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="6bb6deae-8f08-486d-88bf-f6082d70f8e8" testId="a8a42d43-4d37-9324-db67-d2d58a84f616" testName="RemoveAllergy_handles_url_encoded_allergen_names" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529380" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973680+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6bb6deae-8f08-486d-88bf-f6082d70f8e8">
+    <UnitTestResult executionId="febe5b3c-2c4e-451f-98e1-afebe6a6e803" testId="bf834fa2-f134-16d1-0b3e-298cd5900d20" testName="AddAllergy_returns_bad_request_for_empty_allergen" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0017550" startTime="2025-04-27T09:20:39.3320030+02:00" endTime="2025-04-27T09:20:39.3337570+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="febe5b3c-2c4e-451f-98e1-afebe6a6e803">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+        <StdOut>[09:20:39 INF] Beginning request AddAllergyCommand [cdf1dba9-1b51-46c7-86ca-9456dedebdd0]
+[09:20:39 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:20:39 ERR] Request AddAllergyCommand [cdf1dba9-1b51-46c7-86ca-9456dedebdd0] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: Please enter an allergen Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="f7615a94-20d0-450f-9859-845a4d9fc027" testId="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc" testName="AddAllergy_returns_bad_request_for_duplicate_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1529290" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6973580+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7615a94-20d0-450f-9859-845a4d9fc027">
+    <UnitTestResult executionId="5646a5fe-197b-4f7d-b137-bb4c324e349a" testId="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e" testName="AddAllergy_returns_not_found_for_non_existent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0014560" startTime="2025-04-27T09:20:39.3345520+02:00" endTime="2025-04-27T09:20:39.3360070+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5646a5fe-197b-4f7d-b137-bb4c324e349a">
       <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="3b66c38d-1660-4ceb-9d35-3effa9b250f0" testId="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b" testName="AddAllergy_adds_allergy_to_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.1525960" startTime="2025-04-27T08:44:12.5444320+02:00" endTime="2025-04-27T08:44:12.6970020+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b66c38d-1660-4ceb-9d35-3effa9b250f0">
-      <Output>
-        <ErrorInfo>
-          <Message>OneTimeSetUp: System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.</Message>
-          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-</StackTrace>
-        </ErrorInfo>
+        <StdOut>[09:20:39 INF] Beginning request AddAllergyCommand [4d9b017b-ffb6-48ca-ab15-7ea57caaa89b]
+[09:20:39 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:20:39 ERR] Request AddAllergyCommand [4d9b017b-ffb6-48ca-ab15-7ea57caaa89b] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- FamilyMemberId: Family member not found Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
       </Output>
     </UnitTestResult>
   </Results>
   <TestDefinitions>
     <UnitTest name="AddAllergy_returns_not_found_for_non_existent_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e">
-      <Execution id="ea5c6caf-0675-455c-9de3-9db02cdcf4e9" />
+      <Execution id="5646a5fe-197b-4f7d-b137-bb4c324e349a" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_not_found_for_non_existent_member" />
     </UnitTest>
     <UnitTest name="AddAllergy_returns_bad_request_for_duplicate_allergy" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc">
-      <Execution id="f7615a94-20d0-450f-9859-845a4d9fc027" />
+      <Execution id="3f65a328-7e99-46d4-9875-8eab103aaf7c" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_bad_request_for_duplicate_allergy" />
     </UnitTest>
     <UnitTest name="RemoveAllergy_handles_url_encoded_allergen_names" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="a8a42d43-4d37-9324-db67-d2d58a84f616">
-      <Execution id="6bb6deae-8f08-486d-88bf-f6082d70f8e8" />
+      <Execution id="60f54ee8-c4d3-47ea-950f-671bb788e834" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_handles_url_encoded_allergen_names" />
     </UnitTest>
     <UnitTest name="RemoveAllergy_returns_not_found_for_non_existent_allergy" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="b9d20c05-042b-ea5f-bf01-de29abef2fe7">
-      <Execution id="273d9209-2d0e-4732-b0e9-c5b129eed76e" />
+      <Execution id="7e7aa561-7353-425c-944b-7d2141492071" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_returns_not_found_for_non_existent_allergy" />
     </UnitTest>
     <UnitTest name="AddAllergy_returns_bad_request_for_empty_allergen" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="bf834fa2-f134-16d1-0b3e-298cd5900d20">
-      <Execution id="ca8b401c-85d7-49bd-97f8-3f5eb44dfe7b" />
+      <Execution id="febe5b3c-2c4e-451f-98e1-afebe6a6e803" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_bad_request_for_empty_allergen" />
     </UnitTest>
     <UnitTest name="RemoveAllergy_returns_not_found_for_non_existent_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="0feaf4b7-4c8e-6c50-931d-bb880377ce8c">
-      <Execution id="db0ba90b-9c25-4c36-8456-536a3ea751fa" />
+      <Execution id="b67e242f-af2f-4468-9567-7086ee834b39" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_returns_not_found_for_non_existent_member" />
     </UnitTest>
     <UnitTest name="AddAllergy_returns_bad_request_when_ids_dont_match" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="cbfeccb5-0112-a18d-59a7-585e13164470">
-      <Execution id="74f5806f-f370-43da-a4fc-4c5919aa9e6a" />
+      <Execution id="3954efd1-e76b-4561-99da-9271e5bfd9e2" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_bad_request_when_ids_dont_match" />
     </UnitTest>
     <UnitTest name="RemoveAllergy_removes_allergy_from_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="2c06e374-508c-42c5-957b-65618a2dd458">
-      <Execution id="e3a2aefe-cfc1-4283-841e-08eab9f9f8ff" />
+      <Execution id="c018cfef-5fa1-44eb-8ac3-cceaa4bd5d19" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_removes_allergy_from_family_member" />
     </UnitTest>
     <UnitTest name="AddAllergy_adds_allergy_to_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b">
-      <Execution id="3b66c38d-1660-4ceb-9d35-3effa9b250f0" />
+      <Execution id="40755f5d-d33d-43c6-a98e-64f9faf999c8" />
       <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_adds_allergy_to_family_member" />
     </UnitTest>
   </TestDefinitions>
   <TestEntries>
-    <TestEntry testId="cbfeccb5-0112-a18d-59a7-585e13164470" executionId="74f5806f-f370-43da-a4fc-4c5919aa9e6a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="b9d20c05-042b-ea5f-bf01-de29abef2fe7" executionId="273d9209-2d0e-4732-b0e9-c5b129eed76e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e" executionId="ea5c6caf-0675-455c-9de3-9db02cdcf4e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="bf834fa2-f134-16d1-0b3e-298cd5900d20" executionId="ca8b401c-85d7-49bd-97f8-3f5eb44dfe7b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="0feaf4b7-4c8e-6c50-931d-bb880377ce8c" executionId="db0ba90b-9c25-4c36-8456-536a3ea751fa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="2c06e374-508c-42c5-957b-65618a2dd458" executionId="e3a2aefe-cfc1-4283-841e-08eab9f9f8ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="a8a42d43-4d37-9324-db67-d2d58a84f616" executionId="6bb6deae-8f08-486d-88bf-f6082d70f8e8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc" executionId="f7615a94-20d0-450f-9859-845a4d9fc027" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b" executionId="3b66c38d-1660-4ceb-9d35-3effa9b250f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0feaf4b7-4c8e-6c50-931d-bb880377ce8c" executionId="b67e242f-af2f-4468-9567-7086ee834b39" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9d20c05-042b-ea5f-bf01-de29abef2fe7" executionId="7e7aa561-7353-425c-944b-7d2141492071" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2c06e374-508c-42c5-957b-65618a2dd458" executionId="c018cfef-5fa1-44eb-8ac3-cceaa4bd5d19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b" executionId="40755f5d-d33d-43c6-a98e-64f9faf999c8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbfeccb5-0112-a18d-59a7-585e13164470" executionId="3954efd1-e76b-4561-99da-9271e5bfd9e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc" executionId="3f65a328-7e99-46d4-9875-8eab103aaf7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8a42d43-4d37-9324-db67-d2d58a84f616" executionId="60f54ee8-c4d3-47ea-950f-671bb788e834" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf834fa2-f134-16d1-0b3e-298cd5900d20" executionId="febe5b3c-2c4e-451f-98e1-afebe6a6e803" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e" executionId="5646a5fe-197b-4f7d-b137-bb4c324e349a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <TestLists>
     <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
-  <ResultSummary outcome="Failed">
-    <Counters total="9" executed="9" passed="0" failed="9" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  <ResultSummary outcome="Completed">
+    <Counters total="9" executed="9" passed="9" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
     <Output>
       <StdOut>NUnit Adapter 5.0.0.0: Test execution started
 Running selected tests in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll
    NUnit3TestExecutor discovered 9 of 9 NUnit test cases using Current Discovery mode, Non-Explicit run
+[09:20:39 WRN] Failed to determine the https port for redirect.
+[09:20:39 INF] Beginning request AddAllergyCommand [f874b192-00c6-4da6-86e6-515317ac7942]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Peanuts for family member 17eb28a4-0111-4e7b-be52-182b4c21417a
+[09:20:39 INF] Successfully added allergy Peanuts for family member 17eb28a4-0111-4e7b-be52-182b4c21417a
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [f874b192-00c6-4da6-86e6-515317ac7942]
+
+[09:20:39 INF] Beginning request AddAllergyCommand [234e1912-9b57-41aa-ad18-08ef50963cc8]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Peanuts for family member d9335b5a-ceb0-4cff-8445-b76bd89fe572
+[09:20:39 INF] Successfully added allergy Peanuts for family member d9335b5a-ceb0-4cff-8445-b76bd89fe572
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [234e1912-9b57-41aa-ad18-08ef50963cc8]
+[09:20:39 INF] Beginning request AddAllergyCommand [d545a422-e902-4b34-801e-26991c8bba90]
+[09:20:39 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:20:39 ERR] Request AddAllergyCommand [d545a422-e902-4b34-801e-26991c8bba90] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: This allergy is already registered for this family member Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:20:39 INF] Beginning request AddAllergyCommand [cdf1dba9-1b51-46c7-86ca-9456dedebdd0]
+[09:20:39 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:20:39 ERR] Request AddAllergyCommand [cdf1dba9-1b51-46c7-86ca-9456dedebdd0] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: Please enter an allergen Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:20:39 INF] Beginning request AddAllergyCommand [4d9b017b-ffb6-48ca-ab15-7ea57caaa89b]
+[09:20:39 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:20:39 ERR] Request AddAllergyCommand [4d9b017b-ffb6-48ca-ab15-7ea57caaa89b] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- FamilyMemberId: Family member not found Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:20:39 INF] Beginning request AddAllergyCommand [e52e0388-93d9-470f-8074-af54295f0912]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Tree Nuts &amp; Seeds for family member 83cb048e-02c4-4039-a959-289a4ecc425c
+[09:20:39 INF] Successfully added allergy Tree Nuts &amp; Seeds for family member 83cb048e-02c4-4039-a959-289a4ecc425c
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [e52e0388-93d9-470f-8074-af54295f0912]
+[09:20:39 INF] Beginning request RemoveAllergyCommand [0667b924-b88e-45cb-af51-500d01d4ed53]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 INF] Successfully removed allergy Tree Nuts &amp; Seeds for family member 83cb048e-02c4-4039-a959-289a4ecc425c
+[09:20:39 INF] Committed transaction for RemoveAllergyCommand
+[09:20:39 INF] Completed request RemoveAllergyCommand [0667b924-b88e-45cb-af51-500d01d4ed53]
+
+[09:20:39 INF] Beginning request AddAllergyCommand [b401406d-20fe-4749-9d8a-2bdc84fbfa38]
+[09:20:39 INF] Beginning transaction for AddAllergyCommand
+[09:20:39 INF] Adding new allergy Peanuts for family member c255afdd-c170-415b-9652-ee45ccf96e89
+[09:20:39 INF] Successfully added allergy Peanuts for family member c255afdd-c170-415b-9652-ee45ccf96e89
+[09:20:39 INF] Committed transaction for AddAllergyCommand
+[09:20:39 INF] Completed request AddAllergyCommand [b401406d-20fe-4749-9d8a-2bdc84fbfa38]
+[09:20:39 INF] Beginning request RemoveAllergyCommand [94b34bd7-6a28-4774-8ddf-4bb007fd59ac]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 INF] Successfully removed allergy Peanuts for family member c255afdd-c170-415b-9652-ee45ccf96e89
+[09:20:39 INF] Committed transaction for RemoveAllergyCommand
+[09:20:39 INF] Completed request RemoveAllergyCommand [94b34bd7-6a28-4774-8ddf-4bb007fd59ac]
+
+[09:20:39 INF] Beginning request RemoveAllergyCommand [0172da09-c702-4d98-b082-0abdce1bf6f4]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 WRN] Allergy 'NonExistentAllergy' not found for family member 179ad553-fc22-4904-87bc-34b190c52e3a
+[09:20:39 INF] Rolling back transaction for RemoveAllergyCommand
+[09:20:39 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "179ad553-fc22-4904-87bc-34b190c52e3a", "Allergen": "NonExistentAllergy", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:20:39 ERR] Request RemoveAllergyCommand [0172da09-c702-4d98-b082-0abdce1bf6f4] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:20:39 ERR] Unhandled exception occurred while executing /settings/family/179ad553-fc22-4904-87bc-34b190c52e3a/allergies/NonExistentAllergy {"ActionId": "43396b67-3129-418f-bfde-00e2eabb1ef8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5BG1H716L", "RequestPath": "/settings/family/179ad553-fc22-4904-87bc-34b190c52e3a/allergies/NonExistentAllergy"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+[09:20:39 INF] Beginning request RemoveAllergyCommand [73375d73-cb3a-4c8c-895e-e9812a0c855f]
+[09:20:39 INF] Beginning transaction for RemoveAllergyCommand
+[09:20:39 WRN] Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found for user d0cd6558-0038-4d2d-9852-a75a5bd8ee27
+[09:20:39 INF] Rolling back transaction for RemoveAllergyCommand
+[09:20:39 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "b0fe7ef9-f80b-4cb3-9a70-686faf15e991", "Allergen": "Peanuts", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:20:39 ERR] Request RemoveAllergyCommand [73375d73-cb3a-4c8c-895e-e9812a0c855f] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:20:39 ERR] Unhandled exception occurred while executing /settings/family/b0fe7ef9-f80b-4cb3-9a70-686faf15e991/allergies/Peanuts {"ActionId": "43396b67-3129-418f-bfde-00e2eabb1ef8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5BG1H716M", "RequestPath": "/settings/family/b0fe7ef9-f80b-4cb3-9a70-686faf15e991/allergies/Peanuts"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member b0fe7ef9-f80b-4cb3-9a70-686faf15e991 not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
 NUnit Adapter 5.0.0.0: Test execution complete
 </StdOut>
     </Output>
-    <RunInfos>
-      <RunInfo computerName="MacBook-Air-som-tillhor-Johanna" outcome="Warning" timestamp="2025-04-27T08:44:12.7086060+02:00">
-        <Text>TearDown failed for test fixture YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests</Text>
-      </RunInfo>
-      <RunInfo computerName="MacBook-Air-som-tillhor-Johanna" outcome="Warning" timestamp="2025-04-27T08:44:12.7093740+02:00">
-        <Text>System.AggregateException : Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.) (Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.) (Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.)
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: MediatR.IRequestHandler`2[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand,YellowHouseStudio.LifeOrbit.Application.Family.Common.FamilyMemberResponse] Lifetime: Transient ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: FluentValidation.IValidator`1[YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommand] Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Error while validating the service descriptor 'ServiceType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator Lifetime: Scoped ImplementationType: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator': Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-  ----&gt; System.InvalidOperationException : Unable to resolve service for type 'YellowHouseStudio.LifeOrbit.Application.Family.Common.IFamilyMemberRepository' while attempting to activate 'YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandValidator'.
-TearDown : System.NullReferenceException : Object reference not set to an instance of an object.
-StackTrace:    at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
-   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
-   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
-   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
-   at Program.&lt;Main&gt;$(String[] args) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Program.cs:line 65
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
-   at Microsoft.Extensions.Hosting.HostFactoryResolver.&lt;&gt;c__DisplayClass10_0.&lt;ResolveHostFactory&gt;b__0(String[] args)
-   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.DelegatedWebApplicationFactory.CreateHost(IHostBuilder builder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.EnsureServer()
-   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.get_Server()
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseSetup() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 83
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(ICollection`1 serviceDescriptors, ServiceProviderOptions options)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---InvalidOperationException
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
-   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
-   at Microsoft.Extensions.DependencyInjection.ServiceProvider.ValidateService(ServiceDescriptor descriptor)
---TearDown
-   at YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure.ApiTestBase.BaseTearDown() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs:line 109
-   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
-   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</Text>
-      </RunInfo>
-    </RunInfos>
   </ResultSummary>
 </TestRun>

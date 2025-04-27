@@ -24,6 +24,7 @@ public abstract class ApiTestBase
     protected HttpClient Client = null!;
     protected ApplicationDbContext Context = null!;
     protected ICurrentUser CurrentUser = null!;
+    private IServiceScope _scope = null!;
     protected static Serilog.ILogger Logger = new LoggerConfiguration()
         .MinimumLevel.Debug()
         .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -87,8 +88,9 @@ public abstract class ApiTestBase
             TestAuthHandler.AuthenticationScheme);
         Client.DefaultRequestHeaders.Accept.Add(
             new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-        Context = _factory.Services.GetRequiredService<ApplicationDbContext>();
-        CurrentUser = _factory.Services.GetRequiredService<ICurrentUser>();
+        _scope = _factory.Services.CreateScope();
+        Context = _scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        CurrentUser = _scope.ServiceProvider.GetRequiredService<ICurrentUser>();
     }
 
     [SetUp]
@@ -107,6 +109,7 @@ public abstract class ApiTestBase
     public void BaseTearDown()
     {
         Client.Dispose();
+        _scope.Dispose();
         _factory.Dispose();
         Log.CloseAndFlush(); // Ensure all logs are flushed
     }

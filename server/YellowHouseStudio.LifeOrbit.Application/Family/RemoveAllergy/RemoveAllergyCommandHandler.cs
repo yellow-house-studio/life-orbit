@@ -40,6 +40,14 @@ public class RemoveAllergyCommandHandler : IRequestHandler<RemoveAllergyCommand,
             throw new NotFoundException($"Family member {request.FamilyMemberId} not found");
         }
 
+        // Check if the allergy exists before removing
+        var allergy = familyMember.Allergies.FirstOrDefault(a => a.Allergen == request.Allergen);
+        if (allergy == null)
+        {
+            _logger.LogWarning("Allergy '{Allergen}' not found for family member {FamilyMemberId}", request.Allergen, request.FamilyMemberId);
+            throw new NotFoundException($"Allergy '{request.Allergen}' not found");
+        }
+
         familyMember.RemoveAllergy(request.Allergen);
         await _context.SaveChangesAsync(cancellationToken);
 

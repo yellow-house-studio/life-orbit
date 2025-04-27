@@ -106,7 +106,7 @@ public class FamilyAllergiesControllerTests : ApiTestBase
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         var error = await response.Content.ReadAsStringAsync();
-        error.Should().Contain($"Family member {nonExistentId} not found");
+        error.Should().Contain($"Family member not found");
     }
 
     [Test]

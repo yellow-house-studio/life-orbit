@@ -14,7 +14,8 @@ public class AddAllergyCommandValidator : AbstractValidator<AddAllergyCommand>
             .WithMessage("Please select a family member")
             .MustAsync(async (id, cancellation) => 
                 await repository.ExistsAsync(id, currentUser.UserId, cancellation))
-            .WithMessage("Family member not found");
+            .WithMessage("Family member not found")
+            .WithErrorCode(ValidationErrorCodes.NotFound);
 
         RuleFor(x => x.Allergen)
             .NotEmpty()

@@ -52,14 +52,6 @@ public class FamilyController(IMediator mediator) : ControllerBase
         return Ok(result);
     }
 
-    [HttpDelete("{id}/allergies/{allergen}")]
-    public async Task<ActionResult<FamilyMemberResponse>> RemoveAllergy(Guid id, string allergen)
-    {
-        var command = new RemoveAllergyCommand { FamilyMemberId = id, Allergen = allergen };
-        var result = await _mediator.Send(command);
-        return Ok(result);
-    }
-
     [HttpPut("{id}/safe-foods")]
     public async Task<ActionResult<FamilyMemberResponse>> AddSafeFood(Guid id, AddSafeFoodCommand command)
     {
