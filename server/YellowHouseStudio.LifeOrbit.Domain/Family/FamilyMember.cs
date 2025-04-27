@@ -81,7 +81,7 @@ public class FamilyMember
     /// <param name="severity">The severity level of the allergy.</param>
     public void AddAllergy(string allergen, AllergySeverity severity)
     {
-        var existing = Allergies.Find(a => a.Allergen == allergen);
+        var existing = Allergies.Find(a => a.Allergen.Equals(allergen, StringComparison.OrdinalIgnoreCase));
         if (existing != null)
         {
             existing.UpdateSeverity(severity);

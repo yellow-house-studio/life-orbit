@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Api\YellowHouseStudio.LifeOrbit.Api.csproj" />
     <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Application\YellowHouseStudio.LifeOrbit.Application.csproj" />
+    <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Tests.Common\YellowHouseStudio.LifeOrbit.Tests.Common.csproj" />
   </ItemGroup>
 
 </Project>

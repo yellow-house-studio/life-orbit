@@ -16,7 +16,6 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
         // Arrange
         var command = new AddCompleteFamilyMemberCommand
         {
-            UserId = Guid.NewGuid(),
             Name = "Test User",
             Age = 30,
             Allergies = new List<AllergyDto>
@@ -48,7 +47,7 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
             .FirstOrDefaultAsync(fm => fm.Id == result.Id);
 
         savedMember.Should().NotBeNull();
-        savedMember!.UserId.Should().Be(command.UserId);
+        savedMember!.UserId.Should().Be(CurrentUser.UserId);
         savedMember.Name.Should().Be(command.Name);
         savedMember.Age.Should().Be(command.Age);
 
@@ -68,10 +67,8 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
     public async Task Handle_creates_unique_complete_family_members_for_same_user()
     {
         // Arrange
-        var userId = Guid.NewGuid();
         var command1 = new AddCompleteFamilyMemberCommand
         {
-            UserId = userId,
             Name = "John Doe",
             Age = 30,
             Allergies = new List<AllergyDto>
@@ -81,7 +78,6 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
         };
         var command2 = new AddCompleteFamilyMemberCommand
         {
-            UserId = userId,
             Name = "Jane Doe",
             Age = 28,
             SafeFoods = new List<SafeFoodDto>
@@ -100,7 +96,7 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
         var familyMembers = await Context.FamilyMembers
             .Include(fm => fm.Allergies)
             .Include(fm => fm.SafeFoods)
-            .Where(fm => fm.UserId == userId)
+            .Where(fm => fm.UserId == CurrentUser.UserId)
             .ToListAsync();
 
         familyMembers.Should().HaveCount(2);

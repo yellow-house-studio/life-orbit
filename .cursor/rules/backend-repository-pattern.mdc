@@ -1,0 +1,175 @@
+---
+description: 
+globs: server/**/*Handler.cs,server/**/I*Repository.cs,server/**/Repositories/*.cs
+alwaysApply: false
+---
+# Repository Pattern Implementation
+
+## Overview
+Our repository pattern implementation follows clean architecture principles, separating data access concerns from business logic. Repositories handle all database operations and entity tracking, while keeping the domain model pure.
+
+## Key Files
+- Interface: [IFamilyMemberRepository.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/Common/IFamilyMemberRepository.cs)
+- Implementation: [FamilyMemberRepository.cs](mdc:server/YellowHouseStudio.LifeOrbit.Infrastructure/Repositories/FamilyMemberRepository.cs)
+
+## Repository Guidelines
+
+### Interface Design
+- Keep interfaces focused and cohesive
+- Methods should represent business operations
+- Avoid exposing EF Core specific concepts
+- Don't include SaveChanges - handled by Unit of Work pattern
+
+Example:
+```csharp
+public interface IFamilyMemberRepository
+{
+    Task<T?> GetByIdAsync<T>(Guid id, Guid userId, ...);
+    Task<bool> ExistsAsync(Guid id, Guid userId, ...);
+    void TrackNewEntity<T>(T entity) where T : class;
+}
+```
+
+### Implementation Rules
+1. **Entity Tracking**
+   - Explicitly track new entities using `_context.Entry(entity).State`
+   - Handle child collections carefully
+   - Use Include statements judiciously
+
+2. **Query Optimization**
+   - Create specific methods for different include patterns
+   - Use projection queries for simple lookups
+   - Implement paging for large result sets
+
+3. **Error Handling**
+   - Don't throw domain exceptions
+   - Use nullable returns instead of throwing
+   - Let command handlers handle not-found scenarios
+
+### Testing
+- Create test doubles using the interface
+- Don't mock the DbContext
+- Test repository implementations with integration tests
+
+## Command Handler Integration
+
+### Do's
+- Inject repository interfaces
+- Use specific query methods
+- Handle not-found scenarios
+- Track new entities through repository
+
+```csharp
+public class AddAllergyCommandHandler
+{
+    private readonly IFamilyMemberRepository _repository;
+    
+    public async Task<Result> Handle(Command command)
+    {
+        var member = await _repository.GetByIdWithAllergiesAsync(id);
+        var allergy = new Allergy(command.Allergen);
+        _repository.TrackNewAllergy(member, allergy);
+    }
+}
+```
+
+### Don'ts
+- Don't inject DbContext directly
+- Don't handle SaveChanges in handlers
+- Don't bypass repository for data access
+- Don't expose EF Core types
+
+## Folder Structure
+server/
+├── Application/
+│ └── Family/
+│ └── Common/
+│ └── IFamilyMemberRepository.cs
+└── Infrastructure/
+    └── Repositories/
+    └── FamilyMemberRepository.cs
+
+
+## Common Patterns
+
+### Entity Retrieval
+```csharp
+// Good
+public async Task<T?> GetByIdAsync(Guid id) =>
+    await _context.Set<T>()
+        .FirstOrDefaultAsync(e => e.Id == id);
+
+// Bad - Don't use Find() for domain entities
+public async Task<T?> GetByIdAsync(Guid id) =>
+    await _context.Set<T>()
+        .FindAsync(id);
+```
+
+### Child Collections
+```csharp
+// Good - Explicit tracking
+public void TrackNewChild<TParent, TChild>(
+    TParent parent,
+    TChild child)
+    where TChild : class
+{
+    parent.AddChild(child);
+    _context.Entry(child).State = EntityState.Added;
+}
+
+// Bad - Implicit tracking
+public void AddChild<TParent, TChild>(
+    TParent parent,
+    TChild child)
+{
+    parent.AddChild(child);
+}
+```
+
+### Query Optimization
+```csharp
+// Good - Specific includes
+public async Task<T?> GetWithChildrenAsync(Guid id) =>
+    await _context.Set<T>()
+        .Include(e => e.Children)
+        .FirstOrDefaultAsync(e => e.Id == id);
+
+// Bad - Loading everything
+public async Task<T?> GetByIdAsync(Guid id) =>
+    await _context.Set<T>()
+        .Include(e => e.Children)
+        .Include(e => e.OtherChildren)
+        .Include(e => e.MoreChildren)
+        .FirstOrDefaultAsync(e => e.Id == id);
+```
+```
+
+Globs to add to `.cursor/rules.json`:
+```json
+{
+  "repository-pattern": {
+    "name": "Repository Pattern Implementation",
+    "description": "Guidelines for implementing and using repositories",
+    "globs": [
+      "server/*/Repositories/*.cs",
+      "server/*/Common/I*Repository.cs",
+      "server/*/Handlers/**/*Handler.cs"
+    ]
+  }
+}
+```
+
+This rule provides:
+1. Clear guidelines for repository implementation
+2. Code examples of good and bad practices
+3. Integration patterns with command handlers
+4. Specific rules for entity tracking
+5. Query optimization guidelines
+6. Testing recommendations
+
+The globs will ensure the rule is shown when working with:
+- Repository implementations
+- Repository interfaces
+- Command handlers that use repositories
+
+Would you like me to add any additional sections or modify any part of the rule?

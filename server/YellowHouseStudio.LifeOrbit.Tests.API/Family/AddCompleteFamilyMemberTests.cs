@@ -17,7 +17,6 @@ public class AddCompleteFamilyMemberTests : ApiTestBase
         // Arrange
         var command = new AddCompleteFamilyMemberCommand
         {
-            UserId = Guid.NewGuid(),
             Name = "Test Member",
             Age = 25,
             Allergies = new List<AllergyDto>
@@ -55,7 +54,6 @@ public class AddCompleteFamilyMemberTests : ApiTestBase
         // Arrange
         var command = new AddCompleteFamilyMemberCommand
         {
-            UserId = Guid.NewGuid(),
             Name = "Test Member",
             Age = -1 // Invalid age
         };
@@ -79,7 +77,6 @@ public class AddCompleteFamilyMemberTests : ApiTestBase
         // Arrange
         var command = new AddCompleteFamilyMemberCommand
         {
-            UserId = Guid.NewGuid(),
             Name = "Test Member",
             Age = 25,
             Allergies = new List<AllergyDto>

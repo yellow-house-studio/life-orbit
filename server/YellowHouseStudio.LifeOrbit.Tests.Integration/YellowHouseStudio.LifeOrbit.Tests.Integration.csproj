@@ -20,7 +20,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Application\YellowHouseStudio.LifeOrbit.Application.csproj" />
+    <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Domain\YellowHouseStudio.LifeOrbit.Domain.csproj" />
     <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Infrastructure\YellowHouseStudio.LifeOrbit.Infrastructure.csproj" />
+    <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Tests.Common\YellowHouseStudio.LifeOrbit.Tests.Common.csproj" />
   </ItemGroup>
 
 </Project> 

@@ -12,13 +12,18 @@ using YellowHouseStudio.LifeOrbit.Api;
 using YellowHouseStudio.LifeOrbit.Api.Infrastructure.Filters;
 using YellowHouseStudio.LifeOrbit.Application;
 using YellowHouseStudio.LifeOrbit.Application.Data;
+using YellowHouseStudio.LifeOrbit.Application.Users;
+using YellowHouseStudio.LifeOrbit.Tests.Common.Users;
+using System.Net.Http.Headers;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure;
 
 public abstract class ApiTestBase
 {
-    protected WebApplicationFactory<Program> Factory = null!;
+    private WebApplicationFactory<Program> _factory = null!;
     protected HttpClient Client = null!;
+    protected ApplicationDbContext Context = null!;
+    protected ICurrentUser CurrentUser = null!;
     protected static Serilog.ILogger Logger = new LoggerConfiguration()
         .MinimumLevel.Debug()
         .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
@@ -34,7 +39,7 @@ public abstract class ApiTestBase
         // Set static logger for test run
         Log.Logger = Logger;
         
-        Factory = new WebApplicationFactory<Program>()
+        _factory = new WebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
             {
                 builder.ConfigureServices(services =>
@@ -62,6 +67,10 @@ public abstract class ApiTestBase
                     // Add Serilog logger
                     services.AddSingleton<Serilog.ILogger>(Logger);
                     services.AddSingleton(Logger); // Also register as Serilog.ILogger
+
+                    // Configure test user
+                    var currentUser = new TestCurrentUser();
+                    services.AddSingleton<ICurrentUser>(currentUser);
                 });
 
                 builder.ConfigureLogging(loggingBuilder =>
@@ -71,16 +80,34 @@ public abstract class ApiTestBase
                 });
             });
             
-        var testServer = Factory.Server;
+        var testServer = _factory.Server;
         testServer.PreserveExecutionContext = true; // This is needed to get the logs from inside of the API to be captured by the test and shown
-        Client = Factory.CreateClient();
+        Client = _factory.CreateClient();
+        Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            TestAuthHandler.AuthenticationScheme);
+        Client.DefaultRequestHeaders.Accept.Add(
+            new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+        Context = _factory.Services.GetRequiredService<ApplicationDbContext>();
+        CurrentUser = _factory.Services.GetRequiredService<ICurrentUser>();
+    }
+
+    [SetUp]
+    public virtual async Task Setup()
+    {
+        await Context.Database.EnsureCreatedAsync();
+    }
+
+    [TearDown]
+    public virtual async Task TearDown()
+    {
+        await Context.Database.EnsureDeletedAsync();
     }
 
     [OneTimeTearDown]
     public void BaseTearDown()
     {
         Client.Dispose();
-        Factory.Dispose();
+        _factory.Dispose();
         Log.CloseAndFlush(); // Ensure all logs are flushed
     }
 }

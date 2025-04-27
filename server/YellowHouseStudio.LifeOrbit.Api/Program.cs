@@ -9,143 +9,88 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Npgsql;
 using Serilog.Events;
 using YellowHouseStudio.LifeOrbit.Api.Configuration;
+using YellowHouseStudio.LifeOrbit.Infrastructure.Configuraiton;
 
-namespace YellowHouseStudio.LifeOrbit.Api;
+// Configure Serilog first
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .CreateLogger();
 
-public class Program
+var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog();
+builder.Services.AddSingleton(Log.Logger);
+builder.Services.AddCors(options =>
 {
-    public static void Main(string[] args)
+    options.AddDefaultPolicy(policy =>
     {
-        // Configure Serilog first
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Information()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-            .Enrich.FromLogContext()
-            .WriteTo.Console()
-            .CreateLogger();
-
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<GlobalExceptionFilter>();
+    options.Filters.Add<ValidationExceptionFilter>();
+});
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddApplication();
+builder.Services.AddAppDependencies();
+builder.Services.AddInfrastructure();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddNpgsqlDataSource(builder.Configuration.GetConnectionString("DefaultConnection")!);
+builder.Services.AddHealthChecks()
+    .AddCheck("postgres", () =>
+    {
         try
         {
-            var app = CreateApp(args);
-            
-            // Configure Kestrel to listen on port 80
-            app.Urls.Add("http://[::]:80");
-            
-            app.Run();
+            using var dataSource = builder.Services.BuildServiceProvider().GetRequiredService<NpgsqlDataSource>();
+            using var conn = dataSource.CreateConnection();
+            conn.Open();
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT 1";
+            cmd.ExecuteScalar();
+            return HealthCheckResult.Healthy();
         }
         catch (Exception ex)
         {
-            Log.Fatal(ex, "Application start-up failed");
+            return HealthCheckResult.Unhealthy(ex.Message);
         }
-        finally
-        {
-            Log.CloseAndFlush();
-        }
-    }
+    }, new[] { "db", "sql", "postgres" })
+    .AddCheck("self", () => HealthCheckResult.Healthy(), tags: new[] { "service" });
 
-    public static WebApplication CreateApp(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
-
-        // Add Serilog to the container
-        builder.Host.UseSerilog();
-        
-        // Register ILogger explicitly
-        builder.Services.AddSingleton(Log.Logger);
-
-        // Configure CORS
-        builder.Services.AddCors(options =>
-        {
-            options.AddDefaultPolicy(policy =>
-            {
-                policy.WithOrigins("http://localhost:4200")
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            });
-        });
-
-        // Add services to the container.
-        builder.Services.AddControllers(options =>
-        {
-            // Order matters! GlobalExceptionFilter must be registered first to be the first and last filter to be executed
-            options.Filters.Add<GlobalExceptionFilter>();
-            options.Filters.Add<ValidationExceptionFilter>();
-        });
-        
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
-
-        // Add Application Layer
-        builder.Services.AddApplication();
-        
-        // Add API layer dependencies
-        builder.Services.AddAppDependencies();
-
-        // Add DbContext
-        builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-        // Add NpgsqlDataSource as a singleton
-        builder.Services.AddNpgsqlDataSource(builder.Configuration.GetConnectionString("DefaultConnection")!);
-
-        // Add health checks
-        builder.Services.AddHealthChecks()
-            .AddCheck("postgres", () =>
-            {
-                try
-                {
-                    using var dataSource = builder.Services.BuildServiceProvider().GetRequiredService<NpgsqlDataSource>();
-                    using var conn = dataSource.CreateConnection();
-                    conn.Open();
-                    using var cmd = conn.CreateCommand();
-                    cmd.CommandText = "SELECT 1";
-                    cmd.ExecuteScalar();
-                    return HealthCheckResult.Healthy();
-                }
-                catch (Exception ex)
-                {
-                    return HealthCheckResult.Unhealthy(ex.Message);
-                }
-            }, new[] { "db", "sql", "postgres" })
-            .AddCheck("self", () => HealthCheckResult.Healthy(), 
-                tags: new[] { "service" });
-
-        var app = builder.Build();
-
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
-        app.UseHttpsRedirection();
-        
-        // Use CORS before authorization
-        app.UseCors();
-        
-        app.UseAuthorization();
-
-        // Add health check endpoints
-        app.MapHealthChecks("/health", new HealthCheckOptions
-        {
-            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-        });
-        
-        app.MapHealthChecks("/health/ready", new HealthCheckOptions
-        {
-            Predicate = healthCheck => healthCheck.Tags.Contains("service") || healthCheck.Tags.Contains("db"),
-            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-        });
-        
-        app.MapHealthChecks("/health/live", new HealthCheckOptions
-        {
-            Predicate = _ => false,
-            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-        });
-
-        app.MapControllers();
-
-        return app;
-    }
+var app = builder.Build();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+app.UseHttpsRedirection();
+app.UseCors();
+app.UseAuthorization();
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+app.MapHealthChecks("/health/ready", new HealthCheckOptions
+{
+    Predicate = healthCheck => healthCheck.Tags.Contains("service") || healthCheck.Tags.Contains("db"),
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+app.MapHealthChecks("/health/live", new HealthCheckOptions
+{
+    Predicate = _ => false,
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+app.MapControllers();
+// Configure Kestrel to listen on port 80
+app.Urls.Add("http://[::]:80");
+app.Run();
+
+// Required for WebApplicationFactory compatibility with top-level statements
+public partial class Program { }

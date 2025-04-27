@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Application\YellowHouseStudio.LifeOrbit.Application.csproj" />
+    <ProjectReference Include="..\YellowHouseStudio.LifeOrbit.Infrastructure\YellowHouseStudio.LifeOrbit.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
