@@ -19,11 +19,11 @@ public class UnhandledExceptionBehavior<TRequest, TResponse>(ILogger<UnhandledEx
         {
             var requestName = typeof(TRequest).Name;
 
-            _logger.LogError(ex, 
-                "Unhandled Exception for Request {RequestName} {@Request}", 
+            _logger.LogError(ex,
+                "Unhandled Exception for Request {RequestName} {@Request}",
                 requestName, request);
 
             throw;
         }
     }
-} 
+}

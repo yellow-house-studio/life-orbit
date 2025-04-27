@@ -10,4 +10,4 @@ public class SafeFoodValidator : AbstractValidator<SafeFoodDto>
             .NotEmpty()
             .MaximumLength(100);
     }
-} 
+}

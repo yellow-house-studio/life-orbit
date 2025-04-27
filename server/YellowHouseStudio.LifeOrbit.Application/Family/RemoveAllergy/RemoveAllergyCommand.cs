@@ -7,4 +7,4 @@ public record RemoveAllergyCommand : ICommand<FamilyMemberResponse>
 {
     public Guid FamilyMemberId { get; init; }
     public string Allergen { get; init; } = string.Empty;
-} 
+}

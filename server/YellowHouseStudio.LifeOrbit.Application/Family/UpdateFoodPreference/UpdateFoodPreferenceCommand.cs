@@ -8,4 +8,4 @@ public record UpdateFoodPreferenceCommand : ICommand<FamilyMemberResponse>
     public Guid FamilyMemberId { get; init; }
     public string FoodItem { get; init; } = string.Empty;
     public string Status { get; init; } = string.Empty;
-} 
+}

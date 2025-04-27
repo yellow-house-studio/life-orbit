@@ -22,4 +22,4 @@ public class AddFamilyMemberCommandValidator : AbstractValidator<AddFamilyMember
             .NotEmpty()
             .WithMessage("UserId is required");
     }
-} 
+}

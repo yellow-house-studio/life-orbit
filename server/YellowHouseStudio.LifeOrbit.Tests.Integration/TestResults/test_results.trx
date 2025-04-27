@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c6e6271b-e410-46b4-99fc-3e6b1e37b6de" name="@MacBook-Air-som-tillhor-Johanna 2025-04-27 12:30:34" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-04-27T12:30:34.7644800+02:00" queuing="2025-04-27T12:30:34.7644800+02:00" start="2025-04-27T12:30:33.7563540+02:00" finish="2025-04-27T12:30:34.9041910+02:00" />
+  <TestSettings name="default" id="d77da8dc-afed-4a32-b1b5-7614b41a7c2f">
+    <Deployment runDeploymentRoot="_MacBook-Air-som-tillhor-Johanna_2025-04-27_12_30_34" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="5f434845-59fd-464a-9b9c-a856323d5d90" testId="f93012be-2f7d-07b2-c4af-2a00166e3720" testName="RemoveAllergy_throws_validation_for_unauthorized_user" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0043420" startTime="2025-04-27T12:30:34.8659160+02:00" endTime="2025-04-27T12:30:34.8702570+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5f434845-59fd-464a-9b9c-a856323d5d90">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [5cce1609-5e68-4d70-9491-d5fc8ded5fdb]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command RemoveAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request RemoveAllergyCommand [5cce1609-5e68-4d70-9491-d5fc8ded5fdb] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member does not exist or does not belong to the current user. Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="94d2ba4b-cfe8-410a-bc03-62c93c0b69d3" testId="25580f3c-1258-6ec9-c231-89f33b4cc8e2" testName="Handle_creates_unique_family_members_for_same_user" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0169170" startTime="2025-04-27T12:30:34.8248770+02:00" endTime="2025-04-27T12:30:34.8417940+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="94d2ba4b-cfe8-410a-bc03-62c93c0b69d3">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddFamilyMemberCommand [fbfa682e-347e-41b7-a837-ecf9f35d6213]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddFamilyMemberCommand [fbfa682e-347e-41b7-a837-ecf9f35d6213]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddFamilyMemberCommand [c28f7d96-1a62-4394-aad2-0cd6a173e66b]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddFamilyMemberCommand [c28f7d96-1a62-4394-aad2-0cd6a173e66b]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ae6b6512-4b68-46c1-80b7-b623928577e7" testId="d9fb5d32-5434-902a-75ff-ae84a9ff6055" testName="RemoveAllergy_throws_validation_for_nonexistent_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0037610" startTime="2025-04-27T12:30:34.8561720+02:00" endTime="2025-04-27T12:30:34.8599330+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ae6b6512-4b68-46c1-80b7-b623928577e7">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [55529eac-bce7-4373-867b-c7f6af92675f]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command RemoveAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request RemoveAllergyCommand [55529eac-bce7-4373-867b-c7f6af92675f] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- Allergen: This allergy is not registered for this family member. Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f606940e-5899-4e62-adf4-8d1b523d9b36" testId="babba398-0832-8556-8c83-8390e2ffc435" testName="Handle_throws_validation_error_for_non_existent_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0034340" startTime="2025-04-27T12:30:34.6861300+02:00" endTime="2025-04-27T12:30:34.6895640+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f606940e-5899-4e62-adf4-8d1b523d9b36">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [8bcc197d-79e7-4949-a7f5-27d5eeca069b]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command AddAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request AddAllergyCommand [8bcc197d-79e7-4949-a7f5-27d5eeca069b] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member not found Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="778aa1b9-01a3-43c3-bdd7-2edcb3fa4132" testId="d11ee9e8-7986-7b13-77d2-263e5c6ce2f5" testName="RemoveAllergy_removes_allergy_successfully" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0140200" startTime="2025-04-27T12:30:34.8421270+02:00" endTime="2025-04-27T12:30:34.8561470+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="778aa1b9-01a3-43c3-bdd7-2edcb3fa4132">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [87579853-80cd-4aa9-ad16-d8a985176bdf]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for RemoveAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler[0]
+      Successfully removed allergy Peanuts for family member 8c102682-eb5a-430c-9032-0bc8ae814ee6
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for RemoveAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request RemoveAllergyCommand [87579853-80cd-4aa9-ad16-d8a985176bdf]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c3e23c99-643c-46a8-a541-a5f38f3d1ee7" testId="1daa8d04-c84a-cc3a-d53e-28e6bc8c6db7" testName="Handle_throws_validation_error_for_different_user_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0041599" startTime="2025-04-27T12:30:34.6819130+02:00" endTime="2025-04-27T12:30:34.6860730+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c3e23c99-643c-46a8-a541-a5f38f3d1ee7">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [72f49fc2-0c7f-4fe4-89cc-53e362ca247c]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command AddAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request AddAllergyCommand [72f49fc2-0c7f-4fe4-89cc-53e362ca247c] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member not found Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ca289668-a357-4702-b319-3eab0144df77" testId="4a9ae019-a07d-78ef-0301-19668d8886c8" testName="Should_Have_Error_When_FamilyMemberId_Empty" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0030780" startTime="2025-04-27T12:30:34.7134250+02:00" endTime="2025-04-27T12:30:34.7165030+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca289668-a357-4702-b319-3eab0144df77" />
+    <UnitTestResult executionId="c2fb5237-aabe-49cb-a357-e155f0577845" testId="52f05a78-42d7-ac7e-ca11-124e53e40a04" testName="Should_Have_Error_When_Allergy_Already_Exists" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0026419" startTime="2025-04-27T12:30:34.7072630+02:00" endTime="2025-04-27T12:30:34.7099050+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c2fb5237-aabe-49cb-a357-e155f0577845" />
+    <UnitTestResult executionId="b6f7b9f4-22ba-45d0-ad2c-1b74baf38a2f" testId="c6e80f3a-b11f-308d-e039-edc0ea2905ea" testName="RemoveAllergy_throws_validation_for_nonexistent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0059010" startTime="2025-04-27T12:30:34.8599900+02:00" endTime="2025-04-27T12:30:34.8658900+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6f7b9f4-22ba-45d0-ad2c-1b74baf38a2f">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [0aa7d7f7-afd0-41c4-bc33-d605f878538b]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command RemoveAllergyCommand with 2 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request RemoveAllergyCommand [0aa7d7f7-afd0-41c4-bc33-d605f878538b] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member does not exist or does not belong to the current user. Severity: Error
+       -- Allergen: This allergy is not registered for this family member. Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4aec8919-6fca-4f6f-b98a-f3266a837131" testId="e5e6e01a-9435-91db-8c69-417cbe4b7acb" testName="Handle_prevents_duplicate_allergen" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0181620" startTime="2025-04-27T12:30:34.6637230+02:00" endTime="2025-04-27T12:30:34.6818850+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4aec8919-6fca-4f6f-b98a-f3266a837131">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [f0c45e52-6366-4a17-92ce-2ed66aefdbe3]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Peanuts for family member 4d06d225-7c21-422e-a6a4-492c9ab34b7a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Peanuts for family member 4d06d225-7c21-422e-a6a4-492c9ab34b7a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [f0c45e52-6366-4a17-92ce-2ed66aefdbe3]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [a756de46-c3ee-4e12-9254-335b14234e0f]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command AddAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request AddAllergyCommand [a756de46-c3ee-4e12-9254-335b14234e0f] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- Allergen: This allergy is already registered for this family member Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5bbad6dd-640d-4087-a238-236d1b6bb0b4" testId="96165e12-20f4-508c-6ce5-c369f6aafa7a" testName="Should_Not_Have_Error_When_Command_Valid" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0027830" startTime="2025-04-27T12:30:34.7170370+02:00" endTime="2025-04-27T12:30:34.7198200+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5bbad6dd-640d-4087-a238-236d1b6bb0b4" />
+    <UnitTestResult executionId="23fb1510-4928-41ca-b765-7299432bc702" testId="cb5003b3-5190-5be8-ce3c-d26bc5fc3ff5" testName="Handle_creates_unique_complete_family_members_for_same_user" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0214430" startTime="2025-04-27T12:30:34.7800190+02:00" endTime="2025-04-27T12:30:34.8014610+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23fb1510-4928-41ca-b765-7299432bc702">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddCompleteFamilyMemberCommand [fcfe51d9-c7e3-4069-9c69-66124bcc3e37]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember.AddCompleteFamilyMemberCommandHandler[0]
+      Successfully created family member 99b7919b-96fc-4291-96b4-e99a90bd3ac2 for user 2a57d18e-22fb-4769-a660-ca25cb8bd14a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddCompleteFamilyMemberCommand [fcfe51d9-c7e3-4069-9c69-66124bcc3e37]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddCompleteFamilyMemberCommand [539646c0-d29c-41a4-ade3-f4e04177f258]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember.AddCompleteFamilyMemberCommandHandler[0]
+      Successfully created family member 44280d28-f8a0-4bb0-a90e-55e819024d74 for user 2a57d18e-22fb-4769-a660-ca25cb8bd14a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddCompleteFamilyMemberCommand [539646c0-d29c-41a4-ade3-f4e04177f258]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c5d3814e-24b4-40e9-8ee3-9c1201b66bf4" testId="bb00f71d-d6f1-3bd7-150c-7d51ffa98913" testName="Should_Have_Error_When_Allergen_Too_Long" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0092590" startTime="2025-04-27T12:30:34.6975580+02:00" endTime="2025-04-27T12:30:34.7068170+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c5d3814e-24b4-40e9-8ee3-9c1201b66bf4" />
+    <UnitTestResult executionId="2c74f7cd-e1fc-40cb-b493-013472c0a2ff" testId="98a9448b-a985-bda7-5bb7-581ecee70141" testName="Handle_adds_allergy_to_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.5022560" startTime="2025-04-27T12:30:34.1397330+02:00" endTime="2025-04-27T12:30:34.6419420+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c74f7cd-e1fc-40cb-b493-013472c0a2ff">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [35fc4eb8-64af-44ac-ab20-85803017c77f]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Peanuts for family member 6f10f800-a5be-49ee-bb11-26f1ef32f880
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Peanuts for family member 6f10f800-a5be-49ee-bb11-26f1ef32f880
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [35fc4eb8-64af-44ac-ab20-85803017c77f]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="36fcb1ed-5f88-449a-9a4c-086684c4c957" testId="dc28df5f-f0f3-30c2-b8f6-a5487362f09f" testName="Should_Have_Error_When_Allergen_Empty" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0063400" startTime="2025-04-27T12:30:34.6911310+02:00" endTime="2025-04-27T12:30:34.6974710+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36fcb1ed-5f88-449a-9a4c-086684c4c957" />
+    <UnitTestResult executionId="b1ed7ef6-91d7-4966-b849-51d74742b4b4" testId="03c5bfc8-e665-cae7-0480-95bf401f56f4" testName="Should_Have_Error_When_FamilyMember_Not_Found" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0030230" startTime="2025-04-27T12:30:34.7101490+02:00" endTime="2025-04-27T12:30:34.7131720+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b1ed7ef6-91d7-4966-b849-51d74742b4b4" />
+    <UnitTestResult executionId="0c9adf94-dbcd-400c-80d2-340edcaeeaad" testId="0c9d97b9-047c-8383-d229-0673612b5688" testName="Handle_adds_family_member_and_returns_id" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0214790" startTime="2025-04-27T12:30:34.8032480+02:00" endTime="2025-04-27T12:30:34.8247260+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c9adf94-dbcd-400c-80d2-340edcaeeaad">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddFamilyMemberCommand [8e9823d4-85f1-4788-9fb3-4702d14ca8f0]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddFamilyMemberCommand [8e9823d4-85f1-4788-9fb3-4702d14ca8f0]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1809183c-d8e6-4833-8fb7-91521e7435d4" testId="165002c3-dfce-8a00-ff68-4aea38f794fb" testName="Handle_adds_complete_family_member_with_all_details" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0600160" startTime="2025-04-27T12:30:34.7199250+02:00" endTime="2025-04-27T12:30:34.7799410+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1809183c-d8e6-4833-8fb7-91521e7435d4">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddCompleteFamilyMemberCommand [83328820-52a6-456a-b576-c645394f81ab]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember.AddCompleteFamilyMemberCommandHandler[0]
+      Successfully created family member 94e4d2c7-d1c9-4e2d-b912-e5bd5503a4f3 for user f9b7294d-7dd3-44fd-ba0d-4699c93da3ea
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddCompleteFamilyMemberCommand [83328820-52a6-456a-b576-c645394f81ab]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="09cf2c5e-1393-4b73-8235-db8b62c48b16" testId="a1284ead-43bc-e05f-e2a1-12b645521431" testName="Handle_adds_multiple_allergies_to_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0205170" startTime="2025-04-27T12:30:34.6431220+02:00" endTime="2025-04-27T12:30:34.6636380+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09cf2c5e-1393-4b73-8235-db8b62c48b16">
+      <Output>
+        <StdOut>\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [a9d2cc98-2792-4b64-8095-6c36cb318f48]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Peanuts for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Peanuts for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [a9d2cc98-2792-4b64-8095-6c36cb318f48]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [6fcedc3d-d18b-4bf0-be67-d9687c714a20]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Milk for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Milk for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [6fcedc3d-d18b-4bf0-be67-d9687c714a20]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [b4b8aa1c-c41e-4659-997b-26e6c6d95716]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Eggs for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Eggs for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [b4b8aa1c-c41e-4659-997b-26e6c6d95716]</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Should_Have_Error_When_Allergen_Too_Long" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="bb00f71d-d6f1-3bd7-150c-7d51ffa98913">
+      <Execution id="c5d3814e-24b4-40e9-8ee3-9c1201b66bf4" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandValidatorTests" name="Should_Have_Error_When_Allergen_Too_Long" />
+    </UnitTest>
+    <UnitTest name="Handle_adds_allergy_to_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="98a9448b-a985-bda7-5bb7-581ecee70141">
+      <Execution id="2c74f7cd-e1fc-40cb-b493-013472c0a2ff" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandHandlerTests" name="Handle_adds_allergy_to_family_member" />
+    </UnitTest>
+    <UnitTest name="Handle_adds_multiple_allergies_to_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="a1284ead-43bc-e05f-e2a1-12b645521431">
+      <Execution id="09cf2c5e-1393-4b73-8235-db8b62c48b16" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandHandlerTests" name="Handle_adds_multiple_allergies_to_family_member" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_throws_validation_for_unauthorized_user" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="f93012be-2f7d-07b2-c4af-2a00166e3720">
+      <Execution id="5f434845-59fd-464a-9b9c-a856323d5d90" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.RemoveAllergy.RemoveAllergyCommandHandlerTests" name="RemoveAllergy_throws_validation_for_unauthorized_user" />
+    </UnitTest>
+    <UnitTest name="Handle_throws_validation_error_for_different_user_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="1daa8d04-c84a-cc3a-d53e-28e6bc8c6db7">
+      <Execution id="c3e23c99-643c-46a8-a541-a5f38f3d1ee7" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandHandlerTests" name="Handle_throws_validation_error_for_different_user_family_member" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_throws_validation_for_nonexistent_allergy" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="d9fb5d32-5434-902a-75ff-ae84a9ff6055">
+      <Execution id="ae6b6512-4b68-46c1-80b7-b623928577e7" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.RemoveAllergy.RemoveAllergyCommandHandlerTests" name="RemoveAllergy_throws_validation_for_nonexistent_allergy" />
+    </UnitTest>
+    <UnitTest name="Should_Have_Error_When_Allergy_Already_Exists" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="52f05a78-42d7-ac7e-ca11-124e53e40a04">
+      <Execution id="c2fb5237-aabe-49cb-a357-e155f0577845" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandValidatorTests" name="Should_Have_Error_When_Allergy_Already_Exists" />
+    </UnitTest>
+    <UnitTest name="Should_Have_Error_When_Allergen_Empty" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="dc28df5f-f0f3-30c2-b8f6-a5487362f09f">
+      <Execution id="36fcb1ed-5f88-449a-9a4c-086684c4c957" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandValidatorTests" name="Should_Have_Error_When_Allergen_Empty" />
+    </UnitTest>
+    <UnitTest name="Handle_adds_complete_family_member_with_all_details" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="165002c3-dfce-8a00-ff68-4aea38f794fb">
+      <Execution id="1809183c-d8e6-4833-8fb7-91521e7435d4" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddCompleteFamilyMemberCommandHandlerTests" name="Handle_adds_complete_family_member_with_all_details" />
+    </UnitTest>
+    <UnitTest name="Should_Not_Have_Error_When_Command_Valid" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="96165e12-20f4-508c-6ce5-c369f6aafa7a">
+      <Execution id="5bbad6dd-640d-4087-a238-236d1b6bb0b4" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandValidatorTests" name="Should_Not_Have_Error_When_Command_Valid" />
+    </UnitTest>
+    <UnitTest name="Handle_creates_unique_complete_family_members_for_same_user" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="cb5003b3-5190-5be8-ce3c-d26bc5fc3ff5">
+      <Execution id="23fb1510-4928-41ca-b765-7299432bc702" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddCompleteFamilyMemberCommandHandlerTests" name="Handle_creates_unique_complete_family_members_for_same_user" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_throws_validation_for_nonexistent_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="c6e80f3a-b11f-308d-e039-edc0ea2905ea">
+      <Execution id="b6f7b9f4-22ba-45d0-ad2c-1b74baf38a2f" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.RemoveAllergy.RemoveAllergyCommandHandlerTests" name="RemoveAllergy_throws_validation_for_nonexistent_member" />
+    </UnitTest>
+    <UnitTest name="Handle_prevents_duplicate_allergen" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="e5e6e01a-9435-91db-8c69-417cbe4b7acb">
+      <Execution id="4aec8919-6fca-4f6f-b98a-f3266a837131" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandHandlerTests" name="Handle_prevents_duplicate_allergen" />
+    </UnitTest>
+    <UnitTest name="Handle_adds_family_member_and_returns_id" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="0c9d97b9-047c-8383-d229-0673612b5688">
+      <Execution id="0c9adf94-dbcd-400c-80d2-340edcaeeaad" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddFamilyMemberCommandHandlerTests" name="Handle_adds_family_member_and_returns_id" />
+    </UnitTest>
+    <UnitTest name="Handle_throws_validation_error_for_non_existent_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="babba398-0832-8556-8c83-8390e2ffc435">
+      <Execution id="f606940e-5899-4e62-adf4-8d1b523d9b36" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandHandlerTests" name="Handle_throws_validation_error_for_non_existent_family_member" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_removes_allergy_successfully" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="d11ee9e8-7986-7b13-77d2-263e5c6ce2f5">
+      <Execution id="778aa1b9-01a3-43c3-bdd7-2edcb3fa4132" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.RemoveAllergy.RemoveAllergyCommandHandlerTests" name="RemoveAllergy_removes_allergy_successfully" />
+    </UnitTest>
+    <UnitTest name="Handle_creates_unique_family_members_for_same_user" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="25580f3c-1258-6ec9-c231-89f33b4cc8e2">
+      <Execution id="94d2ba4b-cfe8-410a-bc03-62c93c0b69d3" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddFamilyMemberCommandHandlerTests" name="Handle_creates_unique_family_members_for_same_user" />
+    </UnitTest>
+    <UnitTest name="Should_Have_Error_When_FamilyMember_Not_Found" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="03c5bfc8-e665-cae7-0480-95bf401f56f4">
+      <Execution id="b1ed7ef6-91d7-4966-b849-51d74742b4b4" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandValidatorTests" name="Should_Have_Error_When_FamilyMember_Not_Found" />
+    </UnitTest>
+    <UnitTest name="Should_Have_Error_When_FamilyMemberId_Empty" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.integration/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.integration.dll" id="4a9ae019-a07d-78ef-0301-19668d8886c8">
+      <Execution id="ca289668-a357-4702-b319-3eab0144df77" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy.AddAllergyCommandValidatorTests" name="Should_Have_Error_When_FamilyMemberId_Empty" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="f93012be-2f7d-07b2-c4af-2a00166e3720" executionId="5f434845-59fd-464a-9b9c-a856323d5d90" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25580f3c-1258-6ec9-c231-89f33b4cc8e2" executionId="94d2ba4b-cfe8-410a-bc03-62c93c0b69d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d9fb5d32-5434-902a-75ff-ae84a9ff6055" executionId="ae6b6512-4b68-46c1-80b7-b623928577e7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="babba398-0832-8556-8c83-8390e2ffc435" executionId="f606940e-5899-4e62-adf4-8d1b523d9b36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d11ee9e8-7986-7b13-77d2-263e5c6ce2f5" executionId="778aa1b9-01a3-43c3-bdd7-2edcb3fa4132" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1daa8d04-c84a-cc3a-d53e-28e6bc8c6db7" executionId="c3e23c99-643c-46a8-a541-a5f38f3d1ee7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a9ae019-a07d-78ef-0301-19668d8886c8" executionId="ca289668-a357-4702-b319-3eab0144df77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="52f05a78-42d7-ac7e-ca11-124e53e40a04" executionId="c2fb5237-aabe-49cb-a357-e155f0577845" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c6e80f3a-b11f-308d-e039-edc0ea2905ea" executionId="b6f7b9f4-22ba-45d0-ad2c-1b74baf38a2f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e5e6e01a-9435-91db-8c69-417cbe4b7acb" executionId="4aec8919-6fca-4f6f-b98a-f3266a837131" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="96165e12-20f4-508c-6ce5-c369f6aafa7a" executionId="5bbad6dd-640d-4087-a238-236d1b6bb0b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cb5003b3-5190-5be8-ce3c-d26bc5fc3ff5" executionId="23fb1510-4928-41ca-b765-7299432bc702" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bb00f71d-d6f1-3bd7-150c-7d51ffa98913" executionId="c5d3814e-24b4-40e9-8ee3-9c1201b66bf4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="98a9448b-a985-bda7-5bb7-581ecee70141" executionId="2c74f7cd-e1fc-40cb-b493-013472c0a2ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc28df5f-f0f3-30c2-b8f6-a5487362f09f" executionId="36fcb1ed-5f88-449a-9a4c-086684c4c957" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03c5bfc8-e665-cae7-0480-95bf401f56f4" executionId="b1ed7ef6-91d7-4966-b849-51d74742b4b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c9d97b9-047c-8383-d229-0673612b5688" executionId="0c9adf94-dbcd-400c-80d2-340edcaeeaad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="165002c3-dfce-8a00-ff68-4aea38f794fb" executionId="1809183c-d8e6-4833-8fb7-91521e7435d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1284ead-43bc-e05f-e2a1-12b645521431" executionId="09cf2c5e-1393-4b73-8235-db8b62c48b16" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="19" executed="19" passed="19" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 5.0.0.0: Test execution started
+Running all tests in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.Integration/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.Integration.dll
+   NUnit3TestExecutor discovered 19 of 19 NUnit test cases using Current Discovery mode, Non-Explicit run
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [35fc4eb8-64af-44ac-ab20-85803017c77f]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Peanuts for family member 6f10f800-a5be-49ee-bb11-26f1ef32f880
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Peanuts for family member 6f10f800-a5be-49ee-bb11-26f1ef32f880
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [35fc4eb8-64af-44ac-ab20-85803017c77f]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [a9d2cc98-2792-4b64-8095-6c36cb318f48]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Peanuts for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Peanuts for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [a9d2cc98-2792-4b64-8095-6c36cb318f48]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [6fcedc3d-d18b-4bf0-be67-d9687c714a20]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Milk for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Milk for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [6fcedc3d-d18b-4bf0-be67-d9687c714a20]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [b4b8aa1c-c41e-4659-997b-26e6c6d95716]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Eggs for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Eggs for family member b856c589-c056-465b-b471-25c3f6cac05f
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [b4b8aa1c-c41e-4659-997b-26e6c6d95716]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [f0c45e52-6366-4a17-92ce-2ed66aefdbe3]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Adding new allergy Peanuts for family member 4d06d225-7c21-422e-a6a4-492c9ab34b7a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy.AddAllergyCommandHandler[0]
+      Successfully added allergy Peanuts for family member 4d06d225-7c21-422e-a6a4-492c9ab34b7a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddAllergyCommand [f0c45e52-6366-4a17-92ce-2ed66aefdbe3]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [a756de46-c3ee-4e12-9254-335b14234e0f]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command AddAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request AddAllergyCommand [a756de46-c3ee-4e12-9254-335b14234e0f] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- Allergen: This allergy is already registered for this family member Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [72f49fc2-0c7f-4fe4-89cc-53e362ca247c]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command AddAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request AddAllergyCommand [72f49fc2-0c7f-4fe4-89cc-53e362ca247c] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member not found Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddAllergyCommand [8bcc197d-79e7-4949-a7f5-27d5eeca069b]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command AddAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request AddAllergyCommand [8bcc197d-79e7-4949-a7f5-27d5eeca069b] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member not found Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddCompleteFamilyMemberCommand [83328820-52a6-456a-b576-c645394f81ab]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember.AddCompleteFamilyMemberCommandHandler[0]
+      Successfully created family member 94e4d2c7-d1c9-4e2d-b912-e5bd5503a4f3 for user f9b7294d-7dd3-44fd-ba0d-4699c93da3ea
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddCompleteFamilyMemberCommand [83328820-52a6-456a-b576-c645394f81ab]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddCompleteFamilyMemberCommand [fcfe51d9-c7e3-4069-9c69-66124bcc3e37]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember.AddCompleteFamilyMemberCommandHandler[0]
+      Successfully created family member 99b7919b-96fc-4291-96b4-e99a90bd3ac2 for user 2a57d18e-22fb-4769-a660-ca25cb8bd14a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddCompleteFamilyMemberCommand [fcfe51d9-c7e3-4069-9c69-66124bcc3e37]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddCompleteFamilyMemberCommand [539646c0-d29c-41a4-ade3-f4e04177f258]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember.AddCompleteFamilyMemberCommandHandler[0]
+      Successfully created family member 44280d28-f8a0-4bb0-a90e-55e819024d74 for user 2a57d18e-22fb-4769-a660-ca25cb8bd14a
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddCompleteFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddCompleteFamilyMemberCommand [539646c0-d29c-41a4-ade3-f4e04177f258]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddFamilyMemberCommand [8e9823d4-85f1-4788-9fb3-4702d14ca8f0]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddFamilyMemberCommand [8e9823d4-85f1-4788-9fb3-4702d14ca8f0]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddFamilyMemberCommand [fbfa682e-347e-41b7-a837-ecf9f35d6213]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddFamilyMemberCommand [fbfa682e-347e-41b7-a837-ecf9f35d6213]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request AddFamilyMemberCommand [c28f7d96-1a62-4394-aad2-0cd6a173e66b]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for AddFamilyMemberCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request AddFamilyMemberCommand [c28f7d96-1a62-4394-aad2-0cd6a173e66b]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [87579853-80cd-4aa9-ad16-d8a985176bdf]
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Beginning transaction for RemoveAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler[0]
+      Successfully removed allergy Peanuts for family member 8c102682-eb5a-430c-9032-0bc8ae814ee6
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior[0]
+      Committed transaction for RemoveAllergyCommand
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Completed request RemoveAllergyCommand [87579853-80cd-4aa9-ad16-d8a985176bdf]
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [55529eac-bce7-4373-867b-c7f6af92675f]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command RemoveAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request RemoveAllergyCommand [55529eac-bce7-4373-867b-c7f6af92675f] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- Allergen: This allergy is not registered for this family member. Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [0aa7d7f7-afd0-41c4-bc33-d605f878538b]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command RemoveAllergyCommand with 2 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request RemoveAllergyCommand [0aa7d7f7-afd0-41c4-bc33-d605f878538b] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member does not exist or does not belong to the current user. Severity: Error
+       -- Allergen: This allergy is not registered for this family member. Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+
+\u001b[40m\u001b[32minfo\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Beginning request RemoveAllergyCommand [5cce1609-5e68-4d70-9491-d5fc8ded5fdb]
+\u001b[40m\u001b[1m\u001b[33mwarn\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior[0]
+      Validation failed for command RemoveAllergyCommand with 1 errors
+\u001b[41m\u001b[30mfail\u001b[39m\u001b[22m\u001b[49m: YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior[0]
+      Request RemoveAllergyCommand [5cce1609-5e68-4d70-9491-d5fc8ded5fdb] failed
+      FluentValidation.ValidationException: Validation failed: 
+       -- FamilyMemberId: Family member does not exist or does not belong to the current user. Severity: Error
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+         at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+
+NUnit Adapter 5.0.0.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

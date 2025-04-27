@@ -24,4 +24,4 @@ public class AddCompleteFamilyMemberCommandValidator : AbstractValidator<AddComp
         RuleForEach(x => x.FoodPreferences)
             .SetValidator(new FoodPreferenceValidator());
     }
-} 
+}

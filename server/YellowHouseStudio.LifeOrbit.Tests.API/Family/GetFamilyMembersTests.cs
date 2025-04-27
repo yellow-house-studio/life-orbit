@@ -35,4 +35,4 @@ public class GetFamilyMembersTests : ApiTestBase
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
-} 
+}

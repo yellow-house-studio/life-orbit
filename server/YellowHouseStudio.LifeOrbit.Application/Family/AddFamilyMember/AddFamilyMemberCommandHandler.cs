@@ -22,4 +22,4 @@ public class AddFamilyMemberCommandHandler : IRequestHandler<AddFamilyMemberComm
 
         return familyMember.Id;
     }
-} 
+}

@@ -13,4 +13,4 @@ public class RemoveFoodPreferenceCommandValidator : AbstractValidator<RemoveFood
             .NotEmpty()
             .MaximumLength(100);
     }
-} 
+}

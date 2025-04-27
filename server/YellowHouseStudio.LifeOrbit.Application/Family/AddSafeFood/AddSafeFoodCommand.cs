@@ -7,4 +7,4 @@ public record AddSafeFoodCommand : ICommand<FamilyMemberResponse>
 {
     public Guid FamilyMemberId { get; init; }
     public string FoodItem { get; init; } = string.Empty;
-} 
+}

@@ -64,4 +64,4 @@ public enum AllergySeverity
     /// The allergen is not allowed in any meals.
     /// </summary>
     NotAllowed
-} 
+}

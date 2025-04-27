@@ -6,5 +6,5 @@ public static class ValidationErrorCodes
 
     public const string Unauthorized = "401";
 
-    public const string Default = BadRequest; 
+    public const string Default = BadRequest;
 }

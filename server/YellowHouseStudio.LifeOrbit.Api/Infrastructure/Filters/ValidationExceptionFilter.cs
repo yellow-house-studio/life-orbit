@@ -27,14 +27,16 @@ public class ValidationExceptionFilter : ExceptionFilterAttribute
                 Instance = context.HttpContext.Request.Path
             };
 
-            if(validationException.Errors.Any(e => e.ErrorCode == ValidationErrorCodes.NotFound))
+            if (validationException.Errors.Any(e => e.ErrorCode == ValidationErrorCodes.NotFound))
             {
                 context.Result = new NotFoundObjectResult(validationProblemDetails);
-            } else {
-                 context.Result = new BadRequestObjectResult(validationProblemDetails);
             }
-            
+            else
+            {
+                context.Result = new BadRequestObjectResult(validationProblemDetails);
+            }
+
             context.ExceptionHandled = true;
         }
     }
-} 
+}

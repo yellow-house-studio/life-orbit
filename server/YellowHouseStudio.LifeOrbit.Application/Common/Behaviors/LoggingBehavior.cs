@@ -19,21 +19,21 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         var requestId = Guid.NewGuid().ToString();
 
         _logger.LogInformation("Beginning request {RequestName} [{RequestId}]", requestName, requestId);
-        
+
         try
         {
             var response = await next();
 
-            _logger.LogInformation("Completed request {RequestName} [{RequestId}]", 
+            _logger.LogInformation("Completed request {RequestName} [{RequestId}]",
                 requestName, requestId);
 
             return response;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Request {RequestName} [{RequestId}] failed", 
+            _logger.LogError(ex, "Request {RequestName} [{RequestId}] failed",
                 requestName, requestId);
             throw;
         }
     }
-} 
+}

@@ -22,4 +22,4 @@ public record AddAllergyCommand : ICommand<FamilyMemberResponse>
     /// The severity of the allergy (must be a valid AllergySeverity value)
     /// </summary>
     public string Severity { get; init; } = string.Empty;
-} 
+}

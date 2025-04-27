@@ -69,4 +69,4 @@ public enum PreferenceStatus
     /// The food item should not be included in any meals.
     /// </summary>
     NotAllowed
-} 
+}

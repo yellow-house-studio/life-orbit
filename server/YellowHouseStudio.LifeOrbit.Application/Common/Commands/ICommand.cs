@@ -13,4 +13,4 @@ public interface ICommand : IRequest { }
 /// Commands implementing this interface automatically get transaction behavior.
 /// </summary>
 /// <typeparam name="TResponse">The type of response returned by the command</typeparam>
-public interface ICommand<out TResponse> : IRequest<TResponse> { } 
+public interface ICommand<out TResponse> : IRequest<TResponse> { }

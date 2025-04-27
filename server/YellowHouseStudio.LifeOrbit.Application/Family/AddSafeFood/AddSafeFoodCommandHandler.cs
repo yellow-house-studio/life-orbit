@@ -46,4 +46,4 @@ public class AddSafeFoodCommandHandler : IRequestHandler<AddSafeFoodCommand, Fam
         _logger.LogInformation("Successfully added safe food {FoodItem} for family member {FamilyMemberId}", request.FoodItem, request.FamilyMemberId);
         return FamilyMemberResponse.FromDomain(familyMember);
     }
-} 
+}

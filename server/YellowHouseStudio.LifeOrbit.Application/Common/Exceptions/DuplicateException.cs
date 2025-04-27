@@ -15,4 +15,4 @@ public class DuplicateException : Exception
         : base(message, innerException)
     {
     }
-} 
+}

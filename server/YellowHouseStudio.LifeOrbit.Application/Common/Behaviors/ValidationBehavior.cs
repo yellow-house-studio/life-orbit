@@ -56,7 +56,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
 
             if (failures.Count != 0)
             {
-                _logger.LogWarning("Validation failed for command {CommandType} with {ErrorCount} errors", 
+                _logger.LogWarning("Validation failed for command {CommandType} with {ErrorCount} errors",
                     typeof(TRequest).Name, failures.Count);
                 throw new ValidationException(failures);
             }
@@ -81,4 +81,4 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         var constructors = type.GetConstructors();
         return constructors.Any(c => c.GetParameters().Length > 0);
     }
-} 
+}

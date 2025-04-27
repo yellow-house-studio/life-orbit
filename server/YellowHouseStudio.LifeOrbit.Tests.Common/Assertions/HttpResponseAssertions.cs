@@ -37,4 +37,4 @@ public static class HttpResponseAssertions
             problemDetails!.Detail.Should().Be(expectedMessage);
         }
     }
-} 
+}

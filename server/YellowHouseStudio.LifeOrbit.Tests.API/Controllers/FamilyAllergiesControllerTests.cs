@@ -28,7 +28,7 @@ public class FamilyAllergiesControllerTests : ApiTestBase
             .WithName("Test Member")
             .WithAge(30)
             .Build();
-            
+
         Context.FamilyMembers.Add(familyMember);
         await Context.SaveChangesAsync();
         _familyMemberId = familyMember.Id;
@@ -53,8 +53,8 @@ public class FamilyAllergiesControllerTests : ApiTestBase
         var result = await response.Content.ReadFromJsonAsync<FamilyMemberResponse>();
         result.Should().NotBeNull();
         result!.Id.Should().Be(_familyMemberId);
-        result.Allergies.Should().ContainSingle(a => 
-            a.Allergen == "Peanuts" && 
+        result.Allergies.Should().ContainSingle(a =>
+            a.Allergen == "Peanuts" &&
             a.Severity == AllergySeverity.NotAllowed.ToString());
 
         // Verify database state
@@ -192,7 +192,7 @@ public class FamilyAllergiesControllerTests : ApiTestBase
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         var error = await response.Content.ReadAsStringAsync();
-        error.Should().Contain($"Family member {nonExistentId} not found");
+        error.Should().Contain("Family member not found");
     }
 
     [Test]
@@ -205,7 +205,7 @@ public class FamilyAllergiesControllerTests : ApiTestBase
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         var error = await response.Content.ReadAsStringAsync();
-        error.Should().Contain("Allergy 'NonExistentAllergy' not found");
+        error.Should().Contain("This allergy is not registered for this family member");
     }
 
     [Test]
@@ -230,4 +230,4 @@ public class FamilyAllergiesControllerTests : ApiTestBase
         result.Should().NotBeNull();
         result!.Allergies.Should().BeEmpty();
     }
-} 
+}

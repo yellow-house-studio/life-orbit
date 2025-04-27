@@ -15,4 +15,4 @@ public class AllergyValidator : AbstractValidator<AllergyDto>
             .Must(severity => severity is "AvailableForOthers" or "NotAllowed")
             .WithMessage("Severity must be either 'AvailableForOthers' or 'NotAllowed'");
     }
-} 
+}

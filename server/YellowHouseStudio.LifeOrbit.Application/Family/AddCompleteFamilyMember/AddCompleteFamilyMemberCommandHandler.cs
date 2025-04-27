@@ -16,7 +16,7 @@ public class AddCompleteFamilyMemberCommandHandler(ApplicationDbContext context,
     public async Task<FamilyMemberResponse> Handle(AddCompleteFamilyMemberCommand request, CancellationToken cancellationToken)
     {
         _logger.LogDebug("Creating new family member for user {UserId} with name {Name}", currentUser.UserId, request.Name);
-        
+
         var familyMember = new FamilyMember(currentUser.UserId, request.Name, request.Age);
 
         foreach (var allergy in request.Allergies)
@@ -38,8 +38,8 @@ public class AddCompleteFamilyMemberCommandHandler(ApplicationDbContext context,
         }
 
         await _context.FamilyMembers.AddAsync(familyMember, cancellationToken);
-        
+
         _logger.LogInformation("Successfully created family member {FamilyMemberId} for user {UserId}", familyMember.Id, familyMember.UserId);
         return FamilyMemberResponse.FromDomain(familyMember);
     }
-} 
+}

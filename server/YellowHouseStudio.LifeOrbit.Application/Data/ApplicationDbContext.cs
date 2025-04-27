@@ -19,21 +19,21 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Name).IsRequired();
             entity.Property(e => e.Age).IsRequired();
-            
+
             entity.OwnsMany(e => e.Allergies, nav =>
             {
                 nav.WithOwner().HasForeignKey("FamilyMemberId");
                 nav.Property<Guid>("Id");
                 nav.HasKey("Id");
             });
-            
+
             entity.OwnsMany(e => e.SafeFoods, nav =>
             {
                 nav.WithOwner().HasForeignKey("FamilyMemberId");
                 nav.Property<Guid>("Id");
                 nav.HasKey("Id");
             });
-            
+
             entity.OwnsMany(e => e.FoodPreferences, nav =>
             {
                 nav.WithOwner().HasForeignKey("FamilyMemberId");
@@ -42,4 +42,4 @@ public class ApplicationDbContext : DbContext
             });
         });
     }
-} 
+}

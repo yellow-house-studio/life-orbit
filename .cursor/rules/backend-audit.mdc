@@ -1,0 +1,118 @@
+---
+description: Workflow for doing and API Feature Audit
+globs: 
+alwaysApply: false
+---
+# 📄 Prompt: API Feature Audit
+
+You are tasked with performing a **full audit** of a specified feature in a backend API project.  
+You will be provided only:
+- A **Controller class** (source code file).
+- A list of **endpoints** in that controller to audit.
+
+You must find and inspect **all related files yourself** based on the controller and endpoints.
+
+---
+
+## 🔹 Your Audit Responsibilities
+
+You must check and report on the following:
+
+### 1. Locate Related Files
+- Identify:
+  - Command or Query handlers
+  - Commands/Queries
+  - Validators
+  - API tests
+  - Integration tests
+  - Unit tests
+  - Swagger/OpenAPI documentation (or similar)
+
+---
+
+### 2. Implementation Audit
+- [ ] Controller is minimal: it constructs and sends Command/Query via Mediator, and returns the result.
+- [ ] Controller does not perform validation, business logic, or database operations.
+- [ ] Correct Command or Query handler exists.
+- [ ] Commands have a **separate Validator** class.
+- [ ] Handlers perform **no validation** internally.
+- [ ] Handlers perform **no transaction control** internally.
+- [ ] Handlers and Validators **do not access DbContext** directly (must use repositories).
+- [ ] All files inspected must have **full file paths** listed.
+
+### 3. Validation Audit
+- [ ] Validators exist separately for Commands.
+- [ ] Validators test all required validation rules.
+- [ ] Validator classes have **unit tests** with **repository mocking** if needed.
+- [ ] Validation is triggered and verified in integration tests.
+
+### 4. Testing Audit
+- [ ] **API tests** exist for each endpoint:
+  - [ ] One **happy path** test.
+  - [ ] One **failure case** test (bad input, unauthorized, etc.).
+- [ ] **Integration tests** exist for each handler (command/query):
+  - [ ] Validation triggering.
+  - [ ] Error and edge case handling.
+- [ ] **Unit tests** exist for each Validator separately.
+- [ ] All tests must be **run** and **results documented**:
+  - [ ] Number of tests found.
+  - [ ] Number of tests executed.
+  - [ ] Pass/fail summary.
+- [ ] **Audit automatically fails** if any related test fails.
+
+### 5. Documentation Audit
+- [ ] Each endpoint must have proper **Swagger/OpenAPI** annotations (summary, parameters, responses).
+- [ ] All **public methods** must be documented with code comments.
+
+---
+
+### 6. Project Rule Verification
+- For **every file** inspected:
+  - [ ] Look up the **expected project rules** for the file type.
+  - [ ] Verify that the file **follows all rules**.
+  - [ ] Flag and document any violations clearly.
+
+---
+
+### 7. Build and Linting Audit
+- [ ] Build the project and check for **any warnings**:
+  - [ ] Critical build warnings = **Audit fail**.
+  - [ ] Minor build warnings = Documented, audit may still pass.
+- [ ] Run code **linting**:
+  - [ ] List any lint warnings found.
+  - [ ] Severe linting issues (affecting code safety) = **Audit fail**.
+  - [ ] Minor style issues = Documented only.
+
+---
+
+## 🔹 Output Format
+
+You must output a **structured audit report** using **checklists**.
+
+For each major section (Implementation Audit, Validation Audit, etc.) use:
+
+| Check | Item | Notes |
+|:---|:---|:---|
+
+At the end of the report, include:
+- **Issues Found**: bullet list of problems.
+- **Suggested Improvements**: how to fix them.
+- **Final Verdict**: Pass / Conditional Pass / Fail.
+- **Files Reviewed**: full list of file paths inspected.
+
+---
+
+## 🔹 Output File
+
+- Save the audit report as a Markdown file.
+- Path: `docs/audit/{FeatureName}.md`
+  - `{FeatureName}` = the feature or endpoint name(s) under audit.
+
+---
+
+## 🔹 Additional Instructions
+- Use **Smart Mode**: If something appears missing or suspicious based on project conventions, **flag it**.
+- Be very clear, structured, and professional — **this audit may be used to track technical debt and trigger mandatory fixes**.
+- Keep your tone concise and factual.
+
+---

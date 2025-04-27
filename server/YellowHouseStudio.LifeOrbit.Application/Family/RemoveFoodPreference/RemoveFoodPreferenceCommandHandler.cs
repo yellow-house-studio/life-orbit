@@ -46,4 +46,4 @@ public class RemoveFoodPreferenceCommandHandler : IRequestHandler<RemoveFoodPref
         _logger.LogInformation("Successfully removed food preference {FoodItem} for family member {FamilyMemberId}", request.FoodItem, request.FamilyMemberId);
         return FamilyMemberResponse.FromDomain(familyMember);
     }
-} 
+}

@@ -45,7 +45,7 @@ public record FamilyMemberDto
     public List<SafeFoodDto> SafeFoods { get; init; } = new();
     public List<FoodPreferenceDto> FoodPreferences { get; init; } = new();
 
-  
+
 }
 
 public record FamilyMemberResponse
@@ -57,7 +57,7 @@ public record FamilyMemberResponse
     public List<SafeFoodDto> SafeFoods { get; init; } = new();
     public List<FoodPreferenceDto> FoodPreferences { get; init; } = new();
 
-      public static FamilyMemberResponse FromDomain(FamilyMember familyMember) => new()
+    public static FamilyMemberResponse FromDomain(FamilyMember familyMember) => new()
     {
         Id = familyMember.Id,
         Name = familyMember.Name,
@@ -66,4 +66,4 @@ public record FamilyMemberResponse
         SafeFoods = familyMember.SafeFoods.Select(SafeFoodDto.FromDomain).ToList(),
         FoodPreferences = familyMember.FoodPreferences.Select(FoodPreferenceDto.FromDomain).ToList()
     };
-} 
+}

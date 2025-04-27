@@ -36,9 +36,9 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
             try
             {
                 _logger.LogInformation("Beginning transaction for {RequestName}", typeof(TRequest).Name);
-                
+
                 var response = await next();
-                
+
                 await _dbContext.SaveChangesAsync(cancellationToken);
                 await transaction.CommitAsync(cancellationToken);
 
@@ -54,4 +54,4 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
             }
         });
     }
-} 
+}

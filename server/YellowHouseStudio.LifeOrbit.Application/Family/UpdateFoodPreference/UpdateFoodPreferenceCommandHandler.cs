@@ -47,4 +47,4 @@ public class UpdateFoodPreferenceCommandHandler : IRequestHandler<UpdateFoodPref
         _logger.LogInformation("Successfully updated food preference {FoodItem} for family member {FamilyMemberId}", request.FoodItem, request.FamilyMemberId);
         return FamilyMemberResponse.FromDomain(familyMember);
     }
-} 
+}

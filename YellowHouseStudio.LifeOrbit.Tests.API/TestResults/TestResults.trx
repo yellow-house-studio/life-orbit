@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="9436e359-c40d-4d1a-af31-21ca22fcb198" name="@MacBook-Air-som-tillhor-Johanna 2025-04-27 09:55:16" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-04-27T09:55:16.1269560+02:00" queuing="2025-04-27T09:55:16.1269570+02:00" start="2025-04-27T09:55:14.9467780+02:00" finish="2025-04-27T09:55:16.2927960+02:00" />
+  <TestSettings name="default" id="24dae93d-744b-4f57-afd9-02d2ac78c108">
+    <Deployment runDeploymentRoot="_MacBook-Air-som-tillhor-Johanna_2025-04-27_09_55_16" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="abe85b53-5630-4fbe-bb17-2d6a80b3faf2" testId="8397c865-3e17-9de5-925e-c92ee07d594e" testName="AddCompleteFamilyMember_with_valid_command_returns_created_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0138310" startTime="2025-04-27T09:55:16.1122380+02:00" endTime="2025-04-27T09:55:16.1260530+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="abe85b53-5630-4fbe-bb17-2d6a80b3faf2">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddCompleteFamilyMemberCommand [7ab7483a-5ea7-4439-8b01-1f052626aaec]
+[09:55:16 INF] Beginning transaction for AddCompleteFamilyMemberCommand
+[09:55:16 INF] Successfully created family member 99aae41f-ac6e-4856-89f3-673723478315 for user 7b19a0fe-e9ae-48fe-afca-43238badd576
+[09:55:16 INF] Committed transaction for AddCompleteFamilyMemberCommand
+[09:55:16 INF] Completed request AddCompleteFamilyMemberCommand [7ab7483a-5ea7-4439-8b01-1f052626aaec]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a7dbd1f7-6227-42b7-af81-b242c2d69165" testId="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e" testName="AddAllergy_returns_not_found_for_non_existent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0015960" startTime="2025-04-27T09:55:16.0041180+02:00" endTime="2025-04-27T09:55:16.0057120+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a7dbd1f7-6227-42b7-af81-b242c2d69165">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddAllergyCommand [4f8d1e05-adb7-4fbf-8539-cbb07b9119a8]
+[09:55:16 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:55:16 ERR] Request AddAllergyCommand [4f8d1e05-adb7-4fbf-8539-cbb07b9119a8] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- FamilyMemberId: Family member not found Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f6e84026-2406-401f-bc7f-67fb21dbc198" testId="2a5b5c2b-098d-79f7-ab4c-e29bb7bad082" testName="GetFamilyMembers_returns_empty_list_when_no_members" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0105890" startTime="2025-04-27T09:55:16.2322430+02:00" endTime="2025-04-27T09:55:16.2428200+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f6e84026-2406-401f-bc7f-67fb21dbc198">
+      <Output>
+        <StdOut>[09:55:16 WRN] Failed to determine the https port for redirect.
+[09:55:16 INF] Beginning request GetFamilyMembersQuery [34f84c2f-9080-4517-943e-1788c691f3ad]
+[09:55:16 INF] Completed request GetFamilyMembersQuery [34f84c2f-9080-4517-943e-1788c691f3ad]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0c19e138-132b-4170-b11d-d0283acc66f1" testId="6cd55c3d-bbfe-5165-7236-6e61acfb0e14" testName="AddFamilyMember_with_invalid_age_returns_bad_request" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0073290" startTime="2025-04-27T09:55:16.1753010+02:00" endTime="2025-04-27T09:55:16.1826230+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c19e138-132b-4170-b11d-d0283acc66f1">
+      <Output>
+        <StdOut>[09:55:16 WRN] Failed to determine the https port for redirect.
+[09:55:16 INF] Beginning request AddFamilyMemberCommand [3591bada-b385-480a-b647-00d4989ac9ec]
+[09:55:16 WRN] Validation failed for command AddFamilyMemberCommand with 1 errors
+[09:55:16 ERR] Request AddFamilyMemberCommand [3591bada-b385-480a-b647-00d4989ac9ec] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Age: Age must be greater than or equal to 0 Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cce46776-8e22-4c49-b888-1a358ee0a3e2" testId="23379fb6-fb57-e42a-d629-b9d77a45b17b" testName="AddFamilyMember_with_valid_command_returns_new_member_id" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0051890" startTime="2025-04-27T09:55:16.1826340+02:00" endTime="2025-04-27T09:55:16.1878170+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cce46776-8e22-4c49-b888-1a358ee0a3e2">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddFamilyMemberCommand [d32b97ed-a071-43c3-8ae2-b54f2c6ce1f0]
+[09:55:16 INF] Beginning transaction for AddFamilyMemberCommand
+[09:55:16 INF] Committed transaction for AddFamilyMemberCommand
+[09:55:16 INF] Completed request AddFamilyMemberCommand [d32b97ed-a071-43c3-8ae2-b54f2c6ce1f0]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b68ad529-96d9-4aae-96e3-0dfbca19f20a" testId="6506122c-2566-6d50-2c8c-ea35b9a8dc8a" testName="AddCompleteFamilyMember_with_invalid_age_returns_bad_request" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0159810" startTime="2025-04-27T09:55:16.0926180+02:00" endTime="2025-04-27T09:55:16.1085810+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b68ad529-96d9-4aae-96e3-0dfbca19f20a">
+      <Output>
+        <StdOut>[09:55:16 WRN] Failed to determine the https port for redirect.
+[09:55:16 INF] Beginning request AddCompleteFamilyMemberCommand [10dff608-3b50-4cf8-832e-d26cc0bf972a]
+[09:55:16 WRN] Validation failed for command AddCompleteFamilyMemberCommand with 1 errors
+[09:55:16 ERR] Request AddCompleteFamilyMemberCommand [10dff608-3b50-4cf8-832e-d26cc0bf972a] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Age: Age must be between 0 and 120 Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="79f6a439-18f1-4f55-a12b-a510b70f2652" testId="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc" testName="AddAllergy_returns_bad_request_for_duplicate_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0247380" startTime="2025-04-27T09:55:15.9769740+02:00" endTime="2025-04-27T09:55:16.0016840+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="79f6a439-18f1-4f55-a12b-a510b70f2652">
+      <Output>
+        <StdOut>[09:55:15 INF] Beginning request AddAllergyCommand [0883f217-b55e-41b3-91db-806b538fe5b4]
+[09:55:15 INF] Beginning transaction for AddAllergyCommand
+[09:55:15 INF] Adding new allergy Peanuts for family member 9f7e7d97-2771-488e-8996-72251b862427
+[09:55:15 INF] Successfully added allergy Peanuts for family member 9f7e7d97-2771-488e-8996-72251b862427
+[09:55:15 INF] Committed transaction for AddAllergyCommand
+[09:55:15 INF] Completed request AddAllergyCommand [0883f217-b55e-41b3-91db-806b538fe5b4]
+[09:55:15 INF] Beginning request AddAllergyCommand [65e1d636-e7a5-4299-b49a-bcf5f40b013b]
+[09:55:15 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:55:15 ERR] Request AddAllergyCommand [65e1d636-e7a5-4299-b49a-bcf5f40b013b] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: This allergy is already registered for this family member Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5bae3cf3-b367-4e39-91da-612edc7dfa91" testId="b9d20c05-042b-ea5f-bf01-de29abef2fe7" testName="RemoveAllergy_returns_not_found_for_non_existent_allergy" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0063040" startTime="2025-04-27T09:55:16.0238440+02:00" endTime="2025-04-27T09:55:16.0301400+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5bae3cf3-b367-4e39-91da-612edc7dfa91">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request RemoveAllergyCommand [67655add-124e-4f88-9a8a-79fed26f1784]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 WRN] Allergy 'NonExistentAllergy' not found for family member f8c3c77a-c9f8-4724-89b2-00aa3a399a6b
+[09:55:16 INF] Rolling back transaction for RemoveAllergyCommand
+[09:55:16 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "f8c3c77a-c9f8-4724-89b2-00aa3a399a6b", "Allergen": "NonExistentAllergy", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:55:16 ERR] Request RemoveAllergyCommand [67655add-124e-4f88-9a8a-79fed26f1784] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:55:16 ERR] Unhandled exception occurred while executing /settings/family/f8c3c77a-c9f8-4724-89b2-00aa3a399a6b/allergies/NonExistentAllergy {"ActionId": "b56f12e0-be2f-4fc2-a5e2-ab0930099fc8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5C3CDR88F", "RequestPath": "/settings/family/f8c3c77a-c9f8-4724-89b2-00aa3a399a6b/allergies/NonExistentAllergy"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fd760950-0e7a-4e67-96ed-2239d3b45882" testId="a8a42d43-4d37-9324-db67-d2d58a84f616" testName="RemoveAllergy_handles_url_encoded_allergen_names" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0156760" startTime="2025-04-27T09:55:16.0057340+02:00" endTime="2025-04-27T09:55:16.0213920+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fd760950-0e7a-4e67-96ed-2239d3b45882">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddAllergyCommand [a792fde7-45cf-4580-b59c-039f42b86538]
+[09:55:16 INF] Beginning transaction for AddAllergyCommand
+[09:55:16 INF] Adding new allergy Tree Nuts &amp; Seeds for family member d7092bf5-ed72-4ffb-a705-6e50c16e9d6c
+[09:55:16 INF] Successfully added allergy Tree Nuts &amp; Seeds for family member d7092bf5-ed72-4ffb-a705-6e50c16e9d6c
+[09:55:16 INF] Committed transaction for AddAllergyCommand
+[09:55:16 INF] Completed request AddAllergyCommand [a792fde7-45cf-4580-b59c-039f42b86538]
+[09:55:16 INF] Beginning request RemoveAllergyCommand [393857a1-f8fb-4119-a620-5f4968178f2f]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 INF] Successfully removed allergy Tree Nuts &amp; Seeds for family member d7092bf5-ed72-4ffb-a705-6e50c16e9d6c
+[09:55:16 INF] Committed transaction for RemoveAllergyCommand
+[09:55:16 INF] Completed request RemoveAllergyCommand [393857a1-f8fb-4119-a620-5f4968178f2f]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="354d0781-950b-41d0-aa83-23179874d3a1" testId="bf834fa2-f134-16d1-0b3e-298cd5900d20" testName="AddAllergy_returns_bad_request_for_empty_allergen" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0016590" startTime="2025-04-27T09:55:16.0017040+02:00" endTime="2025-04-27T09:55:16.0033610+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="354d0781-950b-41d0-aa83-23179874d3a1">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddAllergyCommand [88569e03-e3fc-49d1-8ed5-7d247ab9b209]
+[09:55:16 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:55:16 ERR] Request AddAllergyCommand [88569e03-e3fc-49d1-8ed5-7d247ab9b209] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: Please enter an allergen Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="97ea58c4-0774-4019-bf9b-1301aae9c51f" testId="0feaf4b7-4c8e-6c50-931d-bb880377ce8c" testName="RemoveAllergy_returns_not_found_for_non_existent_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0079170" startTime="2025-04-27T09:55:16.0301590+02:00" endTime="2025-04-27T09:55:16.0380670+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97ea58c4-0774-4019-bf9b-1301aae9c51f">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request RemoveAllergyCommand [c7e62555-f257-496b-bb63-b27a6edaa5c7]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 WRN] Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found for user 6eb49541-af94-4989-98a8-6613e7edff12
+[09:55:16 INF] Rolling back transaction for RemoveAllergyCommand
+[09:55:16 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "144f8070-e3f9-449a-9c66-6e3f52b60ace", "Allergen": "Peanuts", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:55:16 ERR] Request RemoveAllergyCommand [c7e62555-f257-496b-bb63-b27a6edaa5c7] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:55:16 ERR] Unhandled exception occurred while executing /settings/family/144f8070-e3f9-449a-9c66-6e3f52b60ace/allergies/Peanuts {"ActionId": "b56f12e0-be2f-4fc2-a5e2-ab0930099fc8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5C3CDR88G", "RequestPath": "/settings/family/144f8070-e3f9-449a-9c66-6e3f52b60ace/allergies/Peanuts"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d27050d7-e96c-4adb-90c6-1192e8ccb2d2" testId="2c06e374-508c-42c5-957b-65618a2dd458" testName="RemoveAllergy_removes_allergy_from_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0024280" startTime="2025-04-27T09:55:16.0214090+02:00" endTime="2025-04-27T09:55:16.0238340+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d27050d7-e96c-4adb-90c6-1192e8ccb2d2">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddAllergyCommand [4b2811e3-836d-49fe-9ff1-af397ffd2575]
+[09:55:16 INF] Beginning transaction for AddAllergyCommand
+[09:55:16 INF] Adding new allergy Peanuts for family member 91fb6219-45f6-4913-82cf-deeaf4b0753a
+[09:55:16 INF] Successfully added allergy Peanuts for family member 91fb6219-45f6-4913-82cf-deeaf4b0753a
+[09:55:16 INF] Committed transaction for AddAllergyCommand
+[09:55:16 INF] Completed request AddAllergyCommand [4b2811e3-836d-49fe-9ff1-af397ffd2575]
+[09:55:16 INF] Beginning request RemoveAllergyCommand [b928ba53-e243-474b-ae58-8334085f0209]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 INF] Successfully removed allergy Peanuts for family member 91fb6219-45f6-4913-82cf-deeaf4b0753a
+[09:55:16 INF] Committed transaction for RemoveAllergyCommand
+[09:55:16 INF] Completed request RemoveAllergyCommand [b928ba53-e243-474b-ae58-8334085f0209]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="97ac5998-b557-41fd-bd06-cf854ce380a8" testId="60769f17-d4cf-2ceb-63af-0fe31a34f1c2" testName="AddCompleteFamilyMember_with_invalid_severity_returns_bad_request" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0036310" startTime="2025-04-27T09:55:16.1085970+02:00" endTime="2025-04-27T09:55:16.1122230+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97ac5998-b557-41fd-bd06-cf854ce380a8">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request AddCompleteFamilyMemberCommand [3efdfd7d-fe44-4fac-8de6-8c95ea5a0731]
+[09:55:16 WRN] Validation failed for command AddCompleteFamilyMemberCommand with 1 errors
+[09:55:16 ERR] Request AddCompleteFamilyMemberCommand [3efdfd7d-fe44-4fac-8de6-8c95ea5a0731] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergies[0].Severity: Severity must be either 'AvailableForOthers' or 'NotAllowed' Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c79c2b4c-3646-45eb-96b4-b23bfa9cb450" testId="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b" testName="AddAllergy_adds_allergy_to_family_member" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.3461010" startTime="2025-04-27T09:55:15.6307840+02:00" endTime="2025-04-27T09:55:15.9764830+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c79c2b4c-3646-45eb-96b4-b23bfa9cb450">
+      <Output>
+        <StdOut>[09:55:15 WRN] Failed to determine the https port for redirect.
+[09:55:15 INF] Beginning request AddAllergyCommand [a3c8424f-7bc5-4d1a-b5aa-8c0627327625]
+[09:55:15 INF] Beginning transaction for AddAllergyCommand
+[09:55:15 INF] Adding new allergy Peanuts for family member bd9e4d96-0617-4f7b-af4a-24916d4c317b
+[09:55:15 INF] Successfully added allergy Peanuts for family member bd9e4d96-0617-4f7b-af4a-24916d4c317b
+[09:55:15 INF] Committed transaction for AddAllergyCommand
+[09:55:15 INF] Completed request AddAllergyCommand [a3c8424f-7bc5-4d1a-b5aa-8c0627327625]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c44f1e00-fa3b-4592-9dd5-34dbfeba9e59" testId="cbfeccb5-0112-a18d-59a7-585e13164470" testName="AddAllergy_returns_bad_request_when_ids_dont_match" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0007280" startTime="2025-04-27T09:55:16.0033800+02:00" endTime="2025-04-27T09:55:16.0041080+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c44f1e00-fa3b-4592-9dd5-34dbfeba9e59" />
+    <UnitTestResult executionId="237f8ac6-8510-4b6c-a352-ba1a677266ed" testId="47d79a34-7d3b-4c02-4d49-d1a26f6a8c2a" testName="GetFamilyMembers_WithInvalidUserId_ReturnsBadRequest" computerName="MacBook-Air-som-tillhor-Johanna" duration="00:00:00.0236740" startTime="2025-04-27T09:55:16.2428340+02:00" endTime="2025-04-27T09:55:16.2664810+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="237f8ac6-8510-4b6c-a352-ba1a677266ed">
+      <Output>
+        <StdOut>[09:55:16 INF] Beginning request GetFamilyMembersQuery [0e38fe23-ba2a-4c76-b630-0f894dbae590]
+[09:55:16 INF] Completed request GetFamilyMembersQuery [0e38fe23-ba2a-4c76-b630-0f894dbae590]</StdOut>
+        <ErrorInfo>
+          <Message>Expected response.StatusCode to be HttpStatusCode.BadRequest {value: 400}, but found HttpStatusCode.OK {value: 200}.</Message>
+          <StackTrace>   at FluentAssertions.Execution.LateBoundTestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Primitives.EnumAssertions`2.Be(TEnum expected, String because, Object[] becauseArgs)
+   at YellowHouseStudio.LifeOrbit.Tests.API.Family.GetFamilyMembersTests.GetFamilyMembers_WithInvalidUserId_ReturnsBadRequest() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/Family/GetFamilyMembersTests.cs:line 36
+   at NUnit.Framework.Internal.TaskAwaitAdapter.GenericAdapter`1.BlockUntilCompleted()
+   at NUnit.Framework.Internal.MessagePumpStrategy.NoMessagePumpStrategy.WaitForCompletion(AwaitAdapter awaiter)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await[TResult](TestExecutionContext context, Func`1 invoke)
+   at NUnit.Framework.Internal.AsyncToSyncAdapter.Await(TestExecutionContext context, Func`1 invoke)
+   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunTestMethod(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.TestMethodCommand.Execute(TestExecutionContext context)
+   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.&lt;&gt;c__DisplayClass1_0.&lt;Execute&gt;b__0()
+   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)
+
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="RemoveAllergy_returns_not_found_for_non_existent_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="0feaf4b7-4c8e-6c50-931d-bb880377ce8c">
+      <Execution id="97ea58c4-0774-4019-bf9b-1301aae9c51f" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_returns_not_found_for_non_existent_member" />
+    </UnitTest>
+    <UnitTest name="GetFamilyMembers_WithInvalidUserId_ReturnsBadRequest" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="47d79a34-7d3b-4c02-4d49-d1a26f6a8c2a">
+      <Execution id="237f8ac6-8510-4b6c-a352-ba1a677266ed" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.GetFamilyMembersTests" name="GetFamilyMembers_WithInvalidUserId_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="GetFamilyMembers_returns_empty_list_when_no_members" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="2a5b5c2b-098d-79f7-ab4c-e29bb7bad082">
+      <Execution id="f6e84026-2406-401f-bc7f-67fb21dbc198" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.GetFamilyMembersTests" name="GetFamilyMembers_returns_empty_list_when_no_members" />
+    </UnitTest>
+    <UnitTest name="AddFamilyMember_with_invalid_age_returns_bad_request" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="6cd55c3d-bbfe-5165-7236-6e61acfb0e14">
+      <Execution id="0c19e138-132b-4170-b11d-d0283acc66f1" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.AddFamilyMemberTests" name="AddFamilyMember_with_invalid_age_returns_bad_request" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_removes_allergy_from_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="2c06e374-508c-42c5-957b-65618a2dd458">
+      <Execution id="d27050d7-e96c-4adb-90c6-1192e8ccb2d2" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_removes_allergy_from_family_member" />
+    </UnitTest>
+    <UnitTest name="AddFamilyMember_with_valid_command_returns_new_member_id" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="23379fb6-fb57-e42a-d629-b9d77a45b17b">
+      <Execution id="cce46776-8e22-4c49-b888-1a358ee0a3e2" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.AddFamilyMemberTests" name="AddFamilyMember_with_valid_command_returns_new_member_id" />
+    </UnitTest>
+    <UnitTest name="AddAllergy_returns_bad_request_when_ids_dont_match" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="cbfeccb5-0112-a18d-59a7-585e13164470">
+      <Execution id="c44f1e00-fa3b-4592-9dd5-34dbfeba9e59" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_bad_request_when_ids_dont_match" />
+    </UnitTest>
+    <UnitTest name="AddAllergy_returns_bad_request_for_duplicate_allergy" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc">
+      <Execution id="79f6a439-18f1-4f55-a12b-a510b70f2652" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_bad_request_for_duplicate_allergy" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_handles_url_encoded_allergen_names" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="a8a42d43-4d37-9324-db67-d2d58a84f616">
+      <Execution id="fd760950-0e7a-4e67-96ed-2239d3b45882" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_handles_url_encoded_allergen_names" />
+    </UnitTest>
+    <UnitTest name="AddAllergy_returns_not_found_for_non_existent_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e">
+      <Execution id="a7dbd1f7-6227-42b7-af81-b242c2d69165" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_not_found_for_non_existent_member" />
+    </UnitTest>
+    <UnitTest name="AddAllergy_adds_allergy_to_family_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b">
+      <Execution id="c79c2b4c-3646-45eb-96b4-b23bfa9cb450" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_adds_allergy_to_family_member" />
+    </UnitTest>
+    <UnitTest name="AddAllergy_returns_bad_request_for_empty_allergen" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="bf834fa2-f134-16d1-0b3e-298cd5900d20">
+      <Execution id="354d0781-950b-41d0-aa83-23179874d3a1" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="AddAllergy_returns_bad_request_for_empty_allergen" />
+    </UnitTest>
+    <UnitTest name="AddCompleteFamilyMember_with_valid_command_returns_created_member" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="8397c865-3e17-9de5-925e-c92ee07d594e">
+      <Execution id="abe85b53-5630-4fbe-bb17-2d6a80b3faf2" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.AddCompleteFamilyMemberTests" name="AddCompleteFamilyMember_with_valid_command_returns_created_member" />
+    </UnitTest>
+    <UnitTest name="AddCompleteFamilyMember_with_invalid_severity_returns_bad_request" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="60769f17-d4cf-2ceb-63af-0fe31a34f1c2">
+      <Execution id="97ac5998-b557-41fd-bd06-cf854ce380a8" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.AddCompleteFamilyMemberTests" name="AddCompleteFamilyMember_with_invalid_severity_returns_bad_request" />
+    </UnitTest>
+    <UnitTest name="RemoveAllergy_returns_not_found_for_non_existent_allergy" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="b9d20c05-042b-ea5f-bf01-de29abef2fe7">
+      <Execution id="5bae3cf3-b367-4e39-91da-612edc7dfa91" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Controllers.FamilyAllergiesControllerTests" name="RemoveAllergy_returns_not_found_for_non_existent_allergy" />
+    </UnitTest>
+    <UnitTest name="AddCompleteFamilyMember_with_invalid_age_returns_bad_request" storage="/users/johannahulten/documents/lifeorbit/server/yellowhousestudio.lifeorbit.tests.api/bin/debug/net8.0/yellowhousestudio.lifeorbit.tests.api.dll" id="6506122c-2566-6d50-2c8c-ea35b9a8dc8a">
+      <Execution id="b68ad529-96d9-4aae-96e3-0dfbca19f20a" />
+      <TestMethod codeBase="/Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll" adapterTypeName="executor://nunit3testexecutor/" className="YellowHouseStudio.LifeOrbit.Tests.API.Family.AddCompleteFamilyMemberTests" name="AddCompleteFamilyMember_with_invalid_age_returns_bad_request" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="8397c865-3e17-9de5-925e-c92ee07d594e" executionId="abe85b53-5630-4fbe-bb17-2d6a80b3faf2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41ed81d1-58f6-508a-fa25-5cd7a1dc8c4e" executionId="a7dbd1f7-6227-42b7-af81-b242c2d69165" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a5b5c2b-098d-79f7-ab4c-e29bb7bad082" executionId="f6e84026-2406-401f-bc7f-67fb21dbc198" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6cd55c3d-bbfe-5165-7236-6e61acfb0e14" executionId="0c19e138-132b-4170-b11d-d0283acc66f1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="23379fb6-fb57-e42a-d629-b9d77a45b17b" executionId="cce46776-8e22-4c49-b888-1a358ee0a3e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6506122c-2566-6d50-2c8c-ea35b9a8dc8a" executionId="b68ad529-96d9-4aae-96e3-0dfbca19f20a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0bec3c9f-1a3b-6c69-7b6a-f89187fe64bc" executionId="79f6a439-18f1-4f55-a12b-a510b70f2652" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9d20c05-042b-ea5f-bf01-de29abef2fe7" executionId="5bae3cf3-b367-4e39-91da-612edc7dfa91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8a42d43-4d37-9324-db67-d2d58a84f616" executionId="fd760950-0e7a-4e67-96ed-2239d3b45882" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf834fa2-f134-16d1-0b3e-298cd5900d20" executionId="354d0781-950b-41d0-aa83-23179874d3a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0feaf4b7-4c8e-6c50-931d-bb880377ce8c" executionId="97ea58c4-0774-4019-bf9b-1301aae9c51f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2c06e374-508c-42c5-957b-65618a2dd458" executionId="d27050d7-e96c-4adb-90c6-1192e8ccb2d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60769f17-d4cf-2ceb-63af-0fe31a34f1c2" executionId="97ac5998-b557-41fd-bd06-cf854ce380a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e90a9c0-2b5c-f03c-ca6f-5194b6dc5d5b" executionId="c79c2b4c-3646-45eb-96b4-b23bfa9cb450" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbfeccb5-0112-a18d-59a7-585e13164470" executionId="c44f1e00-fa3b-4592-9dd5-34dbfeba9e59" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="47d79a34-7d3b-4c02-4d49-d1a26f6a8c2a" executionId="237f8ac6-8510-4b6c-a352-ba1a677266ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="16" executed="16" passed="15" failed="1" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 5.0.0.0: Test execution started
+Running all tests in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Tests.API/bin/Debug/net8.0/YellowHouseStudio.LifeOrbit.Tests.API.dll
+   NUnit3TestExecutor discovered 16 of 16 NUnit test cases using Current Discovery mode, Non-Explicit run
+[09:55:15 WRN] Failed to determine the https port for redirect.
+[09:55:15 INF] Beginning request AddAllergyCommand [a3c8424f-7bc5-4d1a-b5aa-8c0627327625]
+[09:55:15 INF] Beginning transaction for AddAllergyCommand
+[09:55:15 INF] Adding new allergy Peanuts for family member bd9e4d96-0617-4f7b-af4a-24916d4c317b
+[09:55:15 INF] Successfully added allergy Peanuts for family member bd9e4d96-0617-4f7b-af4a-24916d4c317b
+[09:55:15 INF] Committed transaction for AddAllergyCommand
+[09:55:15 INF] Completed request AddAllergyCommand [a3c8424f-7bc5-4d1a-b5aa-8c0627327625]
+
+[09:55:15 INF] Beginning request AddAllergyCommand [0883f217-b55e-41b3-91db-806b538fe5b4]
+[09:55:15 INF] Beginning transaction for AddAllergyCommand
+[09:55:15 INF] Adding new allergy Peanuts for family member 9f7e7d97-2771-488e-8996-72251b862427
+[09:55:15 INF] Successfully added allergy Peanuts for family member 9f7e7d97-2771-488e-8996-72251b862427
+[09:55:15 INF] Committed transaction for AddAllergyCommand
+[09:55:15 INF] Completed request AddAllergyCommand [0883f217-b55e-41b3-91db-806b538fe5b4]
+[09:55:15 INF] Beginning request AddAllergyCommand [65e1d636-e7a5-4299-b49a-bcf5f40b013b]
+[09:55:15 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:55:15 ERR] Request AddAllergyCommand [65e1d636-e7a5-4299-b49a-bcf5f40b013b] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: This allergy is already registered for this family member Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:55:16 INF] Beginning request AddAllergyCommand [88569e03-e3fc-49d1-8ed5-7d247ab9b209]
+[09:55:16 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:55:16 ERR] Request AddAllergyCommand [88569e03-e3fc-49d1-8ed5-7d247ab9b209] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergen: Please enter an allergen Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:55:16 INF] Beginning request AddAllergyCommand [4f8d1e05-adb7-4fbf-8539-cbb07b9119a8]
+[09:55:16 WRN] Validation failed for command AddAllergyCommand with 1 errors
+[09:55:16 ERR] Request AddAllergyCommand [4f8d1e05-adb7-4fbf-8539-cbb07b9119a8] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- FamilyMemberId: Family member not found Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:55:16 INF] Beginning request AddAllergyCommand [a792fde7-45cf-4580-b59c-039f42b86538]
+[09:55:16 INF] Beginning transaction for AddAllergyCommand
+[09:55:16 INF] Adding new allergy Tree Nuts &amp; Seeds for family member d7092bf5-ed72-4ffb-a705-6e50c16e9d6c
+[09:55:16 INF] Successfully added allergy Tree Nuts &amp; Seeds for family member d7092bf5-ed72-4ffb-a705-6e50c16e9d6c
+[09:55:16 INF] Committed transaction for AddAllergyCommand
+[09:55:16 INF] Completed request AddAllergyCommand [a792fde7-45cf-4580-b59c-039f42b86538]
+[09:55:16 INF] Beginning request RemoveAllergyCommand [393857a1-f8fb-4119-a620-5f4968178f2f]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 INF] Successfully removed allergy Tree Nuts &amp; Seeds for family member d7092bf5-ed72-4ffb-a705-6e50c16e9d6c
+[09:55:16 INF] Committed transaction for RemoveAllergyCommand
+[09:55:16 INF] Completed request RemoveAllergyCommand [393857a1-f8fb-4119-a620-5f4968178f2f]
+
+[09:55:16 INF] Beginning request AddAllergyCommand [4b2811e3-836d-49fe-9ff1-af397ffd2575]
+[09:55:16 INF] Beginning transaction for AddAllergyCommand
+[09:55:16 INF] Adding new allergy Peanuts for family member 91fb6219-45f6-4913-82cf-deeaf4b0753a
+[09:55:16 INF] Successfully added allergy Peanuts for family member 91fb6219-45f6-4913-82cf-deeaf4b0753a
+[09:55:16 INF] Committed transaction for AddAllergyCommand
+[09:55:16 INF] Completed request AddAllergyCommand [4b2811e3-836d-49fe-9ff1-af397ffd2575]
+[09:55:16 INF] Beginning request RemoveAllergyCommand [b928ba53-e243-474b-ae58-8334085f0209]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 INF] Successfully removed allergy Peanuts for family member 91fb6219-45f6-4913-82cf-deeaf4b0753a
+[09:55:16 INF] Committed transaction for RemoveAllergyCommand
+[09:55:16 INF] Completed request RemoveAllergyCommand [b928ba53-e243-474b-ae58-8334085f0209]
+
+[09:55:16 INF] Beginning request RemoveAllergyCommand [67655add-124e-4f88-9a8a-79fed26f1784]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 WRN] Allergy 'NonExistentAllergy' not found for family member f8c3c77a-c9f8-4724-89b2-00aa3a399a6b
+[09:55:16 INF] Rolling back transaction for RemoveAllergyCommand
+[09:55:16 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "f8c3c77a-c9f8-4724-89b2-00aa3a399a6b", "Allergen": "NonExistentAllergy", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:55:16 ERR] Request RemoveAllergyCommand [67655add-124e-4f88-9a8a-79fed26f1784] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:55:16 ERR] Unhandled exception occurred while executing /settings/family/f8c3c77a-c9f8-4724-89b2-00aa3a399a6b/allergies/NonExistentAllergy {"ActionId": "b56f12e0-be2f-4fc2-a5e2-ab0930099fc8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5C3CDR88F", "RequestPath": "/settings/family/f8c3c77a-c9f8-4724-89b2-00aa3a399a6b/allergies/NonExistentAllergy"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Allergy 'NonExistentAllergy' not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 48
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+[09:55:16 INF] Beginning request RemoveAllergyCommand [c7e62555-f257-496b-bb63-b27a6edaa5c7]
+[09:55:16 INF] Beginning transaction for RemoveAllergyCommand
+[09:55:16 WRN] Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found for user 6eb49541-af94-4989-98a8-6613e7edff12
+[09:55:16 INF] Rolling back transaction for RemoveAllergyCommand
+[09:55:16 ERR] Unhandled Exception for Request RemoveAllergyCommand {"FamilyMemberId": "144f8070-e3f9-449a-9c66-6e3f52b60ace", "Allergen": "Peanuts", "$type": "RemoveAllergyCommand"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+[09:55:16 ERR] Request RemoveAllergyCommand [c7e62555-f257-496b-bb63-b27a6edaa5c7] failed
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+GlobalExceptionFilter
+[09:55:16 ERR] Unhandled exception occurred while executing /settings/family/144f8070-e3f9-449a-9c66-6e3f52b60ace/allergies/Peanuts {"ActionId": "b56f12e0-be2f-4fc2-a5e2-ab0930099fc8", "ActionName": "YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy (YellowHouseStudio.LifeOrbit.Api)", "RequestId": "0HNC5C3CDR88G", "RequestPath": "/settings/family/144f8070-e3f9-449a-9c66-6e3f52b60ace/allergies/Peanuts"}
+YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException: Family member 144f8070-e3f9-449a-9c66-6e3f52b60ace not found
+   at YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy.RemoveAllergyCommandHandler.Handle(RemoveAllergyCommand request, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs:line 40
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 40
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.&lt;&gt;c__DisplayClass3_0.&lt;&lt;Handle&gt;b__0&gt;d.MoveNext() in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/TransactionBehavior.cs:line 32
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 67
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+   at YellowHouseStudio.LifeOrbit.Api.Controllers.FamilyAllergiesController.RemoveAllergy(Guid familyMemberId, String allergen) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Api/Controllers/FamilyAllergiesController.cs:line 47
+   at lambda_method224(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeActionMethodAsync&gt;g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.&lt;InvokeNextActionFilterAsync&gt;g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State&amp; next, Scope&amp; scope, Object&amp; state, Boolean&amp; isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeNextExceptionFilterAsync&gt;g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+[09:55:16 WRN] Failed to determine the https port for redirect.
+[09:55:16 INF] Beginning request AddCompleteFamilyMemberCommand [10dff608-3b50-4cf8-832e-d26cc0bf972a]
+[09:55:16 WRN] Validation failed for command AddCompleteFamilyMemberCommand with 1 errors
+[09:55:16 ERR] Request AddCompleteFamilyMemberCommand [10dff608-3b50-4cf8-832e-d26cc0bf972a] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Age: Age must be between 0 and 120 Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:55:16 INF] Beginning request AddCompleteFamilyMemberCommand [3efdfd7d-fe44-4fac-8de6-8c95ea5a0731]
+[09:55:16 WRN] Validation failed for command AddCompleteFamilyMemberCommand with 1 errors
+[09:55:16 ERR] Request AddCompleteFamilyMemberCommand [3efdfd7d-fe44-4fac-8de6-8c95ea5a0731] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Allergies[0].Severity: Severity must be either 'AvailableForOthers' or 'NotAllowed' Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:55:16 INF] Beginning request AddCompleteFamilyMemberCommand [7ab7483a-5ea7-4439-8b01-1f052626aaec]
+[09:55:16 INF] Beginning transaction for AddCompleteFamilyMemberCommand
+[09:55:16 INF] Successfully created family member 99aae41f-ac6e-4856-89f3-673723478315 for user 7b19a0fe-e9ae-48fe-afca-43238badd576
+[09:55:16 INF] Committed transaction for AddCompleteFamilyMemberCommand
+[09:55:16 INF] Completed request AddCompleteFamilyMemberCommand [7ab7483a-5ea7-4439-8b01-1f052626aaec]
+
+[09:55:16 WRN] Failed to determine the https port for redirect.
+[09:55:16 INF] Beginning request AddFamilyMemberCommand [3591bada-b385-480a-b647-00d4989ac9ec]
+[09:55:16 WRN] Validation failed for command AddFamilyMemberCommand with 1 errors
+[09:55:16 ERR] Request AddFamilyMemberCommand [3591bada-b385-480a-b647-00d4989ac9ec] failed
+FluentValidation.ValidationException: Validation failed: 
+ -- Age: Age must be greater than or equal to 0 Severity: Error
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/ValidationBehavior.cs:line 61
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.UnhandledExceptionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/UnhandledExceptionBehavior.cs:line 16
+   at YellowHouseStudio.LifeOrbit.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/johannahulten/Documents/LifeOrbit/server/YellowHouseStudio.LifeOrbit.Application/Common/Behaviors/LoggingBehavior.cs:line 25
+ValidationExceptionFilter
+
+[09:55:16 INF] Beginning request AddFamilyMemberCommand [d32b97ed-a071-43c3-8ae2-b54f2c6ce1f0]
+[09:55:16 INF] Beginning transaction for AddFamilyMemberCommand
+[09:55:16 INF] Committed transaction for AddFamilyMemberCommand
+[09:55:16 INF] Completed request AddFamilyMemberCommand [d32b97ed-a071-43c3-8ae2-b54f2c6ce1f0]
+
+[09:55:16 WRN] Failed to determine the https port for redirect.
+[09:55:16 INF] Beginning request GetFamilyMembersQuery [34f84c2f-9080-4517-943e-1788c691f3ad]
+[09:55:16 INF] Completed request GetFamilyMembersQuery [34f84c2f-9080-4517-943e-1788c691f3ad]
+
+[09:55:16 INF] Beginning request GetFamilyMembersQuery [0e38fe23-ba2a-4c76-b630-0f894dbae590]
+[09:55:16 INF] Completed request GetFamilyMembersQuery [0e38fe23-ba2a-4c76-b630-0f894dbae590]
+
+NUnit Adapter 5.0.0.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

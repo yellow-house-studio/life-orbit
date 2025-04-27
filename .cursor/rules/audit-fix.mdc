@@ -1,0 +1,62 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 📄 Prompt: Fix Errors Based on Audit Report
+
+You are tasked with fixing all issues, faults, and suggestions identified in a given Audit Report.
+
+Follow these rules carefully:
+
+---
+
+## 🔹 Input Provided
+You will be given:
+- The **original Audit Report** (Markdown format).
+
+---
+
+## 🔹 Your Tasks
+
+1. **Go through the Audit Report line by line.**
+2. For each **error, fault, or suggestion**:
+   - Make the necessary code changes to fix the problem.
+   - Keep the fixes clean, following the project’s coding standards and architecture.
+3. After completing each fix:
+   - Mark the corresponding Audit Report line by appending **"[DONE]"** at the end of the line.
+   - Do **not** remove the original text.
+   - Only add **"[DONE]"** after the line item you have corrected.
+
+---
+
+## 🔹 Rules for Fixing
+
+- **Only mark "[DONE]" if the issue is fully resolved**.
+- If fixing an issue requires fixing multiple files, do it properly and completely.
+- **Fix all related tests** if the changes affect them.
+- **Update Swagger documentation and public comments** if needed.
+- **Ensure build and lint warnings are removed** where possible.
+- **Rerun all related tests** after each fix to make sure they pass.
+- If any suggested improvements make sense to implement, you should also fix them even if they were not critical errors.
+
+---
+
+## 🔹 After All Fixes
+
+At the end:
+- Save the updated Audit Report with "[DONE]" markers.
+- Save all updated source code files.
+- Confirm that:
+  - Build succeeds without critical warnings.
+  - Linting passes.
+  - All tests pass successfully.
+
+---
+
+## 🔹 Important
+
+- Work methodically and carefully — **do not skip any issues**.
+- The final corrected Audit Report should be clean, showing exactly what has been fixed (with "[DONE]") and what was not needed if any.
+
+---

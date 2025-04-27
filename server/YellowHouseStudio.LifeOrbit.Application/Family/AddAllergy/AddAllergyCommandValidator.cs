@@ -12,7 +12,7 @@ public class AddAllergyCommandValidator : AbstractValidator<AddAllergyCommand>
         RuleFor(x => x.FamilyMemberId)
             .NotEmpty()
             .WithMessage("Please select a family member")
-            .MustAsync(async (id, cancellation) => 
+            .MustAsync(async (id, cancellation) =>
                 await repository.ExistsAsync(id, currentUser.UserId, cancellation))
             .WithMessage("Family member not found")
             .WithErrorCode(ValidationErrorCodes.NotFound);
@@ -22,7 +22,7 @@ public class AddAllergyCommandValidator : AbstractValidator<AddAllergyCommand>
             .WithMessage("Please enter an allergen")
             .MaximumLength(100)
             .WithMessage("Allergen name cannot be longer than 100 characters")
-            .MustAsync(async (command, allergen, cancellation) => 
+            .MustAsync(async (command, allergen, cancellation) =>
                 !await repository.HasAllergyAsync(command.FamilyMemberId, allergen, cancellation))
             .WithMessage("This allergy is already registered for this family member");
 
@@ -32,4 +32,4 @@ public class AddAllergyCommandValidator : AbstractValidator<AddAllergyCommand>
             .Must(severity => Enum.TryParse<AllergySeverity>(severity, out _))
             .WithMessage("Please select a valid allergy severity level");
     }
-} 
+}

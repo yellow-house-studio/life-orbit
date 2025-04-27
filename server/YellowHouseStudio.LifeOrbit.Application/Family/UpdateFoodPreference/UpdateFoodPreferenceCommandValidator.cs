@@ -19,4 +19,4 @@ public class UpdateFoodPreferenceCommandValidator : AbstractValidator<UpdateFood
             .Must(status => Enum.TryParse<PreferenceStatus>(status, out _))
             .WithMessage("Status must be a valid PreferenceStatus value");
     }
-} 
+}

@@ -739,3 +739,30 @@ Technical Decisions:
 - Considered using ValidationException for all not found cases, but this would diverge from current removal patterns.
 
 Status: Completed
+
+** 2024-06-09 15:30 - RemoveAllergy Audit Fixes - Server - Completed **
+
+Summary:
+Addressed all issues found in the FamilyAllergiesController audit for RemoveAllergy. Refactored handler to use repository, expanded validation, and added missing tests.
+
+Details:
+- Refactored RemoveAllergyCommandHandler to use IFamilyMemberRepository instead of ApplicationDbContext
+- Moved all validation logic (existence, ownership, allergy presence) to RemoveAllergyCommandValidator
+- Expanded RemoveAllergyCommandValidator to check for family member existence/ownership and allergy presence
+- Added integration tests for RemoveAllergyCommandHandler (happy path, not found, unauthorized, allergy not present)
+- Added unit tests for RemoveAllergyCommandValidator (empty fields, max length, not found, unauthorized, allergy not present, valid)
+- Ran dotnet format to fix whitespace formatting errors
+- All audit issues for RemoveAllergy are now addressed
+
+Files:
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandHandler.cs` - Refactored to use repository, removed inline validation
+- `server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandValidator.cs` - Expanded validation logic
+- `server/YellowHouseStudio.LifeOrbit.Tests.Integration/Application/Family/RemoveAllergy/RemoveAllergyCommandHandlerTests.cs` - New integration tests
+- `server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/RemoveAllergy/RemoveAllergyCommandValidatorTests.cs` - New unit tests
+
+Next Steps:
+- Monitor for regressions in RemoveAllergy feature
+- Consider similar audit for AddAllergy handler validation
+
+Related:
+- Audit: docs/audit/FamilyAllergiesController.md

@@ -26,7 +26,7 @@ public class AddAllergyCommandHandlerTests : TestBase
             .WithUserId(CurrentUser.UserId)
             .WithName("Test Member")
             .Build();
-            
+
         Context.FamilyMembers.Add(familyMember);
         await Context.SaveChangesAsync();
         _familyMemberId = familyMember.Id;
@@ -49,7 +49,7 @@ public class AddAllergyCommandHandlerTests : TestBase
         // Assert
         result.Should().NotBeNull();
         result.Id.Should().Be(_familyMemberId);
-        
+
         // Reload family member from database
         var familyMember = await Context.FamilyMembers
             .Include(fm => fm.Allergies)
@@ -93,8 +93,8 @@ public class AddAllergyCommandHandlerTests : TestBase
         familyMember.Allergies.Should().HaveCount(3);
         foreach (var (allergen, severity) in allergies)
         {
-            familyMember.Allergies.Should().Contain(a => 
-                a.Allergen == allergen && 
+            familyMember.Allergies.Should().Contain(a =>
+                a.Allergen == allergen &&
                 a.Severity == severity);
         }
     }
@@ -111,7 +111,7 @@ public class AddAllergyCommandHandlerTests : TestBase
             .Build();
 
         // Act & Assert
-        await FluentActions.Invoking(() => 
+        await FluentActions.Invoking(() =>
             Mediator.Send(command, CancellationToken.None))
             .Should().ThrowAsync<ValidationException>()
             .WithMessage("*Family member not found*");
@@ -132,7 +132,7 @@ public class AddAllergyCommandHandlerTests : TestBase
         await Mediator.Send(command, CancellationToken.None);
 
         // Act & Assert - Try to add same allergy again
-        await FluentActions.Invoking(() => 
+        await FluentActions.Invoking(() =>
             Mediator.Send(command, CancellationToken.None))
             .Should().ThrowAsync<ValidationException>()
             .WithMessage("*This allergy is already registered for this family member*");
@@ -157,9 +157,9 @@ public class AddAllergyCommandHandlerTests : TestBase
             .Build();
 
         // Act & Assert
-        await FluentActions.Invoking(() => 
+        await FluentActions.Invoking(() =>
             Mediator.Send(command, CancellationToken.None))
             .Should().ThrowAsync<ValidationException>()
             .WithMessage("*Family member not found*");
     }
-} 
+}

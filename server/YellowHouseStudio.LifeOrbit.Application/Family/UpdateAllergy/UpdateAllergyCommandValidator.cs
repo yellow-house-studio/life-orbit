@@ -19,4 +19,4 @@ public class UpdateAllergyCommandValidator : AbstractValidator<UpdateAllergyComm
             .Must(severity => Enum.TryParse<AllergySeverity>(severity, out _))
             .WithMessage("Severity must be a valid AllergySeverity value");
     }
-} 
+}

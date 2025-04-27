@@ -39,7 +39,7 @@ public abstract class ApiTestBase
     {
         // Set static logger for test run
         Log.Logger = Logger;
-        
+
         _factory = new WebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
             {
@@ -58,7 +58,7 @@ public abstract class ApiTestBase
                     services.AddDbContext<ApplicationDbContext>(options =>
                     {
                         options.UseInMemoryDatabase("TestDb")
-                              .ConfigureWarnings(warnings => 
+                              .ConfigureWarnings(warnings =>
                                   warnings.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.InMemoryEventId.TransactionIgnoredWarning));
                     });
 
@@ -80,7 +80,7 @@ public abstract class ApiTestBase
                     loggingBuilder.AddSerilog(Logger, dispose: true);
                 });
             });
-            
+
         var testServer = _factory.Server;
         testServer.PreserveExecutionContext = true; // This is needed to get the logs from inside of the API to be captured by the test and shown
         Client = _factory.CreateClient();
@@ -123,4 +123,4 @@ public class TestWebHostEnvironment : IWebHostEnvironment
     public IFileProvider ContentRootFileProvider { get; set; } = new NullFileProvider();
     public string ContentRootPath { get; set; } = Directory.GetCurrentDirectory();
     public string EnvironmentName { get; set; } = Environments.Development;
-} 
+}

@@ -32,4 +32,4 @@ public class SafeFood
         Id = Guid.NewGuid();
         FoodItem = foodItem;
     }
-} 
+}

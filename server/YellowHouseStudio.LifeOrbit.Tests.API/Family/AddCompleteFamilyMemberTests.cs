@@ -97,4 +97,4 @@ public class AddCompleteFamilyMemberTests : ApiTestBase
         problemDetails.Errors.Should().ContainKey("Allergies[0].Severity")
             .WhoseValue.Should().Contain("Severity must be either 'AvailableForOthers' or 'NotAllowed'");
     }
-} 
+}

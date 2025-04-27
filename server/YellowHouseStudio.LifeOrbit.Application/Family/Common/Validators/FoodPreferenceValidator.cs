@@ -15,4 +15,4 @@ public class FoodPreferenceValidator : AbstractValidator<FoodPreferenceDto>
             .Must(status => status is "Include" or "AvailableForOthers" or "NotAllowed")
             .WithMessage("Status must be either 'Include', 'AvailableForOthers', or 'NotAllowed'");
     }
-} 
+}

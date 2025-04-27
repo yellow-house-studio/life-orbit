@@ -73,8 +73,8 @@ public class AddAllergyCommandValidatorTests
     public async Task Should_have_error_when_allergy_already_exists()
     {
         // Arrange
-        var command = new AddAllergyCommand 
-        { 
+        var command = new AddAllergyCommand
+        {
             FamilyMemberId = Guid.NewGuid(),
             Allergen = "Peanuts"
         };
@@ -128,4 +128,4 @@ public class AddAllergyCommandValidatorTests
         // Assert
         result.ShouldNotHaveAnyValidationErrors();
     }
-} 
+}

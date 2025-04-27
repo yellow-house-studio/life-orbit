@@ -47,4 +47,4 @@ public class FamilyMemberRepository : IFamilyMemberRepository
         familyMember.Allergies.Add(allergy);
         _context.Entry(allergy).State = EntityState.Added;
     }
-} 
+}

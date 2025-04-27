@@ -100,7 +100,7 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
             .ToListAsync();
 
         familyMembers.Should().HaveCount(2);
-        
+
         var member1 = familyMembers.First(fm => fm.Id == result1.Id);
         member1.Name.Should().Be("John Doe");
         member1.Age.Should().Be(30);
@@ -115,4 +115,4 @@ public class AddCompleteFamilyMemberCommandHandlerTests : TestBase
         member2.SafeFoods.Should().HaveCount(1);
         member2.SafeFoods[0].FoodItem.Should().Be("Apple");
     }
-} 
+}

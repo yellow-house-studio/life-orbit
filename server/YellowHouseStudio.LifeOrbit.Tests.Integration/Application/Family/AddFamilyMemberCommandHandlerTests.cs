@@ -70,4 +70,4 @@ public class AddFamilyMemberCommandHandlerTests : TestBase
         familyMembers.Should().Contain(fm => fm.Name == "John Doe" && fm.Age == 30);
         familyMembers.Should().Contain(fm => fm.Name == "Jane Doe" && fm.Age == 28);
     }
-} 
+}

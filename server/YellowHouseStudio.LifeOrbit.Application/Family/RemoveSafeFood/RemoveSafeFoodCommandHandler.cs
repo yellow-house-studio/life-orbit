@@ -46,4 +46,4 @@ public class RemoveSafeFoodCommandHandler : IRequestHandler<RemoveSafeFoodComman
         _logger.LogInformation("Successfully removed safe food {FoodItem} for family member {FamilyMemberId}", request.FoodItem, request.FamilyMemberId);
         return FamilyMemberResponse.FromDomain(familyMember);
     }
-} 
+}

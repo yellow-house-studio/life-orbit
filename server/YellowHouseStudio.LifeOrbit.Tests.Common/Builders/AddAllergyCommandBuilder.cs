@@ -60,4 +60,4 @@ public class AddAllergyCommandBuilder
             Severity = _severity
         };
     }
-} 
+}

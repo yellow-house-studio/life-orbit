@@ -13,4 +13,4 @@ public class RemoveSafeFoodCommandValidator : AbstractValidator<RemoveSafeFoodCo
             .NotEmpty()
             .MaximumLength(100);
     }
-} 
+}

@@ -53,4 +53,4 @@ public interface IFamilyMemberRepository
     /// The changes will be persisted when the unit of work is committed.
     /// </remarks>
     void TrackNewAllergy(FamilyMember familyMember, Allergy allergy);
-} 
+}

@@ -18,8 +18,8 @@ public class GlobalExceptionFilter : IExceptionFilter
     public void OnException(ExceptionContext context)
     {
         Console.WriteLine("GlobalExceptionFilter");
-        _logger.Error(context.Exception, 
-            "Unhandled exception occurred while executing {Path}", 
+        _logger.Error(context.Exception,
+            "Unhandled exception occurred while executing {Path}",
             context.HttpContext.Request.Path);
 
         if (context.Exception is YellowHouseStudio.LifeOrbit.Application.Common.Exceptions.NotFoundException notFoundException)
@@ -57,4 +57,4 @@ public class GlobalExceptionFilter : IExceptionFilter
 
         context.ExceptionHandled = true;
     }
-} 
+}

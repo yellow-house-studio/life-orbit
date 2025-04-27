@@ -30,7 +30,7 @@ public class AddAllergyCommandValidatorTests : TestBase
             .WithName("Test Member")
             .WithAllergy("Existing Allergy", AllergySeverity.NotAllowed)
             .Build();
-            
+
         Context.FamilyMembers.Add(_familyMember);
         await Context.SaveChangesAsync();
         _familyMemberId = _familyMember.Id;
@@ -142,4 +142,4 @@ public class AddAllergyCommandValidatorTests : TestBase
         // Assert
         result.ShouldNotHaveAnyValidationErrors();
     }
-} 
+}

@@ -13,4 +13,4 @@ public class AddSafeFoodCommandValidator : AbstractValidator<AddSafeFoodCommand>
             .NotEmpty()
             .MaximumLength(100);
     }
-} 
+}

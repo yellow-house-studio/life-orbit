@@ -36,4 +36,4 @@ public class TestAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions
 
         return Task.FromResult(AuthenticateResult.Success(ticket));
     }
-} 
+}

@@ -47,4 +47,4 @@ public class FamilyAllergiesController(IMediator mediator) : ControllerBase
         var result = await _mediator.Send(command);
         return Ok(result);
     }
-} 
+}

@@ -15,4 +15,4 @@ public class TestCurrentUser : ICurrentUser
     }
 
     public Guid UserId { get; }
-} 
+}

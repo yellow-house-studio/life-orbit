@@ -47,4 +47,4 @@ public class UpdateAllergyCommandHandler : IRequestHandler<UpdateAllergyCommand,
         _logger.LogInformation("Successfully updated allergy {Allergen} for family member {FamilyMemberId}", request.Allergen, request.FamilyMemberId);
         return FamilyMemberResponse.FromDomain(familyMember);
     }
-} 
+}
