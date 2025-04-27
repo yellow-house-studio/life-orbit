@@ -79,4 +79,4 @@ public class FamilySafeFoodsControllerTests : ApiTestBase
         var response = await Client.DeleteAsync($"settings/family/{_memberId}/safe-foods/NotPresent");
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
     }
-} 
+}

@@ -24,4 +24,4 @@ public class SafeFoodTests
         a.Should().NotBeSameAs(b);
         a.FoodItem.Should().Be(b.FoodItem);
     }
-} 
+}

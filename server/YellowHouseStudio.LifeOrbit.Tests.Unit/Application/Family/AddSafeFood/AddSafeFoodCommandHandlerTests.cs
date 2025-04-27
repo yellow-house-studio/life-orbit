@@ -65,4 +65,4 @@ public class AddSafeFoodCommandHandlerTests
         result.SafeFoods.Should().Contain("Banana");
         _repoMock.Verify(r => r.TrackNewSafeFood(member, It.Is<SafeFood>(sf => sf.FoodItem == "Banana")), Times.Once);
     }
-} 
+}

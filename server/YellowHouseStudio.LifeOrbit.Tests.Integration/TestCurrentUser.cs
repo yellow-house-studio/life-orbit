@@ -9,5 +9,10 @@ public class TestCurrentUser : ICurrentUser
         UserId = Guid.NewGuid();
     }
 
+    public TestCurrentUser(Guid userId)
+    {
+        UserId = userId;
+    }
+
     public Guid UserId { get; }
 }

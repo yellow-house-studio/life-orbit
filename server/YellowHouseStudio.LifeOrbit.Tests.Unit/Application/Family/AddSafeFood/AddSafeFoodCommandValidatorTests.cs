@@ -50,4 +50,4 @@ public class AddSafeFoodCommandValidatorTests
         result.IsValid.Should().BeTrue();
         result.Errors.Should().BeEmpty();
     }
-} 
+}

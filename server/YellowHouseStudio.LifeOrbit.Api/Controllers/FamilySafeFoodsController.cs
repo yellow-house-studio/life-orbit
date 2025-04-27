@@ -44,4 +44,4 @@ public class FamilySafeFoodsController(IMediator mediator) : ControllerBase
         var result = await _mediator.Send(command);
         return Ok(result);
     }
-} 
+}

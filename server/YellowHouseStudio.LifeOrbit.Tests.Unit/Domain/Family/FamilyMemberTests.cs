@@ -51,4 +51,4 @@ public class FamilyMemberTests
     {
         _member.SafeFoods.Should().BeEmpty();
     }
-} 
+}

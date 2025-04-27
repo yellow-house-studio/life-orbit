@@ -65,4 +65,4 @@ public class FamilyMemberRepositoryTests
         var result = await _repo.HasSafeFoodAsync(_memberId, "Apple", CancellationToken.None);
         result.Should().BeFalse();
     }
-} 
+}

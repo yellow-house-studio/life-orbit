@@ -51,4 +51,4 @@ public class RemoveSafeFoodCommandHandlerTests : TestBase
         Func<Task> act = async () => await Mediator.Send(command, CancellationToken.None);
         await act.Should().ThrowAsync<Exception>().Where(e => e.GetType().Name.Contains("NotFound"));
     }
-} 
+}

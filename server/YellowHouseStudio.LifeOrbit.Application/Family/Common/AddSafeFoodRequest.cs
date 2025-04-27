@@ -7,4 +7,4 @@ public record AddSafeFoodRequest
     [Required]
     [MaxLength(100)]
     public string FoodItem { get; init; } = string.Empty;
-} 
+}

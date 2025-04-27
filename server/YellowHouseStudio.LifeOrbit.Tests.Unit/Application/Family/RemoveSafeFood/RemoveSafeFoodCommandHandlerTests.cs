@@ -61,4 +61,4 @@ public class RemoveSafeFoodCommandHandlerTests
         var result = await _handler.Handle(command, CancellationToken.None);
         _repoMock.Verify(r => r.TrackRemoveSafeFood(member, It.Is<SafeFood>(sf => sf.FoodItem == "Apple")), Times.Once);
     }
-} 
+}

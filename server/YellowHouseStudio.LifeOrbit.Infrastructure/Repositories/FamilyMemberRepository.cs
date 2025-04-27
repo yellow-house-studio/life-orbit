@@ -73,4 +73,29 @@ public class FamilyMemberRepository : IFamilyMemberRepository
             _context.Entry(tracked).State = EntityState.Deleted;
         }
     }
+
+    public async Task<bool> HasFoodPreferenceAsync(Guid id, string foodItem, CancellationToken cancellationToken)
+    {
+        return await _context.FamilyMembers
+            .Include(fm => fm.FoodPreferences)
+            .Where(fm => fm.Id == id)
+            .SelectMany(fm => fm.FoodPreferences)
+            .AnyAsync(fp => fp.FoodItem.Equals(foodItem, StringComparison.OrdinalIgnoreCase), cancellationToken);
+    }
+
+    public void TrackNewFoodPreference(FamilyMember familyMember, FoodPreference foodPreference)
+    {
+        familyMember.FoodPreferences.Add(foodPreference);
+        _context.Entry(foodPreference).State = EntityState.Added;
+    }
+
+    public void TrackRemoveFoodPreference(FamilyMember familyMember, FoodPreference foodPreference)
+    {
+        var tracked = familyMember.FoodPreferences.FirstOrDefault(fp => fp.Id == foodPreference.Id);
+        if (tracked != null)
+        {
+            familyMember.FoodPreferences.Remove(tracked);
+            _context.Entry(tracked).State = EntityState.Deleted;
+        }
+    }
 }

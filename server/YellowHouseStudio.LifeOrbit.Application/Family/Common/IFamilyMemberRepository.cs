@@ -53,6 +53,15 @@ public interface IFamilyMemberRepository
     Task<bool> HasSafeFoodAsync(Guid id, string foodItem, CancellationToken cancellationToken);
 
     /// <summary>
+    /// Checks if a family member has a specific food preference.
+    /// </summary>
+    /// <param name="id">The ID of the family member to check.</param>
+    /// <param name="foodItem">The food item to check for.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>True if the family member has the food preference; otherwise, false.</returns>
+    Task<bool> HasFoodPreferenceAsync(Guid id, string foodItem, CancellationToken cancellationToken);
+
+    /// <summary>
     /// Tracks a new allergy for a family member in the current unit of work.
     /// </summary>
     /// <param name="familyMember">The family member to add the allergy to.</param>
@@ -84,4 +93,18 @@ public interface IFamilyMemberRepository
     /// The changes will be persisted when the unit of work is committed.
     /// </remarks>
     void TrackRemoveSafeFood(FamilyMember familyMember, SafeFood safeFood);
+
+    /// <summary>
+    /// Tracks a new food preference for a family member in the current unit of work.
+    /// </summary>
+    /// <param name="familyMember">The family member to add the food preference to.</param>
+    /// <param name="foodPreference">The food preference to track.</param>
+    void TrackNewFoodPreference(FamilyMember familyMember, FoodPreference foodPreference);
+
+    /// <summary>
+    /// Tracks the removal of a food preference for a family member in the current unit of work.
+    /// </summary>
+    /// <param name="familyMember">The family member to remove the food preference from.</param>
+    /// <param name="foodPreference">The food preference to remove and track for deletion.</param>
+    void TrackRemoveFoodPreference(FamilyMember familyMember, FoodPreference foodPreference);
 }

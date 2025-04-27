@@ -50,4 +50,4 @@ public class RemoveSafeFoodCommandValidatorTests
         result.IsValid.Should().BeTrue();
         result.Errors.Should().BeEmpty();
     }
-} 
+}

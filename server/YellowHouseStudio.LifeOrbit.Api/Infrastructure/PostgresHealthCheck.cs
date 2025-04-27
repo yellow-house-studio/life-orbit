@@ -27,4 +27,4 @@ public class PostgresHealthCheck : IHealthCheck
             return HealthCheckResult.Unhealthy(ex.Message);
         }
     }
-} 
+}

@@ -1,10 +1,9 @@
 using YellowHouseStudio.LifeOrbit.Application.Common.Commands;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 
-namespace YellowHouseStudio.LifeOrbit.Application.Family.UpdateFoodPreference;
+namespace YellowHouseStudio.LifeOrbit.Application.Family.AddFoodPreference;
 
-[Obsolete("Replaced by AddFoodPreferenceCommand and RemoveFoodPreferenceCommand. See FamilyFoodPreferencesController.")]
-public record UpdateFoodPreferenceCommand : ICommand<FamilyMemberResponse>
+public record AddFoodPreferenceCommand : ICommand<FamilyMemberResponse>
 {
     public Guid FamilyMemberId { get; init; }
     public string FoodItem { get; init; } = string.Empty;

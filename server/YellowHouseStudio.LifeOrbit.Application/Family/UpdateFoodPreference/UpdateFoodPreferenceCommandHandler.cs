@@ -9,6 +9,7 @@ using YellowHouseStudio.LifeOrbit.Domain.Family;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Family.UpdateFoodPreference;
 
+[Obsolete("Replaced by AddFoodPreferenceCommandHandler and RemoveFoodPreferenceCommandHandler. See FamilyFoodPreferencesController.")]
 public class UpdateFoodPreferenceCommandHandler : IRequestHandler<UpdateFoodPreferenceCommand, FamilyMemberResponse>
 {
     private readonly ApplicationDbContext _context;
