@@ -5,7 +5,7 @@ namespace YellowHouseStudio.LifeOrbit.Domain.Family;
 /// <summary>
 /// Represents a safe food item for a family member.
 /// </summary>
-public class SafeFood
+public class SafeFood : IEquatable<SafeFood>
 {
     /// <summary>
     /// Gets the unique identifier for the safe food.
@@ -15,7 +15,7 @@ public class SafeFood
     /// <summary>
     /// Gets the name of the food item.
     /// </summary>
-    public string FoodItem { get; private set; }
+    public string FoodItem { get; init; }
 
     private SafeFood()
     {
@@ -32,4 +32,8 @@ public class SafeFood
         Id = Guid.NewGuid();
         FoodItem = foodItem;
     }
+
+    public override bool Equals(object? obj) => Equals(obj as SafeFood);
+    public bool Equals(SafeFood? other) => other is not null && Id == other.Id;
+    public override int GetHashCode() => Id.GetHashCode();
 }

@@ -3,7 +3,86 @@ description:
 globs: server/YellowHouseStudio.LifeOrbit.Tests.API/**/*Tests.cs
 alwaysApply: false
 ---
-# API Testing Conventions
+# API Testing Conventions (Gold Standard)
+
+## Overview
+These standards are based on the actual practices implemented in the LifeOrbit codebase, using `AddAllergyCommand` and `RemoveAllergyCommand` API/controller tests as the gold standard. See:
+- [FamilyAllergiesControllerTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.API/Controllers/FamilyAllergiesControllerTests.cs)
+
+## General Principles
+- **For each API endpoint, there must be exactly one happy path test and one error case test—no more, no less.**
+  - This ensures focused, non-redundant coverage and keeps the test suite maintainable and clear.
+  - The happy path test should cover the successful/expected scenario.
+  - The error case test should cover the most representative failure scenario (e.g., validation error, not found, unauthorized, etc.).
+- Use NUnit for all test classes (`[TestFixture]`, `[Test]`, `[SetUp]`)
+- Use FluentAssertions for all assertions
+- Use the Arrange-Act-Assert (AAA) pattern in every test
+- Use the Builder pattern for commands and domain objects (see `AddAllergyCommandBuilder`, `FamilyMemberBuilder`)
+- Cover both positive (happy path) and negative (error/edge) cases
+- Use meaningful, explicit test data
+- Each test should be isolated and not depend on shared state
+
+## Test Class Structure
+- Test classes should be named `{TypeUnderTest}Tests.cs`
+- Place API/controller tests in `Tests.API/Controllers/...`
+- Inherit from [ApiTestBase](mdc:server/YellowHouseStudio.LifeOrbit.Tests.API/Infrastructure/ApiTestBase.cs)
+- Use `[SetUp]` for per-test initialization
+
+## Test Method Naming
+- Use descriptive, scenario-based names:
+  - `<Action>_<scenario>_<expected_result>()`
+- Use async Task for all tests that perform async operations
+
+## Builder Pattern
+- Use test data builders for commands and domain objects to keep tests readable and maintainable
+- Example: [AddAllergyCommandBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/AddAllergyCommandBuilder.cs)
+- Example: [FamilyMemberBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/FamilyMemberBuilder.cs)
+
+## Assertion Practices
+- Use FluentAssertions for all assertions:
+  ```csharp
+  response.StatusCode.Should().Be(HttpStatusCode.OK);
+  result.Should().NotBeNull();
+  error.Should().Contain("Please enter an allergen");
+  ```
+- Prefer one main assertion per test, but group related assertions if they are part of the same scenario
+
+## Coverage Requirements
+- Cover all validation rules (required, length, format, existence, business rules)
+- Test both valid and invalid scenarios
+- Test edge cases (empty, null, max/min values, invalid references, duplicates, etc.)
+- Verify both HTTP status codes and response content
+
+## Example Test Pattern
+```csharp
+[Test]
+public async Task AddAllergy_returns_bad_request_for_empty_allergen()
+{
+    // Arrange
+    var command = new AddAllergyCommandBuilder()
+        .WithFamilyMemberId(_familyMemberId)
+        .WithAllergen(string.Empty)
+        .WithSeverity(AllergySeverity.NotAllowed)
+        .Build();
+
+    // Act
+    var response = await Client.PostAsJsonAsync($"settings/family/{_familyMemberId}/allergies", command);
+
+    // Assert
+    response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    var error = await response.Content.ReadAsStringAsync();
+    error.Should().Contain("Please enter an allergen");
+}
+```
+
+## Best Practices Checklist
+- [ ] Use test data builders for all complex objects/commands
+- [ ] Use FluentAssertions for all assertions
+- [ ] Use Arrange-Act-Assert in every test
+- [ ] Cover both positive and negative scenarios
+- [ ] Use descriptive, scenario-based test names
+- [ ] Keep tests isolated and repeatable
+- [ ] Reference gold standard tests for new features
 
 ## Test Project Structure
 - API tests are located in the `server/YellowHouseStudio.LifeOrbit.Tests.API` project

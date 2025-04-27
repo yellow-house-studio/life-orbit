@@ -10,6 +10,7 @@ using Npgsql;
 using Serilog.Events;
 using YellowHouseStudio.LifeOrbit.Api.Configuration;
 using YellowHouseStudio.LifeOrbit.Infrastructure.Configuraiton;
+using YellowHouseStudio.LifeOrbit.Api.Infrastructure;
 
 // Configure Serilog first
 Log.Logger = new LoggerConfiguration()
@@ -45,23 +46,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddNpgsqlDataSource(builder.Configuration.GetConnectionString("DefaultConnection")!);
 builder.Services.AddHealthChecks()
-    .AddCheck("postgres", () =>
-    {
-        try
-        {
-            using var dataSource = builder.Services.BuildServiceProvider().GetRequiredService<NpgsqlDataSource>();
-            using var conn = dataSource.CreateConnection();
-            conn.Open();
-            using var cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT 1";
-            cmd.ExecuteScalar();
-            return HealthCheckResult.Healthy();
-        }
-        catch (Exception ex)
-        {
-            return HealthCheckResult.Unhealthy(ex.Message);
-        }
-    }, new[] { "db", "sql", "postgres" })
+    .AddCheck<PostgresHealthCheck>("postgres", tags: new[] { "db", "sql", "postgres" })
     .AddCheck("self", () => HealthCheckResult.Healthy(), tags: new[] { "service" });
 
 var app = builder.Build();

@@ -3,10 +3,81 @@ description:
 globs: server/**/*Validator.cs,server/**/*ValidatorTests.cs
 alwaysApply: false
 ---
-# Validator Best Practices
+# Validator Best Practices (Gold Standard)
 
 ## Overview
-Validators in the LifeOrbit codebase are responsible for enforcing business and data integrity rules at the application layer. They ensure that commands and queries are well-formed and that referenced entities exist and are accessible to the current user.
+These standards are based on the actual practices implemented in the LifeOrbit codebase, using `AddAllergyCommand` and `RemoveAllergyCommand` validator tests as the gold standard. See:
+- [AddAllergyCommandValidatorTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/AddAllergy/AddAllergyCommandValidatorTests.cs)
+- [RemoveAllergyCommandValidatorTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/RemoveAllergy/RemoveAllergyCommandValidatorTests.cs)
+
+## General Principles
+- Use FluentValidation for all validators
+- Use NUnit for all test classes (`[TestFixture]`, `[Test]`, `[SetUp]`)
+- Use FluentAssertions for all assertions
+- Use the Arrange-Act-Assert (AAA) pattern in every test
+- Use the Builder pattern for commands and domain objects (see `AddAllergyCommandBuilder`, `FamilyMemberBuilder`)
+- Mock dependencies with Moq for unit tests
+- Cover both positive (happy path) and negative (error/edge) cases
+- Use meaningful, explicit test data
+- Each test should be isolated and not depend on shared state
+
+## Test Class Structure
+- Test classes should be named `{TypeUnderTest}Tests.cs`
+- Place validator tests in `Tests.Unit/Application/...`
+- Use `[SetUp]` for per-test initialization
+
+## Test Method Naming
+- Use descriptive, scenario-based names:
+  - `Should_<expected_behavior>_when_<condition>()`
+- Use async Task for all tests that perform async operations
+
+## Builder Pattern
+- Use test data builders for commands and domain objects to keep tests readable and maintainable
+- Example: [AddAllergyCommandBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/AddAllergyCommandBuilder.cs)
+- Example: [FamilyMemberBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/FamilyMemberBuilder.cs)
+
+## Assertion Practices
+- Use FluentAssertions for all assertions:
+  ```csharp
+  result.Should().BeTrue();
+  result.ShouldHaveValidationErrorFor(x => x.Allergen)
+      .WithErrorMessage("Please enter an allergen");
+  result.Errors.Should().Contain(e => e.PropertyName == "Allergen");
+  ```
+- Prefer one main assertion per test, but group related assertions if they are part of the same scenario
+
+## Mocking and Isolation
+- Use Moq for mocking dependencies (e.g., repositories, user context)
+- Setup mocks explicitly for each test scenario
+- Do not share state between tests
+
+## Coverage Requirements
+- Cover all validation rules (required, length, format, existence, business rules)
+- Test both valid and invalid scenarios
+- Test edge cases (empty, null, max/min values, invalid references, duplicates, etc.)
+- For validators, check error messages and error codes
+
+## Example Test Pattern
+```csharp
+[Test]
+public async Task Validator_have_error_when_Allergen_is_empty()
+{
+    var command = new AddAllergyCommand { Allergen = string.Empty };
+    var result = await _validator.TestValidateAsync(command);
+    result.ShouldHaveValidationErrorFor(x => x.Allergen)
+        .WithErrorMessage("Please enter an allergen");
+}
+```
+
+## Best Practices Checklist
+- [ ] Use test data builders for all complex objects/commands
+- [ ] Use FluentAssertions for all assertions
+- [ ] Use Arrange-Act-Assert in every test
+- [ ] Mock all external dependencies in unit tests
+- [ ] Cover both positive and negative scenarios
+- [ ] Use descriptive, scenario-based test names
+- [ ] Keep tests isolated and repeatable
+- [ ] Reference gold standard tests for new features
 
 ## Key Principles
 - Validators should be implemented using FluentValidation.

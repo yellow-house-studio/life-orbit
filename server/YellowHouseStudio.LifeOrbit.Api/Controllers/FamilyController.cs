@@ -52,25 +52,6 @@ public class FamilyController(IMediator mediator) : ControllerBase
         return Ok(result);
     }
 
-    [HttpPut("{id}/safe-foods")]
-    public async Task<ActionResult<FamilyMemberResponse>> AddSafeFood(Guid id, AddSafeFoodCommand command)
-    {
-        if (id != command.FamilyMemberId)
-        {
-            return BadRequest();
-        }
-        var result = await _mediator.Send(command);
-        return Ok(result);
-    }
-
-    [HttpDelete("{id}/safe-foods/{foodItem}")]
-    public async Task<ActionResult<FamilyMemberResponse>> RemoveSafeFood(Guid id, string foodItem)
-    {
-        var command = new RemoveSafeFoodCommand { FamilyMemberId = id, FoodItem = foodItem };
-        var result = await _mediator.Send(command);
-        return Ok(result);
-    }
-
     [HttpPut("{id}/preferences")]
     public async Task<ActionResult<FamilyMemberResponse>> UpdateFoodPreference(Guid id, UpdateFoodPreferenceCommand command)
     {

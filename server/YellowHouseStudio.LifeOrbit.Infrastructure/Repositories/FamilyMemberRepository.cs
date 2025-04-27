@@ -47,4 +47,30 @@ public class FamilyMemberRepository : IFamilyMemberRepository
         familyMember.Allergies.Add(allergy);
         _context.Entry(allergy).State = EntityState.Added;
     }
+
+    public async Task<bool> HasSafeFoodAsync(Guid id, string foodItem, CancellationToken cancellationToken)
+    {
+        return await _context.FamilyMembers
+            .Include(fm => fm.SafeFoods)
+            .Where(fm => fm.Id == id)
+            .SelectMany(fm => fm.SafeFoods)
+            .AnyAsync(sf => sf.FoodItem.Equals(foodItem, StringComparison.OrdinalIgnoreCase), cancellationToken);
+    }
+
+    public void TrackNewSafeFood(FamilyMember familyMember, SafeFood safeFood)
+    {
+        familyMember.SafeFoods.Add(safeFood);
+        _context.Entry(safeFood).State = EntityState.Added;
+    }
+
+    public void TrackRemoveSafeFood(FamilyMember familyMember, SafeFood safeFood)
+    {
+        // Always remove and delete by Id, not by reference
+        var tracked = familyMember.SafeFoods.FirstOrDefault(sf => sf.Id == safeFood.Id);
+        if (tracked != null)
+        {
+            familyMember.SafeFoods.Remove(tracked);
+            _context.Entry(tracked).State = EntityState.Deleted;
+        }
+    }
 }

@@ -3,7 +3,7 @@ using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Family.AddSafeFood;
 
-public record AddSafeFoodCommand : ICommand<FamilyMemberResponse>
+public record AddSafeFoodCommand : ICommand<SafeFoodResult>
 {
     public Guid FamilyMemberId { get; init; }
     public string FoodItem { get; init; } = string.Empty;

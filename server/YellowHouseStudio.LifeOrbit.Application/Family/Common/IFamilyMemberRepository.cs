@@ -44,6 +44,15 @@ public interface IFamilyMemberRepository
     Task<bool> HasAllergyAsync(Guid id, string allergen, CancellationToken cancellationToken);
 
     /// <summary>
+    /// Checks if a family member has a specific safe food.
+    /// </summary>
+    /// <param name="id">The ID of the family member to check.</param>
+    /// <param name="foodItem">The safe food item to check for.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>True if the family member has the safe food; otherwise, false.</returns>
+    Task<bool> HasSafeFoodAsync(Guid id, string foodItem, CancellationToken cancellationToken);
+
+    /// <summary>
     /// Tracks a new allergy for a family member in the current unit of work.
     /// </summary>
     /// <param name="familyMember">The family member to add the allergy to.</param>
@@ -53,4 +62,26 @@ public interface IFamilyMemberRepository
     /// The changes will be persisted when the unit of work is committed.
     /// </remarks>
     void TrackNewAllergy(FamilyMember familyMember, Allergy allergy);
+
+    /// <summary>
+    /// Tracks a new safe food for a family member in the current unit of work.
+    /// </summary>
+    /// <param name="familyMember">The family member to add the safe food to.</param>
+    /// <param name="safeFood">The safe food to track.</param>
+    /// <remarks>
+    /// This method handles the entity tracking for the new safe food entity.
+    /// The changes will be persisted when the unit of work is committed.
+    /// </remarks>
+    void TrackNewSafeFood(FamilyMember familyMember, SafeFood safeFood);
+
+    /// <summary>
+    /// Tracks the removal of a safe food for a family member in the current unit of work.
+    /// </summary>
+    /// <param name="familyMember">The family member to remove the safe food from.</param>
+    /// <param name="safeFood">The safe food to remove and track for deletion.</param>
+    /// <remarks>
+    /// This method handles the entity tracking for the removed safe food entity.
+    /// The changes will be persisted when the unit of work is committed.
+    /// </remarks>
+    void TrackRemoveSafeFood(FamilyMember familyMember, SafeFood safeFood);
 }

@@ -3,7 +3,113 @@ description:
 globs: *Tests.cs
 alwaysApply: false
 ---
-# Backend Testing Standards
+# Backend Testing Standards (Gold Standard)
+
+## Overview
+These standards are based on the actual practices implemented in the LifeOrbit codebase, using `AddAllergyCommand` and `RemoveAllergyCommand` tests as the gold standard. See:
+- [AddAllergyCommandValidatorTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/AddAllergy/AddAllergyCommandValidatorTests.cs)
+- [RemoveAllergyCommandValidatorTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/RemoveAllergy/RemoveAllergyCommandValidatorTests.cs)
+- [FamilyAllergiesControllerTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.API/Controllers/FamilyAllergiesControllerTests.cs)
+
+## General Principles
+- Use NUnit for all test classes (`[TestFixture]`, `[Test]`, `[SetUp]`)
+- Use FluentAssertions for all assertions
+- Use the Arrange-Act-Assert (AAA) pattern in every test
+- Use the Builder pattern for commands and domain objects (see `AddAllergyCommandBuilder`, `FamilyMemberBuilder`)
+- Mock dependencies with Moq for unit tests
+- Cover both positive (happy path) and negative (error/edge) cases
+- Use meaningful, explicit test data
+- Each test should be isolated and not depend on shared state
+
+## Test Class Structure
+- Test classes should be named `{TypeUnderTest}Tests.cs`
+- Place validator tests in `Tests.Unit/Application/...`
+- Place API/controller tests in `Tests.API/Controllers/...`
+- Use `[SetUp]` for per-test initialization
+- Use `[TearDown]` only if cleanup is required
+
+## Test Method Naming
+- Use descriptive, scenario-based names:
+  - For unit tests: `Method_<expected_behavior>_when_<condition>()`
+  - For API/integration: `<Action>_<scenario>_<expected_result>()`
+- Use async Task for all tests that perform async operations
+
+## Builder Pattern
+- Use test data builders for commands and domain objects to keep tests readable and maintainable
+- Example: [AddAllergyCommandBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/AddAllergyCommandBuilder.cs)
+- Example: [FamilyMemberBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/FamilyMemberBuilder.cs)
+
+## Assertion Practices
+- Use FluentAssertions for all assertions:
+  ```csharp
+  result.Should().BeTrue();
+  response.StatusCode.Should().Be(HttpStatusCode.OK);
+  result.Errors.Should().Contain(e => e.PropertyName == "Allergen");
+  ```
+- Prefer one main assertion per test, but group related assertions if they are part of the same scenario
+
+## Mocking and Isolation
+- Use Moq for mocking dependencies (e.g., repositories, user context)
+- Setup mocks explicitly for each test scenario
+- Do not share state between tests
+
+## Coverage Requirements
+- Cover all validation rules (required, length, format, existence, business rules)
+- Test both valid and invalid scenarios
+- Test edge cases (empty, null, max/min values, invalid references, duplicates, etc.)
+- For API tests, verify both HTTP status codes and response content
+- For validators, check error messages and error codes
+
+## Example Test Patterns
+```csharp
+[Test]
+public async Task Validator_have_error_when_Allergen_is_empty()
+{
+    var command = new AddAllergyCommand { Allergen = string.Empty };
+    var result = await _validator.TestValidateAsync(command);
+    result.ShouldHaveValidationErrorFor(x => x.Allergen)
+        .WithErrorMessage("Please enter an allergen");
+}
+
+[Test]
+public async Task AddAllergy_returns_bad_request_for_empty_allergen()
+{
+    var command = new AddAllergyCommandBuilder()
+        .WithFamilyMemberId(_familyMemberId)
+        .WithAllergen(string.Empty)
+        .WithSeverity(AllergySeverity.NotAllowed)
+        .Build();
+    var response = await Client.PostAsJsonAsync($"settings/family/{_familyMemberId}/allergies", command);
+    response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    var error = await response.Content.ReadAsStringAsync();
+    error.Should().Contain("Please enter an allergen");
+}
+```
+
+## Project Structure
+```
+YellowHouseStudio.LifeOrbit.Tests.Unit/
+├── Application/
+│   └── Family/
+│       ├── AddAllergy/
+│       │   └── AddAllergyCommandValidatorTests.cs
+│       └── RemoveAllergy/
+│           └── RemoveAllergyCommandValidatorTests.cs
+└── ...
+YellowHouseStudio.LifeOrbit.Tests.API/
+└── Controllers/
+    └── FamilyAllergiesControllerTests.cs
+```
+
+## Best Practices Checklist
+- [ ] Use test data builders for all complex objects/commands
+- [ ] Use FluentAssertions for all assertions
+- [ ] Use Arrange-Act-Assert in every test
+- [ ] Mock all external dependencies in unit tests
+- [ ] Cover both positive and negative scenarios
+- [ ] Use descriptive, scenario-based test names
+- [ ] Keep tests isolated and repeatable
+- [ ] Reference gold standard tests for new features
 
 ## Domain Model Testing
 

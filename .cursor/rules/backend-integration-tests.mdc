@@ -3,154 +3,78 @@ description:
 globs: server/YellowHouseStudio.LifeOrbit.Tests.Integration/**/*Tests.cs
 alwaysApply: false
 ---
-# Backend Integration Testing Guidelines
+# Backend Integration Testing Guidelines (Gold Standard)
 
 ## Overview
-Integration tests verify that components work together correctly through the full MediatR pipeline. All integration tests inherit from [TestBase.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/TestBase.cs) which provides the necessary infrastructure.
+These standards are based on the actual practices implemented in the LifeOrbit codebase, using `AddAllergyCommand` and `RemoveAllergyCommand` integration tests as the gold standard. See:
+- [AddAllergyCommandHandlerTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/Application/Family/AddAllergy/AddAllergyCommandHandlerTests.cs)
+- [RemoveAllergyCommandHandlerTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/Application/Family/RemoveAllergy/RemoveAllergyCommandHandlerTests.cs)
 
-## Test Base Class Features
-The `TestBase` class provides:
-- In-memory database context
-- Full MediatR pipeline setup
-- Logging infrastructure
-- Service provider management
+## General Principles
+- Use NUnit for all test classes (`[TestFixture]`, `[Test]`, `[SetUp]`)
+- Use FluentAssertions for all assertions
+- Use the Arrange-Act-Assert (AAA) pattern in every test
+- Use the Builder pattern for commands and domain objects (see `AddAllergyCommandBuilder`, `FamilyMemberBuilder`)
+- Cover both positive (happy path) and negative (error/edge) cases
+- Use meaningful, explicit test data
+- Each test should be isolated and not depend on shared state
 
-## Test Structure
+## Test Class Structure
+- Test classes should be named `{TypeUnderTest}Tests.cs`
+- Place integration tests in `Tests.Integration/Application/...`
+- Inherit from [TestBase.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/TestBase.cs)
+- Use `[SetUp]` for per-test initialization
 
-### Class Setup
-```csharp
-[TestFixture]
-public class YourCommandHandlerTests : TestBase
-{
-    // No need for handler setup - MediatR handles instantiation
-}
-```
+## Test Method Naming
+- Use descriptive, scenario-based names:
+  - `<MethodName>_<scenario>_<expected_outcome>()`
+- Use async Task for all tests that perform async operations
 
-### Test Method Pattern
-Each test should follow this structure:
-```csharp
-[Test]
-public async Task MethodName_scenario_expected_outcome()
-{
-    // Arrange
-    var command = new YourCommand 
-    {
-        // Set command properties
-    };
+## Builder Pattern
+- Use test data builders for commands and domain objects to keep tests readable and maintainable
+- Example: [AddAllergyCommandBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/AddAllergyCommandBuilder.cs)
+- Example: [FamilyMemberBuilder.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Common/Builders/FamilyMemberBuilder.cs)
 
-    // Act
-    var result = await Mediator.Send(command, CancellationToken.None);
+## Assertion Practices
+- Use FluentAssertions for all assertions:
+  ```csharp
+  result.Should().NotBeNull();
+  result.Allergies.Should().BeEmpty();
+  await FluentActions.Invoking(() => Mediator.Send(command, CancellationToken.None))
+      .Should().ThrowAsync<ValidationException>()
+      .WithMessage("*Family member not found*");
+  ```
+- Prefer one main assertion per test, but group related assertions if they are part of the same scenario
 
-    // Assert
-    result.Should().NotBeNull();
-    // Additional assertions...
-}
-```
-
-## Best Practices
-
-### 1. Command/Query Testing
-- Use `Mediator.Send()` instead of calling handlers directly
-- Include cancellation token in all requests
-- Test both success and error scenarios
-
-Example from [AddFamilyMemberCommandHandlerTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Integration/Application/Family/AddFamilyMemberCommandHandlerTests.cs):
-```csharp
-var result = await Mediator.Send(command, CancellationToken.None);
-```
-
-### 2. Database Verification
-- Use Entity Framework Include statements for related entities
-- Verify all entity properties and relationships
-- Check for side effects in the database
-
-Example:
-```csharp
-var savedEntity = await Context.Entities
-    .Include(e => e.RelatedEntities)
-    .FirstOrDefaultAsync(e => e.Id == result.Id);
-```
-
-### 3. Test Isolation
-- Each test gets a fresh in-memory database
-- Service provider is properly disposed after each test
-- No shared state between tests
-
-### 4. Assertions
-- Use FluentAssertions for readable assertions
+## Coverage Requirements
+- Cover all validation rules (required, length, format, existence, business rules)
+- Test both valid and invalid scenarios
+- Test edge cases (empty, null, max/min values, invalid references, duplicates, etc.)
 - Verify both direct results and database state
-- Check all relevant properties and relationships
 
-Example:
-```csharp
-// Direct result assertions
-result.Should().NotBeNull();
-result.Id.Should().NotBeEmpty();
-
-// Database state assertions
-savedEntity.Should().NotBeNull();
-savedEntity!.Property.Should().Be(expectedValue);
-savedEntity.Collection.Should().HaveCount(expectedCount);
-```
-
-### 5. Test Naming
-Follow the pattern: `MethodName_scenario_expected_outcome`
-- MethodName: The method being tested
-- scenario: The specific test case
-- expected_outcome: What should happen
-
-Examples:
-- `Handle_adds_family_member_and_returns_id`
-- `Handle_creates_unique_family_members_for_same_user`
-
-### 6. Data Setup
-- Use meaningful test data
-- Create helper methods for common setup scenarios
-- Avoid magic strings/numbers - use constants or meaningful variables
-
-## Common Patterns
-
-### Testing Unique Constraints
+## Example Test Pattern
 ```csharp
 [Test]
-public async Task Handle_creates_unique_entities()
+public async Task RemoveAllergy_removes_allergy_successfully()
 {
     // Arrange
-    var command1 = new YourCommand { /* properties */ };
-    var command2 = new YourCommand { /* properties */ };
-
-    // Act
-    var result1 = await Mediator.Send(command1, CancellationToken.None);
-    var result2 = await Mediator.Send(command2, CancellationToken.None);
-
-    // Assert
-    result1.Should().NotBe(result2);
-}
-```
-
-### Testing Collections
-```csharp
-[Test]
-public async Task Handle_manages_collections_correctly()
-{
-    // Arrange
-    var command = new YourCommand 
-    {
-        Items = new List<ItemDto>
-        {
-            new() { /* properties */ }
-        }
-    };
+    var command = new RemoveAllergyCommand { FamilyMemberId = _familyMemberId, Allergen = _allergen };
 
     // Act
     var result = await Mediator.Send(command, CancellationToken.None);
 
     // Assert
-    var saved = await Context.Entities
-        .Include(e => e.Items)
-        .FirstOrDefaultAsync(e => e.Id == result.Id);
-    
-    saved.Items.Should().HaveCount(1);
-    saved.Items[0].Property.Should().Be(expectedValue);
+    result.Allergies.Should().BeEmpty();
+    var member = await Context.FamilyMembers.Include(fm => fm.Allergies).FirstAsync(fm => fm.Id == _familyMemberId);
+    member.Allergies.Should().BeEmpty();
 }
 ```
+
+## Best Practices Checklist
+- [ ] Use test data builders for all complex objects/commands
+- [ ] Use FluentAssertions for all assertions
+- [ ] Use Arrange-Act-Assert in every test
+- [ ] Cover both positive and negative scenarios
+- [ ] Use descriptive, scenario-based test names
+- [ ] Keep tests isolated and repeatable
+- [ ] Reference gold standard tests for new features
