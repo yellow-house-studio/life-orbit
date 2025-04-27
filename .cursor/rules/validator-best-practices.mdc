@@ -1,0 +1,57 @@
+---
+description: 
+globs: server/**/*Validator.cs,server/**/*ValidatorTests.cs
+alwaysApply: false
+---
+# Validator Best Practices
+
+## Overview
+Validators in the LifeOrbit codebase are responsible for enforcing business and data integrity rules at the application layer. They ensure that commands and queries are well-formed and that referenced entities exist and are accessible to the current user.
+
+## Key Principles
+- Validators should be implemented using FluentValidation.
+- All validation logic for a command/query should reside in its dedicated validator class.
+- Use dependency injection for repository and user context dependencies.
+- Use `WithErrorCode` to provide meaningful error codes (e.g., `ValidationErrorCodes.NotFound`) for mapping to HTTP status codes. Defaults to BadRequest (regular validation error)
+- Validation should cover:
+  - Required fields (e.g., not empty, not null)
+  - Field length and format constraints
+  - Existence and ownership of referenced entities
+  - Business rules (e.g., uniqueness, allowed values)
+- Use clear, user-friendly error messages for each rule.
+- Prefer async validation for database or external checks.
+
+## Example: AddAllergyCommandValidator
+See [AddAllergyCommandValidator.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandValidator.cs) for a comprehensive example:
+- Checks for required fields and valid enum values
+- Verifies existence and ownership of the family member
+- Ensures allergen is not already registered
+- Uses `WithErrorCode(ValidationErrorCodes.NotFound)` for not found scenarios
+
+## Example: RemoveAllergyCommandValidator
+See [RemoveAllergyCommandValidator.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandValidator.cs):
+- Checks for required fields and max length
+- Verifies existence and ownership of the family member
+- Ensures the allergy is present before removal
+- Uses `WithErrorCode(ValidationErrorCodes.NotFound)` for not found scenarios
+
+## Unit Testing Requirements
+- Every validator must have a corresponding unit test class.
+- Unit tests must cover:
+  - All validation rules (required, length, format, existence, business rules)
+  - Edge cases (empty, null, max/min values, invalid references, etc.)
+  - Both valid and invalid scenarios
+- Use mocks for repository and user context dependencies.
+- Example test class: [RemoveAllergyCommandValidatorTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/RemoveAllergy/RemoveAllergyCommandValidatorTests.cs)
+
+## Good Practices
+- Keep validators focused and readable; group related rules together.
+- Use descriptive error messages and error codes for all rules.
+- Prefer async rules for checks that require I/O or database access.
+- Avoid business logic in validators—only enforce input and existence/ownership rules.
+- Ensure all validation rules are covered by unit tests, including edge and negative cases.
+
+## References
+- [AddAllergyCommandValidator.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/AddAllergy/AddAllergyCommandValidator.cs)
+- [RemoveAllergyCommandValidator.cs](mdc:server/YellowHouseStudio.LifeOrbit.Application/Family/RemoveAllergy/RemoveAllergyCommandValidator.cs)
+- [RemoveAllergyCommandValidatorTests.cs](mdc:server/YellowHouseStudio.LifeOrbit.Tests.Unit/Application/Family/RemoveAllergy/RemoveAllergyCommandValidatorTests.cs)

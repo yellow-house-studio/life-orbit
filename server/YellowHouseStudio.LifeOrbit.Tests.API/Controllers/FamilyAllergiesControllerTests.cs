@@ -1,10 +1,8 @@
 using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
-using YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 using YellowHouseStudio.LifeOrbit.Domain.Family;
 using YellowHouseStudio.LifeOrbit.Tests.Common.Builders;
