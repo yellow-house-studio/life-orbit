@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace YellowHouseStudio.LifeOrbit.Application.Family.Common;
 
 public record SafeFoodResult

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
-using YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.API.Family;
 

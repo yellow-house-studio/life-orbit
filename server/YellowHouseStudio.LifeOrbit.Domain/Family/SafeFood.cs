@@ -1,5 +1,3 @@
-using System;
-
 namespace YellowHouseStudio.LifeOrbit.Domain.Family;
 
 /// <summary>

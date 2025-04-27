@@ -1,10 +1,6 @@
 using NUnit.Framework;
 using FluentAssertions;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using YellowHouseStudio.LifeOrbit.Application.Family.RemoveSafeFood;
-using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 using YellowHouseStudio.LifeOrbit.Domain.Family;
 using Microsoft.EntityFrameworkCore;
 

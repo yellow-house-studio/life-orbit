@@ -2,9 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using NUnit.Framework;
-using YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
-using YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.API.Family;
 

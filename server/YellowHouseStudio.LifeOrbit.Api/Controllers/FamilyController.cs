@@ -5,9 +5,6 @@ using YellowHouseStudio.LifeOrbit.Application.Family.GetFamilyMembers;
 using YellowHouseStudio.LifeOrbit.Application.Family.AddCompleteFamilyMember;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 using YellowHouseStudio.LifeOrbit.Application.Family.UpdateAllergy;
-using YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy;
-using YellowHouseStudio.LifeOrbit.Application.Family.AddSafeFood;
-using YellowHouseStudio.LifeOrbit.Application.Family.RemoveSafeFood;
 using YellowHouseStudio.LifeOrbit.Application.Family.UpdateFoodPreference;
 using YellowHouseStudio.LifeOrbit.Application.Family.RemoveFoodPreference;
 

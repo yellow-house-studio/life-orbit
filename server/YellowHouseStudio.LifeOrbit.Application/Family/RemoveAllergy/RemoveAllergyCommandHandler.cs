@@ -1,8 +1,5 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using YellowHouseStudio.LifeOrbit.Application.Common.Exceptions;
-using YellowHouseStudio.LifeOrbit.Application.Data;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 using YellowHouseStudio.LifeOrbit.Application.Users;
 

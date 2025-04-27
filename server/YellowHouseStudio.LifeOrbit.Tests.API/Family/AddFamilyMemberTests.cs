@@ -4,7 +4,6 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using YellowHouseStudio.LifeOrbit.Application.Family.AddFamilyMember;
-using YellowHouseStudio.LifeOrbit.Tests.API.Infrastructure;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.API.Family;
 

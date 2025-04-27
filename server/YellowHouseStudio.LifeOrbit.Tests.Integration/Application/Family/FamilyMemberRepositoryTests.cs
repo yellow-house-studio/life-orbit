@@ -1,8 +1,5 @@
 using NUnit.Framework;
 using FluentAssertions;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using YellowHouseStudio.LifeOrbit.Application.Data;
 using YellowHouseStudio.LifeOrbit.Domain.Family;
 using YellowHouseStudio.LifeOrbit.Infrastructure.Repositories;

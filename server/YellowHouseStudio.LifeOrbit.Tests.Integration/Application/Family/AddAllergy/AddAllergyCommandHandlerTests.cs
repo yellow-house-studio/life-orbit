@@ -1,11 +1,8 @@
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
-using YellowHouseStudio.LifeOrbit.Application.Common.Exceptions;
-using YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy;
 using YellowHouseStudio.LifeOrbit.Domain.Family;
 using YellowHouseStudio.LifeOrbit.Tests.Common.Builders;
-using YellowHouseStudio.LifeOrbit.Infrastructure.Repositories;
 using FluentValidation;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.AddAllergy;

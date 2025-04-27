@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using YellowHouseStudio.LifeOrbit.Application.Common.Exceptions;
 using YellowHouseStudio.LifeOrbit.Application.Family.Common;
 using YellowHouseStudio.LifeOrbit.Application.Users;
-using YellowHouseStudio.LifeOrbit.Domain.Family;
 
 namespace YellowHouseStudio.LifeOrbit.Application.Family.RemoveSafeFood;
 

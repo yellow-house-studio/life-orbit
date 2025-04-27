@@ -1,9 +1,6 @@
 // Integration tests for RemoveAllergyCommandHandler
 // (Implement similar to AddAllergyCommandHandlerTests, using Arrange-Act-Assert) 
 
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
@@ -11,7 +8,6 @@ using YellowHouseStudio.LifeOrbit.Application.Family.RemoveAllergy;
 using YellowHouseStudio.LifeOrbit.Domain.Family;
 using YellowHouseStudio.LifeOrbit.Tests.Common.Builders;
 using FluentValidation;
-using YellowHouseStudio.LifeOrbit.Application.Common.Exceptions;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.Integration.Application.Family.RemoveAllergy;
 

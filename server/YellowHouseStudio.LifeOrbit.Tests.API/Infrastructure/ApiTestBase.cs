@@ -8,8 +8,6 @@ using Microsoft.Extensions.Logging;
 using NUnit.Framework;
 using Serilog;
 using Serilog.Events;
-using YellowHouseStudio.LifeOrbit.Api;
-using YellowHouseStudio.LifeOrbit.Api.Infrastructure.Filters;
 using YellowHouseStudio.LifeOrbit.Application;
 using YellowHouseStudio.LifeOrbit.Application.Data;
 using YellowHouseStudio.LifeOrbit.Application.Users;

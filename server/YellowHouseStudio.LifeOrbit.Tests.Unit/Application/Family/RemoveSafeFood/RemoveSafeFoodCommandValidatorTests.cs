@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using FluentAssertions;
 using YellowHouseStudio.LifeOrbit.Application.Family.RemoveSafeFood;
-using System;
 
 namespace YellowHouseStudio.LifeOrbit.Tests.Unit.Application.Family.RemoveSafeFood;
 

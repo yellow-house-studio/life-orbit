@@ -6,7 +6,6 @@ using Serilog;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Npgsql;
 using Serilog.Events;
 using YellowHouseStudio.LifeOrbit.Api.Configuration;
 using YellowHouseStudio.LifeOrbit.Infrastructure.Configuraiton;

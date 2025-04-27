@@ -1,4 +1,3 @@
-using FluentAssertions;
 using FluentValidation.TestHelper;
 using NUnit.Framework;
 using YellowHouseStudio.LifeOrbit.Application.Family.AddAllergy;
